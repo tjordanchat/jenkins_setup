@@ -1,4 +1,5 @@
 #!/bin/sh -xe
+set -x
 
 # This script starts docker and systemd (if el7)
 
