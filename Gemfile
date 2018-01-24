@@ -1,10 +1,7 @@
 source "https://rubygems.org”
 
-if ENV.key?('PUPPET')
-  puppetversion = "~> #{ENV['PUPPET']}"
-else
-  puppetversion = ['>= 2.7']
-end
+puppetversion = ['>= 2.7']
+
 gem 'puppet', puppetversion
 
 gem "rake", "~> 12.0"
