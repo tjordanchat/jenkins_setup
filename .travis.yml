@@ -13,7 +13,7 @@ before_install:
 matrix:
   include:
    - rvm: 2.4.1
-     env: PUPPET_GEM_VERSION '~> 5.0.0' STRICT_VARIABLES=yes COVERAGE=yes
+     env: PUPPET_GEM_VERSION='~> 5.0.0' STRICT_VARIABLES=yes COVERAGE=yes
 before_script:
   - bundle exec rake check_line_endings
   - bundle exec rake validate_ruby_syntax
