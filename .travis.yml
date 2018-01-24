@@ -11,6 +11,7 @@ script:
   - bundle exec rake spec
   - cat /etc/*-release
   - uname -a
+  - apt install puppetmaster-passenger
   - puppet -v
 branches:
   only:
