@@ -15,7 +15,7 @@ script:
   - sudo apt-get install puppetmaster-passenger
   - sudo puppet module install garethr-docker
   - sudo mkdir -p /etc/puppet/manifests/
-  - sudo cp site.pp /etc/puppet/manifests/
+  - sudo cp -f site.pp /etc/puppet/manifests/
   - cat /etc/puppet/manifests/site.pp
 branches:
   only:
