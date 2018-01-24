@@ -7,15 +7,14 @@ matrix:
   include:
    - rvm: 2.4.1
      env: PUPPET_GEM_VERSION='~> 5.0.0' STRICT_VARIABLES=yes COVERAGE=yes
-script:
-  - bundle exec rake spec
-  - cat /etc/*-release
-  - uname -a
-  - sudo apt-get update
-  - sudo apt-get install puppetmaster-passenger
-  - sudo puppet module install garethr-docker
-  - sudo mkdir -p /etc/puppet/manifests
 script: |
+  bundle exec rake spec && \
+  cat /etc/*-release && \
+  uname -a && \
+  sudo apt-get update && \
+  sudo apt-get install puppetmaster-passenger && \
+  sudo puppet module install garethr-docker && \
+  sudo mkdir -p /etc/puppet/manifests && \
      ( cat <<- 'EOF'
      class install_docker {
      include ::docker
@@ -25,7 +24,7 @@ script: |
         }
      }
      EOF
-     ) | sudo tee /etc/puppet/manifests/site.pp
+     ) | sudo tee /etc/puppet/manifests/site.pp && \
      cat /etc/puppet/manifests/site.pp
 branches:
   only:
