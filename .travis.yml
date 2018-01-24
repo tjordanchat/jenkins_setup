@@ -16,7 +16,7 @@ script:
   - sudo puppet module install garethr-docker
   - sudo mkdir -p /etc/puppet/manifests
 script: |
-     ( cat <<EOF
+     ( cat <<-EOF
      class install_docker {
      include ::docker
         class { 'docker' :
