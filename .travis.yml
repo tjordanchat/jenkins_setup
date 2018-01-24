@@ -14,6 +14,18 @@ script:
   - sudo apt-get update
   - sudo apt-get install puppetmaster-passenger
   - sudo puppet module install garethr-docker
+script: |
+     ( cat <<EOF
+     class install_docker {
+     include ::docker
+        class { 'docker' :
+           manage_package => true,
+           package_name   => 'docker-engine',
+        }
+     }
+     EOF
+     ) | sudo tee /etc/puppet/manifests/site.pp
+     cat /etc/puppet/manifests/site.pp
 branches:
   only:
   - master
