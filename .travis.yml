@@ -9,6 +9,8 @@ matrix:
      env: PUPPET_GEM_VERSION='~> 5.0.0' STRICT_VARIABLES=yes COVERAGE=yes
 script:
   - bundle exec rake spec
+  - cat /etc/*-release
+  - uname -a
   - puppet -v
 branches:
   only:
