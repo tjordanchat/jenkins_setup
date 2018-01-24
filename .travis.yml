@@ -1,3 +1,4 @@
+---
 sudo: false
 language: ruby
 cache: bundler
@@ -11,9 +12,17 @@ before_install:
   - bundle -v
 matrix:
   include:
-  - rvm: 2.1.6
-    env: PUPPET_GEM_VERSION='~> 5.3.3' STRICT_VARIABLES=yes
-script: 'bundle exec rake validate && bundle exec rake lint && bundle exec rake spec 
- SPEC_OPTS="--format documentation"'
-notifications:
-  email: false
+   - rvm: 2.4.1
+     env: PUPPET_GEM_VERSION='~> 5.0.0' STRICT_VARIABLES=yes COVERAGE=yes
+before_script:
+  - bundle exec rake check_line_endings
+  - bundle exec rake validate_ruby_syntax
+  - bundle exec rake syntax
+  - bundle exec rake lint
+  - bundle exec rake metadata_lint
+  - bundle exec rake validate_yaml
+script:
+  - bundle exec rake spec
+branches:
+  only:
+  - master
