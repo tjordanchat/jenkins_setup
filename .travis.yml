@@ -9,21 +9,14 @@ matrix:
      env: PUPPET_GEM_VERSION='~> 5.0.0' STRICT_VARIABLES=yes COVERAGE=yes
 script:
   - bundle exec rake spec
-  - cat /etc/*-release
-  - uname -a
   - sudo apt-get update
   - sudo apt-get install puppetmaster-passenger
   - sudo puppet module install garethr-docker
-  - sudo mkdir -p /etc/puppet/manifests/
-  - sudo cp -f site.pp /etc/puppet/manifests/
-  - cat /etc/puppet/manifests/site.pp
-  - sudo puppet --server localhost agent --test
   - echo | sudo tee -a /etc/hosts
   - echo 127.0.0.1 localhost puppet | sudo tee -a /etc/hosts
-  - cat /etc/hosts
-  - docker help
   - sudo puppet module install rtyler/jenkins
-  - find /etc/puppet -ls
+  - sudo puppet agent --test
+  - cat /etc/passwd
   - sudo netstat -tunpl
 branches:
   only:
