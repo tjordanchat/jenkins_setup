@@ -16,7 +16,7 @@ script:
   - echo 127.0.0.1 localhost puppet | sudo tee -a /etc/hosts
   - sudo puppet module install rtyler/jenkins
   - sudo puppet agent --enable
-  - sudo puppet agent --test
+  - sudo puppet --server localhost agent --test
   - cat /etc/passwd
   - sudo netstat -tunpl
 branches:
