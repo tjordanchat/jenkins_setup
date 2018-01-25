@@ -17,12 +17,12 @@ script:
   - sudo mkdir -p /etc/puppet/manifests/
   - sudo cp -f site.pp /etc/puppet/manifests/
   - cat /etc/puppet/manifests/site.pp
-  - puppet --server localhost agent --test
+  - sudo puppet --server localhost agent --test
   - echo | sudo tee -a /etc/hosts
   - echo 127.0.0.1 localhost puppet | sudo tee -a /etc/hosts
   - cat /etc/hosts
   - docker help
-  - puppet module install rtyler/jenkins
+  - sudo puppet module install rtyler/jenkins
   - find /etc/puppet -ls
   - sudo netstat -tunpl
 branches:
