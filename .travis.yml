@@ -21,7 +21,8 @@ script:
   - echo | sudo tee -a /etc/hosts
   - echo 127.0.0.1 localhost puppet | sudo tee -a /etc/hosts
   - cat /etc/hosts
-  - docker
+  - docker help
+  - cat /etc/passwd
 branches:
   only:
   - master
