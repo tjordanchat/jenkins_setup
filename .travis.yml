@@ -18,6 +18,7 @@ script:
   - sudo cp -f site.pp /etc/puppet/manifests/
   - cat /etc/puppet/manifests/site.pp
   - puppet --server localhost agent --test
+  - cat /etc/hosts
 branches:
   only:
   - master
