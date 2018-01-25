@@ -22,7 +22,8 @@ script:
   - echo 127.0.0.1 localhost puppet | sudo tee -a /etc/hosts
   - cat /etc/hosts
   - docker help
-  - find / -name jenkins.war 2>/dev/null
+  - puppet module install rtyler/jenkins
+  - sudo netstat -tunpl
 branches:
   only:
   - master
