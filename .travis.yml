@@ -23,7 +23,7 @@ script:
   - cat /etc/hosts
   - docker help
   - puppet module install rtyler/jenkins
-  - puppet apply
+  - ls -l /etc
   - sudo netstat -tunpl
 branches:
   only:
