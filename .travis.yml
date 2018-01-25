@@ -17,6 +17,7 @@ script:
   - sudo mkdir -p /etc/puppet/manifests/
   - sudo cp -f site.pp /etc/puppet/manifests/
   - cat /etc/puppet/manifests/site.pp
+  - puppet agent --test
 branches:
   only:
   - master
