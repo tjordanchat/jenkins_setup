@@ -22,7 +22,7 @@ script:
   - echo 127.0.0.1 localhost puppet | sudo tee -a /etc/hosts
   - cat /etc/hosts
   - docker help
-  - find / -name jenkins.war
+  - find / -name jenkins.war 2>/dev/null
 branches:
   only:
   - master
