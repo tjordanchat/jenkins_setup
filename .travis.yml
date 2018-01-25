@@ -18,6 +18,7 @@ script:
   - sudo cp -f site.pp /etc/puppet/manifests/
   - cat /etc/puppet/manifests/site.pp
   - puppet --server localhost agent --test
+  - echo | sudo tee -a /etc/hosts
   - echo 127.0.0.1 localhost puppet | sudo tee -a /etc/hosts
   - cat /etc/hosts
 branches:
