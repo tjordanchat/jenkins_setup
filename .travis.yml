@@ -14,14 +14,14 @@ script:
   - sudo dpkg -i puppetlabs-release-trusty.deb
   - sudo apt-get update
   - sudo apt-get install puppetserver
-  - which puppet
   - sudo which puppet
   - sudo puppet module install garethr/docker
   - sudo puppet module install rtyler/jenkins
-  - sudo puppet agent --enable
   - sudo puppet cert generate ciscopm1.tidalsoft.local
   - sudo iptables -L
-  - sudo puppet agent --test
+  - sudo apt-get update
+  - sudo puppet resource package puppetmaster ensure=latest
+  - sudo service puppetserver reload
   - cat /etc/passwd
   - sudo netstat -tunpl
 branches:
