@@ -17,7 +17,7 @@ script:
   - sudo /opt/puppetlabs/bin/puppet module install garethr/docker
   - sudo /opt/puppetlabs/bin/puppet module install rtyler/jenkins
   - sudo /opt/puppetlabs/bin/puppet agent --enable
-  - sudo puppet /opt/puppetlabs/bin/puppet --test
+  - sudo /opt/puppetlabs/bin/puppet agent --test
   - cat /etc/passwd
   - sudo netstat -tunpl
 branches:
