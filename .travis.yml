@@ -20,7 +20,6 @@ script:
   - sudo puppet module install rtyler/jenkins
   - sudo puppet agent --enable
   - sudo puppet cert generate ciscopm1.tidalsoft.local
-  - sudo /usr/sbin/service pe-httpd restart
   - sudo iptables -L
   - sudo puppet agent --test
   - cat /etc/passwd
