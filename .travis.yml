@@ -10,7 +10,7 @@ matrix:
 script:
   - bundle exec rake spec
   - sudo apt-get update
-  - sudo apt-get install puppetmaster-passenger
+  - sudo apt-get install puppetserver
   - sudo puppet module install garethr-docker
   - sudo puppet module install rtyler/jenkins
   - puppet cert clean ciscopm1.tidalsoft.local
