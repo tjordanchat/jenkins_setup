@@ -14,7 +14,7 @@ script:
   - sudo puppet module install garethr-docker
   - sudo puppet module install rtyler/jenkins
   - sudo puppet agent --enable
-  - sudo puppet agent --server localhost --test
+  - sudo puppet agent --test
   - cat /etc/passwd
   - sudo netstat -tunpl
 branches:
