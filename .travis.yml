@@ -13,6 +13,8 @@ script:
   - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
   - sudo dpkg -i puppetlabs-release-trusty.deb
   - sudo apt-get update
+  - which puppet
+  - sudo which puppet
   - sudo /opt/puppetlabs/bin/puppet module install garethr/docker
   - sudo /opt/puppetlabs/bin/puppet module install rtyler/jenkins
   - sudo /opt/puppetlabs/bin/puppet agent --enable
