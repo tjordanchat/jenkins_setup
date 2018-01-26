@@ -13,6 +13,7 @@ script:
   - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
   - sudo dpkg -i puppetlabs-release-trusty.deb
   - sudo apt-get update
+  - sudo apt-get install puppetserver
   - which puppet
   - sudo which puppet
   - sudo /opt/puppetlabs/bin/puppet module install garethr/docker
