@@ -19,7 +19,6 @@ script:
   - sudo puppet module install garethr/docker
   - sudo puppet module install rtyler/jenkins
   - sudo puppet agent --enable
-  - sudo puppet cert clean ciscopm1.tidalsoft.local
   - sudo puppet cert generate ciscopm1.tidalsoft.local
   - sudo /usr/sbin/service pe-httpd restart
   - sudo iptables -L
