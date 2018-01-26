@@ -9,13 +9,13 @@ matrix:
      env: PUPPET_GEM_VERSION='~> 5.0.0' STRICT_VARIABLES=yes COVERAGE=yes
 script:
   - bundle exec rake spec
+  - wget https://apt.puppetlabs.com/puppet-release-jessie.deb
+  - dpkg -i puppet-release-jessie.deb
   - sudo apt-get update
   - sudo apt-get install puppetserver
   - sudo service puppetserver start
-  - sudo puppet module install garethr-docker
+  - sudo puppet module install garethr/docker
   - sudo puppet module install rtyler/jenkins
-  - puppet cert clean ciscopm1.tidalsoft.local
-  - puppet cert generate ciscopm1.tidalsoft.local
   - sudo puppet agent --enable
   - sudo puppet agent --test
   - cat /etc/passwd
