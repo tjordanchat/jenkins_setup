@@ -20,6 +20,7 @@ script:
   - sudo /opt/puppetlabs/bin/puppet cert clean ciscopm1.tidalsoft.local
   - sudo /opt/puppetlabs/bin/puppet cert generate ciscopm1.tidalsoft.local
   - sudo /usr/sbin/service pe-httpd restart
+  - sudo iptables -L
   - sudo /opt/puppetlabs/bin/puppet agent --test
   - cat /etc/passwd
   - sudo netstat -tunpl
