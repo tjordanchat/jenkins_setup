@@ -9,6 +9,9 @@ matrix:
      env: PUPPET_GEM_VERSION='~> 5.0.0' STRICT_VARIABLES=yes COVERAGE=yes
 script:
   - bundle exec rake spec
+  - cat /etc/*-release
+  - wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
+  - sudo dpkg -i puppetlabs-release-precise.deb
   - sudo apt-get update
   - sudo /opt/puppetlabs/bin/puppet module install garethr/docker
   - sudo /opt/puppetlabs/bin/puppet module install rtyler/jenkins
