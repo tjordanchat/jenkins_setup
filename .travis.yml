@@ -24,7 +24,7 @@ script:
   - sudo service puppetserver restart
   - sudo apt-get install puppet
   - sudo apt-get update
-  - sudo puppet resource package puppet ensure=latest
+  - sudo puppet resource package puppet ensure=latest enable=true
   - cat /etc/passwd
   - sudo netstat -tunpl
 branches:
