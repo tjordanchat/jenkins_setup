@@ -16,14 +16,14 @@ script:
   - sudo apt-get install puppetserver
   - which puppet
   - sudo which puppet
-  - sudo /opt/puppetlabs/bin/puppet module install garethr/docker
-  - sudo /opt/puppetlabs/bin/puppet module install rtyler/jenkins
-  - sudo /opt/puppetlabs/bin/puppet agent --enable
-  - sudo /opt/puppetlabs/bin/puppet cert clean ciscopm1.tidalsoft.local
-  - sudo /opt/puppetlabs/bin/puppet cert generate ciscopm1.tidalsoft.local
+  - sudo puppet module install garethr/docker
+  - sudo puppet module install rtyler/jenkins
+  - sudo puppet agent --enable
+  - sudo puppet cert clean ciscopm1.tidalsoft.local
+  - sudo puppet cert generate ciscopm1.tidalsoft.local
   - sudo /usr/sbin/service pe-httpd restart
   - sudo iptables -L
-  - sudo /opt/puppetlabs/bin/puppet agent --test
+  - sudo puppet agent --test
   - cat /etc/passwd
   - sudo netstat -tunpl
 branches:
