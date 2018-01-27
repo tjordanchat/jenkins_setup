@@ -32,6 +32,7 @@ script:
   - cat /etc/passwd
   - sudo netstat -tunpl
   - sudo find -name puppet.conf 2>/dev/null
+  - puppet -V
 branches:
   only:
   - master
