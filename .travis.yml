@@ -33,7 +33,7 @@ script:
   - sudo netstat -tunpl
   - sudo find -name puppet.conf 2>/dev/null
   - puppet -V
-  - ls -l /etc
+  - ls -l /etc/puppet
 branches:
   only:
   - master
