@@ -5,3 +5,6 @@ class install_docker {
         package_name   => 'docker-engine',
      }
 }
+node 'localhost' {
+    include jenkins
+}
