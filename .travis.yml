@@ -31,8 +31,7 @@ script:
   - sudo puppet apply $(puppet apply --configprint manifest)
   - cat /etc/passwd
   - sudo netstat -tunpl
-  - sudo ls -l /etc/puppetlabs/
-  - sudo ls -l /etc/puppetlabs/puppet
+  - sudo find -name puppet.conf 2>/dev/null
 branches:
   only:
   - master
