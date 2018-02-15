@@ -37,7 +37,7 @@ script:
   - cat /etc/puppet/puppet.conf
   - hostname
   - hostname -d
-  - hostname -d -y
+  - hostname -y
 branches:
   only:
   - master
