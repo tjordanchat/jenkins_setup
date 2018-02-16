@@ -49,7 +49,7 @@ script:
   - sudo puppet resource service puppet ensure=running enable=true
   - sudo puppet apply $(puppet apply --configprint manifest)
   - sudo puppet cert list --all
-  - sudo puppet cert sign --all
+  #- sudo puppet cert sign --all
   - sudo puppet config set server puppet.localdomain --section agent
   
   # Start pupper server
