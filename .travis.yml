@@ -40,6 +40,7 @@ script:
   - sudo cp head /etc/resolvconf/resolv.conf.d/head
   - cat /etc/resolvconf/resolv.conf.d/head
   - sudo hostname puppet
+  - sudo service puppet start
 branches:
   only:
   - master
