@@ -45,7 +45,7 @@ script:
   - sudo service puppet start
   - sleep 5
   - sudo netstat -tunpl
-  - sudo puppet cert list
+  - sudo puppet cert list --all
   - sudo puppet config set server puppet --section agent
   - sudo puppet agent -t --noop
   - echo Done
