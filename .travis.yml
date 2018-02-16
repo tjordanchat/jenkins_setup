@@ -16,6 +16,8 @@ script:
   - hostname -d
   
   # Set hostname
+  - sudo cp hosts /etc/hosts
+  - sudo cp head /etc/resolvconf/resolv.conf.d/head
   - sudo hostname puppetmaster.localdomain
   - sudo hostname puppet.localdomain
   
@@ -37,8 +39,6 @@ script:
   
   
   # Deploy files
-  - sudo cp hosts /etc/hosts
-  - sudo cp head /etc/resolvconf/resolv.conf.d/head
   - sudo cp site.pp /home/travis/.puppet/manifests/site.pp
   - sudo cp -f puppet.conf /etc/puppet/puppet.conf
   
