@@ -34,6 +34,7 @@ script:
   - cat /etc/puppet/puppet.conf
   - sudo cp -f puppet.conf /etc/puppet/puppet.conf
   - cat /etc/puppet/puppet.conf
+  - sudo cp hosts /etc/hosts
   - hostname
   - hostname -d
   - sudo cp head /etc/resolvconf/resolv.conf.d/head
