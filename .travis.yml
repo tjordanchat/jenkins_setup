@@ -52,12 +52,11 @@ script:
   - sudo puppet config set server puppet.localdomain --section agent
   
   # Start pupper server
-  - sudo service puppetmaster start
-  - sleep 5
+  #- sudo service puppetmaster start
   - sudo ps -ef | egrep puppet
   
   # Start pupper agent
-  - sudo service puppet start
+  #- sudo service puppet start
   
   # Install puppet modules
   - sudo puppet module install garethr/docker
