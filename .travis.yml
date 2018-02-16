@@ -8,6 +8,13 @@ matrix:
    - rvm: 2.4.1
      env: PUPPET_GEM_VERSION='~> 5.0.0' STRICT_VARIABLES=yes COVERAGE=yes
 script:
+  - sudo cp hosts /etc/hosts
+  - hostname
+  - hostname -d
+  - sudo cp head /etc/resolvconf/resolv.conf.d/head
+  - cat /etc/resolvconf/resolv.conf.d/head
+  - sudo host puppetmaster
+  - sudo host puppet
   - bundle exec rake spec
   - cat /etc/*-release
   - sudo mkdir -p /home/travis/.puppet/manifests/
@@ -36,13 +43,6 @@ script:
   - cat /etc/puppet/puppet.conf
   - sudo cp -f puppet.conf /etc/puppet/puppet.conf
   - cat /etc/puppet/puppet.conf
-  - sudo cp hosts /etc/hosts
-  - hostname
-  - hostname -d
-  - sudo cp head /etc/resolvconf/resolv.conf.d/head
-  - cat /etc/resolvconf/resolv.conf.d/head
-  - sudo host puppetmaster
-  - sudo host puppet
   - sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
   - cat /etc/default/puppet
   - sudo service puppet start
