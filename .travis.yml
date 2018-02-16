@@ -27,11 +27,11 @@ script:
   - sudo mkdir -p /home/travis/.puppet/manifests/
   - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
   - sudo dpkg --force-all -i puppetlabs-release-trusty.deb
-  - sudo apt-get install puppetmaster
+  - sudo apt-get install puppetserver
   - sudo apt-get update
+  - sudo puppet resource package puppetmaster.localdomain ensure=latest
   
   # Install puppet agent
-  - sudo puppet resource package puppetmaster.localdomain ensure=latest
   - sudo apt-get install puppet
   - sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
   - sudo apt-get update
