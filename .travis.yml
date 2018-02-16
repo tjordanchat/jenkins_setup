@@ -31,10 +31,10 @@ script:
   - sudo apt-get update
   
   # Install puppet agent
+  - sudo puppet resource package puppetmaster ensure=latest
   - sudo apt-get install puppet
   - sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
   - sudo apt-get update
-  - sudo puppet resource package puppetmaster ensure=latest
   - puppet -V
   
   
