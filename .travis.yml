@@ -3,56 +3,71 @@ sudo: true
 language: ruby
 cache: bundler
 bundler_args: --without system_tests
+
 matrix:
   include:
    - rvm: 2.4.1
      env: PUPPET_GEM_VERSION='~> 5.0.0' STRICT_VARIABLES=yes COVERAGE=yes
+
 script:
-  - sudo cp hosts /etc/hosts
+  - date
+  - cat /etc/*-release
   - hostname
   - hostname -d
-  - sudo cp head /etc/resolvconf/resolv.conf.d/head
-  - cat /etc/resolvconf/resolv.conf.d/head
+  
+  # Set hostname
   - sudo hostname puppetmaster.localdomain
   - sudo hostname puppet.localdomain
+  
+  # Install puppet server
+  - sudo apt-get update
   - bundle exec rake spec
-  - cat /etc/*-release
   - sudo mkdir -p /home/travis/.puppet/manifests/
-  - sudo cp site.pp /home/travis/.puppet/manifests/site.pp
   - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
   - sudo dpkg -i puppetlabs-release-trusty.deb
-  - sudo apt-get update
   - sudo apt-get install puppetserver
-  - sudo which puppet
-  - sudo puppet module install garethr/docker
-  - sudo puppet module install rtyler/jenkins
-  - sudo puppet cert generate ciscopm1.tidalsoft.local
-  - sudo iptables -L
   - sudo apt-get update
+  - puppet -V
   - sudo puppet resource package puppetmaster ensure=latest
+  - sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
+  
+  # Install puppet agent
+  - sudo apt-get install puppet
+  - sudo apt-get update
+  
+  
+  # Deploy files
+  - sudo cp hosts /etc/hosts
+  - sudo cp head /etc/resolvconf/resolv.conf.d/head
+  - sudo cp site.pp /home/travis/.puppet/manifests/site.pp
+  - sudo cp -f puppet.conf /etc/puppet/puppet.conf
+  
+  # Start pupper server
   - sudo service puppetserver start
   - sleep 5
   - sudo ps -ef | egrep puppet
-  - sudo apt-get install puppet
-  - sudo apt-get update
+  
+  # Start pupper agent
+  - sudo service puppet start
+  
+  # Install puppet modules
+  - sudo puppet module install garethr/docker
+  - sudo puppet module install rtyler/jenkins
+  
+  # Sign certs
+  - sudo puppet cert generate ciscopm1.tidalsoft.local
   - sudo puppet resource package puppet ensure=latest
   - sudo puppet resource service puppet ensure=running enable=true
   - sudo puppet apply $(puppet apply --configprint manifest)
-  - cat /etc/passwd
-  - puppet -V
-  - cat /etc/puppet/puppet.conf
-  - sudo cp -f puppet.conf /etc/puppet/puppet.conf
-  - cat /etc/puppet/puppet.conf
-  - sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
-  - cat /etc/default/puppet
-  - sudo service puppet start
-  - sleep 5
-  - sudo netstat -tunpl
   - sudo puppet cert list --all
   - sudo puppet cert sign --all
-  - sudo puppet config set server puppet --section agent
+  - sudo puppet config set server puppet.localdomain --section agent
+  
+  # Test agent
   - sudo puppet agent -t --noop
+  
   - echo Done
+  
 branches:
   only:
   - master
