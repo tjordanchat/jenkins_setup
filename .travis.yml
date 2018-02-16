@@ -41,7 +41,7 @@ script:
   - sudo hostname puppet
   - sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
   - cat /etc/default/puppet
-  - sudo service puppet start
+  - sudo service puppet.localdomain start
   - sleep 5
   - sudo netstat -tunpl
 branches:
