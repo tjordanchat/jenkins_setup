@@ -66,6 +66,9 @@ script:
   
   # Test agent
   - sudo puppet agent -t
+  - sudo ps -ef | egrep jenkins
+  - cat /etc/passwd
+  - sudo netstat -tunpl
   
   - echo Done
   
