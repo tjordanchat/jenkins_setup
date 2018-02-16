@@ -37,7 +37,7 @@ script:
   - cat /etc/puppet/puppet.conf
   - hostname
   - hostname -d
-  - hostname -y
+  - cat /etc/resolvconf/resolv.conf.d/head
 branches:
   only:
   - master
