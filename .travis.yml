@@ -63,6 +63,8 @@ script:
   - sudo puppet module install garethr/docker
   - sudo puppet module install rtyler/jenkins
   
+  # Run modules
+  - sudo puppet apply -e 'node 'hostname.example.com' { include jenkins }'
   
   # Test agent
   - sudo puppet agent -t
