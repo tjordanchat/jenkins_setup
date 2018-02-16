@@ -47,6 +47,7 @@ script:
   - sudo netstat -tunpl
   - sudo puppet cert list
   - sudo puppet agent -t --noop
+  - echo Done
 branches:
   only:
   - master
