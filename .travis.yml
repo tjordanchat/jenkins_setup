@@ -39,6 +39,7 @@ script:
   - sudo cp head /etc/resolvconf/resolv.conf.d/head
   - cat /etc/resolvconf/resolv.conf.d/head
   - sudo hostname puppet
+  - cat /etc/default/puppet
   - sudo service puppet start
   - sleep 5
   - sudo netstat -tunpl
