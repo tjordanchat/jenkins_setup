@@ -45,7 +45,7 @@ script:
   
   # Sign certs
   - sudo puppet cert generate ciscopm1.tidalsoft.local
-  - sudo puppet resource package puppet ensure=latest
+  - sudo puppet resource package puppet ensure=5.3
   - sudo puppet resource service puppet ensure=running enable=true
   - sudo puppet apply $(puppet apply --configprint manifest)
   - sudo puppet cert list --all
