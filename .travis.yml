@@ -13,8 +13,8 @@ script:
   - hostname -d
   - sudo cp head /etc/resolvconf/resolv.conf.d/head
   - cat /etc/resolvconf/resolv.conf.d/head
-  - sudo hostname puppetmaster
-  - sudo hostname puppet
+  - sudo hostname puppetmaster.localdomain
+  - sudo hostname puppet.localdomain
   - bundle exec rake spec
   - cat /etc/*-release
   - sudo mkdir -p /home/travis/.puppet/manifests/
