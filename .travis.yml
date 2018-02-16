@@ -64,7 +64,7 @@ script:
   - sudo puppet module install rtyler/jenkins
   
   # Run modules
-  - cat -n -b /etc/puppet/modules/java/manifests/init.pp
+  - cat -n /etc/puppet/modules/java/manifests/init.pp
   - sudo puppet apply jenkins_init.pp
   
   # Test agent
