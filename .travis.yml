@@ -41,7 +41,8 @@ script:
   - hostname -d
   - sudo cp head /etc/resolvconf/resolv.conf.d/head
   - cat /etc/resolvconf/resolv.conf.d/head
-  - sudo hostname puppet
+  - sudo host puppetmaster
+  - sudo host puppet
   - sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
   - cat /etc/default/puppet
   - sudo service puppet start
