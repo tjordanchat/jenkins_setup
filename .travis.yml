@@ -52,7 +52,7 @@ script:
   - sudo puppet config set server puppet.localdomain --section agent
   
   # Start pupper server
-  - sudo service puppetserver start
+  - sudo service puppetmaster start
   - sleep 5
   - sudo ps -ef | egrep puppet
   
