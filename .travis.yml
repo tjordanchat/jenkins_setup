@@ -24,7 +24,8 @@ script:
   - sudo apt-get update
   - sudo puppet resource package puppetmaster ensure=latest
   - sudo service puppetserver start
-  - sudo ps | egrep puppet
+  - sleep 5
+  - sudo ps -ef | egrep puppet
   - sudo apt-get install puppet
   - sudo apt-get update
   - sudo puppet resource package puppet ensure=latest
