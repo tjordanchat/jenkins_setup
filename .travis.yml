@@ -65,7 +65,7 @@ script:
   
   
   # Test agent
-  - sudo puppet agent -t --noop
+  - sudo puppet agent -t
   
   - echo Done
   
