@@ -44,7 +44,7 @@ script:
   - sudo cp -f puppet.conf /etc/puppet/puppet.conf
   
   # Sign certs
-  - sudo puppet cert generate ciscopm1.tidalsoft.local
+  - sudo puppet cert generate puppetmaster.localdomain
   #- sudo puppet resource package puppet ensure=latest
   #- sudo puppet resource service puppet ensure=running enable=true
   - sudo puppet apply $(puppet apply --configprint manifest)
