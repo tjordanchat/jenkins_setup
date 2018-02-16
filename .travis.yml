@@ -37,6 +37,7 @@ script:
   - cat /etc/puppet/puppet.conf
   - hostname
   - hostname -d
+  - sudo cp head /etc/resolvconf/resolv.conf.d/head
   - cat /etc/resolvconf/resolv.conf.d/head
 branches:
   only:
