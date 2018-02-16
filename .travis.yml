@@ -64,7 +64,7 @@ script:
   - sudo puppet module install rtyler/jenkins
   
   # Run modules
-  - sudo puppet apply -e 'node puppet { include = jenkins, }'
+  - sudo puppet apply jenkins_init.pp
   
   # Test agent
   - sudo puppet agent -t
