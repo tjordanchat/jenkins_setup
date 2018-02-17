@@ -1,7 +1,5 @@
 class jenkins {
  
-  exec { 'install_jenkins_package_keys':class jenkins {
- 
   exec { 'install_jenkins_package_keys':
     command => '/usr/bin/wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | /usr/bin/apt-key add - ',
   }
