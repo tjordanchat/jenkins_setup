@@ -76,6 +76,7 @@ script:
   - cat /etc/passwd
   - sudo netstat -tunpl
   - docker
+  - sudo ls -l ~jenkins
   - echo Done
   
 branches:
