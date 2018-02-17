@@ -20,8 +20,6 @@ class jenkins {
   service { 'jenkins':
     ensure => running,
   }
- 
-}
 
 node 'puppet.localdomain' {
     include jenkins
