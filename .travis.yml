@@ -47,7 +47,7 @@ script:
   - sudo puppet cert generate puppetmaster.localdomain
   #- sudo puppet resource package puppet ensure=latest
   #- sudo puppet resource service puppet ensure=running enable=true
-  - sudo puppet apply $(puppet apply --configprint manifest)
+  - sudo puppet apply --parser=future $(puppet apply --configprint manifest)
   - sudo puppet cert list --all
   #- sudo puppet cert sign --all
   - sudo puppet config set server puppet.localdomain --section agent
@@ -66,7 +66,7 @@ script:
   # Run modules
   - cat -n /etc/puppet/modules/java/manifests/init.pp
   - sudo cp jenkins.list /home/travis/.puppet/files/etc/apt/sources.list.d/jenkins.list
-  - sudo puppet apply jenkins_init.pp
+  - sudo puppet apply --parser=future jenkins_init.pp
   
   # Test agent
   - sudo puppet agent -t
