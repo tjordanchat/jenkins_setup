@@ -30,3 +30,4 @@ node 'puppet.localdomain' {
 class { 'jenkins':
   executors => 0,
 }
+}
