@@ -64,7 +64,7 @@ script:
   - sudo service puppet start
   
   # Test agent
-  - sudo adduser jenkins
+  - sudo adduser --disabled-password jenkins
   - cd /tmp && wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
   - sudo /bin/su - jenkins -c "$JAVA_HOME/bin/java -jar /tmp/jenkins.war --httpPort=8080" &
   - sleep 5
