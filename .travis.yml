@@ -15,6 +15,7 @@ script:
   - sudo apt-get install ruby-full
   - sudo gem install puppetlabs_spec_helper
   - sudo gem install facter
+  - bundle install
   #- sudo gem install puppet
   
   # Set hostname
@@ -25,7 +26,6 @@ script:
   
   # Install puppet server
   - sudo apt-get update
-  - bundle install
   - bundle exec rake spec
   - sudo mkdir -p /home/travis/.puppet/manifests/
   - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
