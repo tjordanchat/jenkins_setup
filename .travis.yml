@@ -38,7 +38,7 @@ script:
   - sudo apt-get install puppet
   - sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
   - sudo apt-get update
-  - sudo puppet resource package puppetmaster ensure=latest
+  #- sudo puppet resource package puppetmaster ensure=latest
   - puppet -V
   - sudo find / -name puppet 2>/dev/null
   
@@ -57,11 +57,11 @@ script:
   - sudo puppet config set server puppet.localdomain --section agent
   
   # Start pupper server
-  #- sudo service puppetmaster start
+  - sudo service puppetmaster start
   - sudo ps -ef | egrep puppet
   
   # Start pupper agent
-  #- sudo service puppet start
+  - sudo service puppet start
   
   # Test agent
   - sudo rm -rf /usr/lib/jvm/java-7-openjdk-amd64
