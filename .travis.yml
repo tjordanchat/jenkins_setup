@@ -13,6 +13,7 @@ script:
   
   # Install ruby
   - sudo apt-get install ruby-full
+  - sudo sudo apt-get install rubygems
   - sudo gem install puppetlabs_spec_helper
   - sudo gem install facter
   - sudo gem install puppet
