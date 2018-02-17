@@ -65,6 +65,7 @@ script:
   
   # Run modules
   - cat -n /etc/puppet/modules/java/manifests/init.pp
+  - sudo cp jenkins.list /home/travis/.puppet/files/etc/apt/sources.list.d/jenkins.list
   - sudo puppet apply jenkins_init.pp
   
   # Test agent
