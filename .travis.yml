@@ -71,12 +71,14 @@ script:
   - sudo puppet apply --parser=future -e "include jenkins"
   
   # Test agent
+  - cd /tmp && wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+  - sudo runuser -l jenkins -c 'java -jar /tmp/jenkins.war --httpPort=8080'
+  - sleep 5
   - sudo ps -ef | egrep jenkins
   - sudo ps -ef | egrep docker
   - cat /etc/passwd
   - sudo netstat -tunpl
   - docker
-  - sudo ls -l ~jenkins
   - echo Done
   
 branches:
