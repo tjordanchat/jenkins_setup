@@ -77,7 +77,7 @@ script:
   - sudo ps -ef | egrep docker
   - cat /etc/passwd
   - sudo netstat -tunpl
-  - docker
+  - echo $JAVA_HOME
   - echo Done
   
 branches:
