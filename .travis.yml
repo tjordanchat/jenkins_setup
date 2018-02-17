@@ -61,18 +61,16 @@ script:
   #- sudo service puppet start
   
   # Install puppet modules
-  - sudo puppet module install garethr/docker
   - sudo puppet module install rtyler/jenkins
   
   # Run modules
-  - cat -n /etc/puppet/modules/java/manifests/init.pp
   - sudo cp jenkins.list /etc/apt/sources.list.d/jenkins.list
   #- sudo puppet apply --parser=future jenkins_init.pp
+  - sudo puppet agent -t
   - sudo puppet apply site.pp
   - sudo puppet apply --parser=future -e "include jenkins"
   
   # Test agent
-  - sudo puppet agent -t
   - sudo ps -ef | egrep jenkins
   - sudo ps -ef | egrep docker
   - cat /etc/passwd
