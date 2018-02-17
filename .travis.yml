@@ -8,6 +8,7 @@ script:
   - cat /etc/*-release
   - hostname
   - hostname -d
+  - java -version
   
   # Install ruby
   - sudo apt-get install ruby-full
