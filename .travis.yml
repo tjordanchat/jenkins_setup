@@ -68,6 +68,7 @@ script:
   - cat -n /etc/puppet/modules/java/manifests/init.pp
   - sudo cp jenkins.list /etc/apt/sources.list.d/jenkins.list
   #- sudo puppet apply --parser=future jenkins_init.pp
+  - sudo puppet apply site.pp
   - sudo puppet apply --parser=future -e "include jenkins"
   
   # Test agent
