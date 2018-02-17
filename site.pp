@@ -3,10 +3,10 @@ class jenkins {
     command => '/usr/bin/wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | /usr/bin/apt-key add - ',
   }
   file { "/etc/apt/sources.list.d/jenkins.list":
-mode => 644,
-     owner => root,
-     group => root,
-     source => "puppet:///modules/jenkins/etc/apt/sources.list.d/jenkins.list",
+     mode => 644,
+        owner => root,
+        group => root,
+        source => "puppet:///modules/jenkins/etc/apt/sources.list.d/jenkins.list",
   }
   package { 'jenkins':
      ensure => latest,
