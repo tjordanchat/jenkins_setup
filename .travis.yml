@@ -12,6 +12,7 @@ script:
   
   # Install ruby
   - sudo apt-get install ruby-full
+  - sudo gem install puppetlabs_spec_helper
   
   # Set hostname
   - sudo cp hosts /etc/hosts
