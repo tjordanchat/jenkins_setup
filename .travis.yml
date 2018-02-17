@@ -15,7 +15,7 @@ script:
   - sudo apt-get install ruby-full
   - sudo gem install puppetlabs_spec_helper
   - sudo gem install facter
-  - bundle install
+  #- bundle install
   #- sudo gem install puppet
   
   # Set hostname
