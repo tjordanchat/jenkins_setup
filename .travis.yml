@@ -15,7 +15,6 @@ script:
   - sudo apt-get install ruby-full
   - sudo gem install puppetlabs_spec_helper
   - sudo gem install facter
-  - sudo gem install puppet
   
   # Set hostname
   - sudo cp hosts /etc/hosts
@@ -48,7 +47,7 @@ script:
   
   # Sign certs
   - sudo puppet cert generate puppetmaster.localdomain
-  #- sudo puppet resource package puppet ensure=latest
+  - sudo puppet resource package puppet ensure=latest
   - sudo puppet resource service puppet ensure=running enable=true
   - sudo puppet apply --parser=future $(puppet apply --configprint manifest)
   - sudo puppet cert list --all
@@ -56,14 +55,24 @@ script:
   - sudo puppet config set server puppet.localdomain --section agent
   
   # Start pupper server
-  - sudo service puppetmaster start
+  #- sudo service puppetmaster start
   - sudo ps -ef | egrep puppet
   
   # Start pupper agent
-  - sudo service puppet start
+  #- sudo service puppet start
+  
+  # Install puppet modules
+  - sudo puppet module install rtyler/jenkins
+  
+  # Run modules
+  - sudo cp jenkins.list /etc/apt/sources.list.d/jenkins.list
+  - sudo puppet agent -t
+  #- sudo puppet apply site.pp
+  - sudo puppet apply --parser=future jenkins_init.pp
+  - sudo puppet apply --parser=future -e "include jenkins"
   
   # Test agent
-  - sudo adduser --disabled-password --gecos "" jenkins
+  - sudo rm -rf /usr/lib/jvm/java-7-openjdk-amd64
   - cd /tmp && wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
   - sudo /bin/su - jenkins -c "$JAVA_HOME/bin/java -jar /tmp/jenkins.war --httpPort=8080" &
   - sleep 5
