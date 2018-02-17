@@ -22,3 +22,7 @@ class jenkins {
   }
  
 }
+
+node 'puppet.localdomain' {
+    include jenkins
+}
