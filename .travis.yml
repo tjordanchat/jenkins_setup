@@ -9,6 +9,7 @@ script:
   - hostname
   - hostname -d
   - java -version
+  - which java
   
   # Install ruby
   - sudo apt-get install ruby-full
@@ -76,6 +77,8 @@ script:
   - sleep 5
   - sudo ps -ef | egrep jenkins
   - sudo ps -ef | egrep docker
+  - alias
+  - ls -l $JAVA_HOME/bin
   - cat /etc/passwd
   - sudo netstat -tunpl
   - env | sort
