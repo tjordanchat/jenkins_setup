@@ -74,7 +74,6 @@ script:
   - sudo puppet apply --parser=future -e "include jenkins"
   
   # Test agent
-  - sudo rm -rf /usr/lib/jvm/java-7-openjdk-amd64
   - cd /tmp && wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
   - sudo /bin/su - jenkins -c "$JAVA_HOME/bin/java -jar /tmp/jenkins.war --httpPort=8080" &
   - sleep 5
