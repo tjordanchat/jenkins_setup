@@ -19,7 +19,7 @@ script:
   #- sudo gem install puppet
   
   # Set hostname
-  - sudo ./bin/deploy_root
+  - sudo sh -c ./bin/deploy_root
   - sudo hostname puppetmaster.localdomain
   - sudo hostname puppet.localdomain
   
