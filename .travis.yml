@@ -37,6 +37,7 @@ script:
   # Install puppet agent
   - sudo apt-get install puppet
   - sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
+  - cat /etc/default/puppet
   - sudo apt-get update
   - sudo puppet resource package puppetmaster ensure=latest
   - puppet -V
