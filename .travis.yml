@@ -16,7 +16,7 @@ script:
   - sudo gem install puppetlabs_spec_helper
   - sudo gem install facter
   #- bundle install
-  #- sudo gem install puppet
+  - sudo gem install puppet
   
   # Set hostname
   - sudo sh -c ./bin/deploy_root
