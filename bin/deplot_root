@@ -4,5 +4,7 @@ find root -type f |
 while read file
 	do
 		F=$(echo $file | sed 's#^root##')
+		D=$(dirname $F)
+		sudo mkdir -p $D
 		sudo cp $file $F
 	done
