@@ -33,13 +33,14 @@ script:
   - sudo apt-get update
   - sudo apt-get install puppetserver
   - sudo apt-get update
+  - sudo puppet resource package puppet-server ensure=latest
   
   # Install puppet agent
   - sudo apt-get install puppet
   - sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
   - cat /etc/default/puppet
   - sudo apt-get update
-  - sudo puppet resource package puppetmaster ensure=latest
+  - sudo puppet resource package puppet ensure=latest
   - puppet -V
   - sudo find / -name puppet 2>/dev/null
   
