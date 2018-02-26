@@ -26,9 +26,10 @@ script:
   # Install puppet server
   - sudo apt-get update
   - bundle exec rake spec
-  - sudo mkdir -p /home/travis/.puppet/manifests/
+  - cd /tmp
   - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
   - sudo dpkg --force-all -i puppetlabs-release-trusty.deb
+  - cd -
   - sudo apt-get update
   - sudo apt-get install puppetserver
   - sudo apt-get update
@@ -66,14 +67,10 @@ script:
   - sudo puppet module install rtyler/jenkins
   
   # Run modules
-  - sudo cp jenkins.list /etc/apt/sources.list.d/jenkins.list
   - sudo puppet agent -t
   #- sudo puppet apply site.pp
   - sudo puppet apply --parser=future jenkins_init.pp
   - sudo puppet apply --parser=future -e "include jenkins"
-  
-  # Hello World
-  - mkdir -p /etc/puppetlabs/code/environments/production/modules/helloworld/manifests 
   
   # Test agent
   - cd /tmp && wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
