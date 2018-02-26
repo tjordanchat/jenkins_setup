@@ -19,8 +19,7 @@ script:
   #- sudo gem install puppet
   
   # Set hostname
-  - sudo cp hosts /etc/hosts
-  - sudo cp head /etc/resolvconf/resolv.conf.d/head
+  - sudo ./bin/deploy_root
   - sudo hostname puppetmaster.localdomain
   - sudo hostname puppet.localdomain
   
