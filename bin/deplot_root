@@ -1,0 +1,8 @@
+#!/bin/bash
+
+find root -type f |
+while read file
+	do
+		F=$(echo $file | sed 's#^root##')
+		sudo cp $file $F
+	done
