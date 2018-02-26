@@ -42,11 +42,6 @@ script:
   - puppet -V
   - sudo find / -name puppet 2>/dev/null
   
-  
-  # Deploy files
-  - sudo cp site.pp /home/travis/.puppet/manifests/site.pp
-  - sudo cp -f puppet.conf /etc/puppet/puppet.conf
-  
   # Sign certs
   - sudo puppet cert generate puppetmaster.localdomain
   - sudo puppet resource package puppet ensure=latest
