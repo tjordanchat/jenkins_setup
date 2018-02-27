@@ -41,7 +41,9 @@ script:
   - cat /etc/default/puppet
   - sudo apt-get update
   - sudo puppet resource package puppet ensure=latest
-  - puppet -V
+  - puppet --version
+  - pupper master --version 
+  - puppet agent --version
   - sudo find / -name puppet 2>/dev/null
   
   # Sign certs
