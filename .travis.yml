@@ -64,6 +64,7 @@ script:
   
   # Start pupper agent
   #- sudo service puppet start
+  - puppetserver gem list           
   
   # Install puppet modules
   - sudo puppet module install rtyler/jenkins
