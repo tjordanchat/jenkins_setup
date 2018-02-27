@@ -76,6 +76,7 @@ script:
   
   # Run modules
   - sudo puppet agent -t
+  - cat /etc/puppet/modules
   #- sudo puppet apply site.pp
   - sudo puppet apply --parser=future jenkins_init.pp
   - sudo puppet apply --parser=future -e "include jenkins"
