@@ -42,7 +42,7 @@ script:
   - sudo apt-get update
   - sudo puppet resource package puppet ensure=latest
   - puppet --version
-  - pupper master --version 
+  - puppet master --version 
   - puppet agent --version
   - sudo find / -name puppet 2>/dev/null
   
