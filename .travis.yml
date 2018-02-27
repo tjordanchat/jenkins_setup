@@ -4,7 +4,7 @@ language: java
 jdk: oraclejdk8
 
 script:
-  - export TZ="	America/New_York"
+  - export TZ="America/New_York"
   - date
   - cat /etc/*-release
   - hostname
