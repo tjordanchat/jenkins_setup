@@ -13,7 +13,9 @@ script:
   - which java
   
   # Install ruby
-  - sudo apt-get install ruby-full
+  - curl -sSL https://get.rvm.io | sudo bash -s stable --ruby
+  - sudo rvm install ruby --latest
+  #- sudo apt-get install ruby-full
   - sudo gem install puppetlabs_spec_helper
   - sudo gem install facter
   #- bundle install
