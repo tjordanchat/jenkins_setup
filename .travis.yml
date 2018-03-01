@@ -37,6 +37,7 @@ script:
   - sudo apt-get update
   - sudo apt-get install puppetserver
   - sudo apt-get update
+  - ps -ef 
   - sudo puppet plugin download
   - sudo puppet resource package puppet-server ensure=latest
   
