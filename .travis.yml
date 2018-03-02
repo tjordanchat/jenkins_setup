@@ -53,6 +53,7 @@ script:
   - puppet master --version 
   - puppet agent --version
   - sudo find / -name '*puppet*' 2>/dev/null
+  - cat /etc/puppetserver/conf.d/puppetserver.conf
   
   # Sign certs
   - sudo puppet cert generate puppetmaster.localdomain
