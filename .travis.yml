@@ -55,6 +55,7 @@ script:
   - sudo find / -name '*puppet*' 2>/dev/null
   - cat /etc/puppetserver/conf.d/puppetserver.conf
   - cat /etc/puppet/puppet.conf
+  - puppet config print
   
   # Sign certs
   - sudo puppet cert generate puppetmaster.localdomain
