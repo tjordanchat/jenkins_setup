@@ -14,7 +14,6 @@ script:
   
   # Install ruby
   - curl -sSL https://get.rvm.io | sudo bash -s stable --ruby
-  - sudo find / -name rvm 2>/dev/null
   - sudo /home/travis/.rvm/bin/rvm install ruby --latest
   #- sudo apt-get install ruby-full
   - sudo gem install puppetlabs_spec_helper
@@ -44,18 +43,11 @@ script:
   # Install puppet agent
   - sudo apt-get install puppet
   - sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
-  - cat /etc/default/puppet
-  - cat /etc/init.d/puppet
-  - cat /home/travis/.puppetlabs/opt/puppet
   - sudo apt-get update
   - sudo puppet resource package puppet ensure=latest
   - puppet --version
   - puppet master --version 
   - puppet agent --version
-  - sudo find / -name '*puppet*' 2>/dev/null
-  - cat /etc/puppetserver/conf.d/puppetserver.conf
-  - cat /etc/puppet/puppet.conf
-  - sudo find ~travis -ls
   - puppet config print
   
   # Sign certs
@@ -83,7 +75,7 @@ script:
   - sudo puppet agent -t
   - ls -l /etc/puppet/modules
   #- sudo puppet apply site.pp
-  - sudo puppet apply --parser=future jenkins_init.pp
+  - sudo puppet apply --parser=future ~/puppet_dir/modules/jenkins/manifests/init.pp
   - sudo puppet apply --parser=future -e "include jenkins"
   
   # Test agent
@@ -92,12 +84,9 @@ script:
   - sleep 5
   - sudo ps -ef | egrep jenkins
   - sudo ps -ef | egrep docker
-  - alias
-  - ls -l $JAVA_HOME/bin
   - cat /etc/passwd
   - sudo netstat -tunpl
   - env | sort
-  - sudo ls -l /usr/lib/jvm/
   - echo Done
   
 branches:
