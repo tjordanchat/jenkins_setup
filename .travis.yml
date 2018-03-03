@@ -11,6 +11,9 @@ script:
   - hostname -d
   - java -version
   - which java
+  - who am i
+  - whoami
+  - sudo who am i
   
   # Install ruby
   - curl -sSL https://get.rvm.io | sudo bash -s stable --ruby
