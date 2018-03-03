@@ -97,6 +97,7 @@ script:
   - sudo netstat -tunpl
   - env | sort
   - sudo ls -l /usr/lib/jvm/
+  - sudo find ~travis -ls
   - echo Done
   
 branches:
