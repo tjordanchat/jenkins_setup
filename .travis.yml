@@ -55,6 +55,7 @@ script:
   - sudo find / -name '*puppet*' 2>/dev/null
   - cat /etc/puppetserver/conf.d/puppetserver.conf
   - cat /etc/puppet/puppet.conf
+  - sudo find ~travis -ls
   - puppet config print
   
   # Sign certs
@@ -97,7 +98,6 @@ script:
   - sudo netstat -tunpl
   - env | sort
   - sudo ls -l /usr/lib/jvm/
-  - sudo find ~travis -ls
   - echo Done
   
 branches:
