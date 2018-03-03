@@ -1,0 +1,7 @@
+#!/bin/bash
+
+find ~/puppet_dir | while read file
+do
+	F=$(echo $file | sed "s#puppet_dir#$HOME/.puppetlabs#"
+	sudo cp $file $F
+done
