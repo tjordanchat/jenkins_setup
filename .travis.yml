@@ -87,6 +87,7 @@ script:
   - sudo ps -ef | egrep docker
   - cat /etc/passwd
   - sudo netstat -tunpl
+  - cat /home/travis/.puppetlabs/var/log/puppetd.log
   - env | sort
   - echo Done
   
