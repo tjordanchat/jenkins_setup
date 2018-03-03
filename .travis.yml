@@ -23,6 +23,7 @@ script:
   
   # Set hostname
   - sudo sh -c ./bin/deploy_root
+  - sudo sh -c ./bin/deploy_puppet
   - sudo hostname puppetmaster.localdomain
   - sudo hostname puppet.localdomain
   
