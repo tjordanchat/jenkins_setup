@@ -16,23 +16,17 @@ script:
   - sudo who am i
   
   # Install ruby
-  - curl -sSL https://get.rvm.io | sudo bash -s stable --ruby
-  - sudo /home/travis/.rvm/bin/rvm install ruby --latest
+  #- curl -sSL https://get.rvm.io | sudo bash -s stable --ruby
+  #- sudo /home/travis/.rvm/bin/rvm install ruby --latest
   #- sudo apt-get install ruby-full
-  - sudo gem install puppetlabs_spec_helper
-  - sudo gem install facter
+  #- sudo gem install puppetlabs_spec_helper
+  #- sudo gem install facter
   #- bundle install
-  - sudo gem install puppet
-  
-  # Set hostname
-  - sudo sh -c ./bin/deploy_root
-  - sudo sh -c ./bin/deploy_puppet
-  - sudo hostname puppetmaster.localdomain
-  - sudo hostname puppet.localdomain
+  #- sudo gem install puppet
   
   # Install puppet server
-  - sudo apt-get update
-  - bundle exec rake spec
+  #- sudo apt-get update
+  #- bundle exec rake spec
   - cd /tmp
   - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
   - sudo dpkg --force-all -i puppetlabs-release-trusty.deb
@@ -43,6 +37,12 @@ script:
   - ps -ef 
   - sudo puppet plugin --trace download
   - sudo puppet resource --trace package puppet-server ensure=latest
+  
+  # Set hostname
+  - sudo sh -c ./bin/deploy_root
+  - sudo sh -c ./bin/deploy_puppet
+  - sudo hostname puppetmaster.localdomain
+  - sudo hostname puppet.localdomain
   
   # Install puppet agent
   - sudo apt-get install puppet
