@@ -41,7 +41,7 @@ script:
   - sudo apt-get install puppetserver
   - sudo apt-get update
   - ps -ef 
-  - sudo puppet plugin download
+  - sudo puppet plugin --trace download
   - sudo puppet resource package puppet-server ensure=latest
   
   # Install puppet agent
