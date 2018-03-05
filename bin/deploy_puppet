@@ -2,11 +2,11 @@
 
 OPWD=`pwd`
 cd ~
-find puppet_dir | while read file
+find puppet_dir -type f | while read file
 do
 	F=$(echo $file | sed "s#puppet_dir#$HOME/.puppet#")
 	D=$(dirname $F)
-	sudo mkdir -p $D
-	sudo cp $file $F
+	mkdir -p $D
+	cp $file $F
 done
 cd $OPWD
