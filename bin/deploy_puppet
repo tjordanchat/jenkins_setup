@@ -2,7 +2,7 @@
 
 find ~/puppet_dir | while read file
 do
-	F=$(echo $file | sed "s#puppet_dir#$HOME/.puppetlabs#")
+	F=$(echo $file | sed "s#puppet_dir#$HOME/.puppet#")
 	D=$(dirname $F)
 	sudo mkdir -p $D
 	sudo cp $file $F
