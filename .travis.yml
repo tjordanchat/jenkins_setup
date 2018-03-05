@@ -35,8 +35,8 @@ script:
   - sudo apt-get install puppetserver
   - sudo apt-get update
   - ps -ef 
-  - sudo puppet plugin --trace download
-  - sudo puppet resource --trace package puppet-server ensure=latest
+  #- sudo puppet plugin --trace download
+  - sudo puppet resource --trace package puppetserver ensure=latest
   
   # Set hostname
   - sudo sh -c ./bin/deploy_root
