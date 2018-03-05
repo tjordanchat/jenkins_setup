@@ -6,6 +6,7 @@ jdk: oraclejdk8
 script:
   - export TZ="America/New_York"
   - date
+  - pwd
   - find . -ls
   - cat /etc/*-release
   - hostname
