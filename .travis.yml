@@ -53,6 +53,7 @@ script:
   - sudo sh -c ./bin/deploy_puppet
   - sudo hostname puppetmaster.localdomain
   - sudo hostname puppet.localdomain
+  - find ~/.puppet -ls
   
   # Sign certs
   - sudo puppet cert generate puppetmaster.localdomain
