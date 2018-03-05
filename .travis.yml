@@ -28,9 +28,10 @@ script:
   #- sudo apt-get update
   #- bundle exec rake spec
   - cd /tmp
+  - pwd
   - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
   - sudo dpkg --force-all -i puppetlabs-release-trusty.deb
-  - cd -
+  - cd ~
   - sudo apt-get update
   - sudo apt-get install puppetserver
   - sudo apt-get update
@@ -49,8 +50,8 @@ script:
   - puppet config print
   
   # Set hostname
-  - sudo sh -c ./bin/deploy_root
-  - sudo sh -c ./bin/deploy_puppet
+  - sudo sh -c ~/bin/deploy_root
+  - sudo sh -c ~/bin/deploy_puppet
   - sudo hostname puppetmaster.localdomain
   - sudo hostname puppet.localdomain
   - find ~/.puppet -ls
