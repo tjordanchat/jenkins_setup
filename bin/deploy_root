@@ -1,5 +1,7 @@
 #!/bin/bash
 
+OPWD=`pwd`
+cd ~
 find root -type f |
 while read file
 	do
@@ -8,3 +10,4 @@ while read file
 		sudo mkdir -p $D
 		sudo cp $file $F
 	done
+cd $OPWD
