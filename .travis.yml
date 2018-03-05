@@ -38,12 +38,6 @@ script:
   #- sudo puppet plugin --trace download
   - sudo puppet resource --trace package puppetserver ensure=latest
   
-  # Set hostname
-  - sudo sh -c ./bin/deploy_root
-  - sudo sh -c ./bin/deploy_puppet
-  - sudo hostname puppetmaster.localdomain
-  - sudo hostname puppet.localdomain
-  
   # Install puppet agent
   - sudo apt-get install puppet
   - sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
@@ -53,6 +47,12 @@ script:
   - puppet master --version 
   - puppet agent --version
   - puppet config print
+  
+  # Set hostname
+  - sudo sh -c ./bin/deploy_root
+  - sudo sh -c ./bin/deploy_puppet
+  - sudo hostname puppetmaster.localdomain
+  - sudo hostname puppet.localdomain
   
   # Sign certs
   - sudo puppet cert generate puppetmaster.localdomain
