@@ -42,7 +42,7 @@ script:
   - sudo apt-get update
   - ps -ef 
   - sudo puppet plugin --trace download
-  - sudo puppet resource package puppet-server ensure=latest
+  - sudo puppet resource --trace package puppet-server ensure=latest
   
   # Install puppet agent
   - sudo apt-get install puppet
