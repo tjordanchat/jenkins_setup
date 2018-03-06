@@ -1,7 +1,8 @@
 #!env bash
 
+FROM=$1
 OPWD=`pwd`
-cd ~
+cd $FROM
 find root -type f |
 while read file
 	do
