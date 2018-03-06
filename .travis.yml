@@ -87,7 +87,7 @@ script:
   - sudo puppet agent -t
   - ls -l /etc/puppet/modules
   #- sudo puppet apply site.pp
-  - sudo puppet apply --parser=future ~/puppet_dir/modules/jenkins/manifests/init.pp
+  - sudo puppet apply --parser=future ~/.puppet/modules/jenkins/manifests/init.pp
   - sudo puppet apply --parser=future -e "include jenkins"
   
   # Test agent
