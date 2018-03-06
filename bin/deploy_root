@@ -1,9 +1,8 @@
 
 set -x
 
-FROM=$1
 OPWD=`pwd`
-cd $FROM
+cd $ROOT_DIR
 find root -type f |
 while read file
 	do
