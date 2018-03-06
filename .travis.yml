@@ -65,7 +65,7 @@ script:
   # Sign certs
   - sudo puppet cert generate puppetmaster.localdomain
   - puppet apply --configprint manifest
-  - sudo puppet apply --parser=future $(puppet apply --configprint manifest)
+  - sudo puppet apply $(puppet apply --configprint manifest)
   - sudo puppet cert list --all
   - sudo puppet cert clean --all
   - sudo puppet config set server puppet.localdomain --section agent
@@ -86,8 +86,8 @@ script:
   # Run modules
   - sudo puppet agent -t
   #- sudo puppet apply site.pp
-  - sudo puppet apply --parser=future /etc/puppet/modules/jenkins/manifests/init.pp
-  - sudo puppet apply --parser=future -e "include jenkins"
+  - sudo puppet apply /etc/puppet/modules/jenkins/manifests/init.pp
+  - sudo puppet apply -e "include jenkins"
   
   # Test agent
   - cd /tmp && wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
