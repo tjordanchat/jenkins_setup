@@ -1,4 +1,3 @@
-
 set -x
 
 OPWD=`pwd`
@@ -9,6 +8,6 @@ while read file
 		F=$(echo $file | sed "s#^root##")
 		D=$(dirname $F)
 		sudo mkdir -p $D
-		sudo cp $FROM/$file $F
+		sudo cp $file $F
 	done
 cd $OPWD
