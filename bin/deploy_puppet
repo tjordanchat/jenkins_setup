@@ -1,7 +1,5 @@
-
-FROM=$1
 OPWD=`pwd`
-cd $FROM
+cd $ROOT_DIR
 find puppet_dir -type f | while read file
 do
 	F=$(echo $file | sed "s#puppet_dir#$HOME/.puppet#")
