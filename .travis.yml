@@ -52,6 +52,7 @@ script:
   - puppet config print
   
   # Set hostname
+  - ls -l $ROOT_DIR/bin/deploy_root
   - sudo sh -c $ROOT_DIR/bin/deploy_root $ROOT_DIR
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet $ROOT_DIR
   - sudo hostname puppetmaster.localdomain
