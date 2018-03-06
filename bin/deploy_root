@@ -1,4 +1,5 @@
 #!env bash
+set -x
 
 FROM=$1
 OPWD=`pwd`
