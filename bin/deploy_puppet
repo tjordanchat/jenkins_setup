@@ -8,6 +8,6 @@ do
 	F=$(echo $file | sed "s#puppet_dir#$HOME/.puppet#")
 	D=$(dirname $F)
 	mkdir -p $D
-	cp $file $F
+	cp $FROM/$file $F
 done
 cd $OPWD
