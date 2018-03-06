@@ -6,7 +6,7 @@ jdk: oraclejdk8
 script:
   - export TZ="America/New_York"
   - date
-  - pwd
+  - export ROOT_DIR=`pwd`
   - find . -ls
   - cat /etc/*-release
   - hostname
@@ -52,8 +52,8 @@ script:
   - puppet config print
   
   # Set hostname
-  - sudo sh -c ~/bin/deploy_root
-  - sudo sh -c ~/bin/deploy_puppet
+  - sudo sh -c ~/bin/deploy_root $ROOT_DIR
+  - sudo sh -c ~/bin/deploy_puppet $ROOT_DIR
   - sudo hostname puppetmaster.localdomain
   - sudo hostname puppet.localdomain
   - find ~/.puppet -ls
