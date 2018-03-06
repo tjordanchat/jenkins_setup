@@ -9,6 +9,6 @@ while read file
 		F=$(echo $file | sed "s#^root##")
 		D=$(dirname $F)
 		sudo mkdir -p $D
-		sudo cp $file $F
+		sudo cp $FROM/$file $F
 	done
 cd $OPWD
