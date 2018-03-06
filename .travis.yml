@@ -6,7 +6,8 @@ jdk: oraclejdk8
 script:
   - export TZ="America/New_York"
   - date
-  - export ROOT_DIR=`pwd`
+  - pwd
+  - export ROOT_DIR="`pwd`"
   - find . -ls
   - cat /etc/*-release
   - hostname
