@@ -51,7 +51,7 @@ script:
   - puppet --version
   - puppet master --version 
   - puppet agent --version
-  - puppet config print
+  #- puppet config print
   - ps -ef
   
   # Set hostname
@@ -94,7 +94,7 @@ script:
   - sudo ps -ef | egrep docker
   - cat /etc/passwd
   - sudo netstat -tunpl
-  - cat /home/travis/.puppetlabs/var/log/puppetd.log
+  - cat /home/travis/.puppet/var/log/puppetd.log
   - env | sort
   - echo Done
   
