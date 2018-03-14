@@ -63,7 +63,7 @@ script:
   
   # Run modules
   - sudo puppet agent -t
-  - ls -al /var/lib/puppet/ssl/certificate_requests/
+  - sudo ls -al /var/lib/puppet/ssl/certificate_requests/
   - sudo puppet apply /etc/puppet/modules/jenkins/manifests/init.pp
   - sudo puppet apply -e "include jenkins"
   
