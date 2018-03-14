@@ -15,13 +15,13 @@ addons:
       - toilet
 
 install:
-  - export DISPLAY=':99.0'
+  - export DISPLAY=':99'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
   
 script:
-  - export TZ="America/New_York"
+  - export TZ='America/New_York'
   - export ROOT_DIR="`pwd`"
-  - toilet -f mono12 -F metal `date '+DATE: %Y-%m-%d%nTIME: %H:%M:%S'`
+  - toilet -f mono12 -F metal `date '+%Y-%m-%d%n %H:%M:%S'`
   - cat /etc/*-release 
   
   # Install puppet server
