@@ -2,17 +2,26 @@
 sudo: true
 language: java
 jdk: oraclejdk8
+  
+branches:
+  only:
+  - master
 
-before_install:
-  - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16
+addons:
+  apt:
+    packages:
+      - xvfb
 
+install:
+  - export DISPLAY=':99.0'
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  
 script:
   - export TZ="America/New_York"
   - export ROOT_DIR="`pwd`"
   - export DISPLAY=:99
   - date
-  - cat /etc/*-release
-  
+  - cat /etc/*-release 
   
   # Install puppet server
   - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
@@ -65,7 +74,3 @@ script:
   - cat /home/travis/.puppet/var/log/puppetd.log
   - env | sort
   - echo Done
-  
-branches:
-  only:
-  - master
