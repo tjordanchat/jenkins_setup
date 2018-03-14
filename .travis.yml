@@ -41,7 +41,6 @@ script:
   - puppet apply --configprint manifest
   - sudo puppet apply $(puppet apply --configprint manifest)
   - sudo puppet cert list --all
-  - sudo puppet cert clean --all
   - sudo puppet config set server puppet.localdomain --section agent
   - sudo puppet agent --no-daemonize --server puppet.localdomain --onetime --verbose
   - sudo puppet cert --list
