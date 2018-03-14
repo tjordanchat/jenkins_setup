@@ -5,7 +5,7 @@ jdk: oraclejdk8
   
 branches:
   only:
-  - master
+    - master
 
 addons:
   apt:
