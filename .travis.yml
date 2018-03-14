@@ -11,7 +11,8 @@ script:
   
   
   # Install puppet server
-  - curl https://apt.puppetlabs.com/puppetlabs-release-trusty.deb | sudo dpkg --update-avail -
+  - curl -o /tmp/p.deb
+  - sudo dpkg --update-avail /tmp/p.deb
   - sudo apt-get update
   - sudo apt-get install puppetserver
   - sudo apt-get update
