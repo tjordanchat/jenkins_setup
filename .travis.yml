@@ -53,11 +53,11 @@ script:
   - sudo puppet cert generate puppetmaster.localdomain
   - puppet apply --configprint manifest
   - sudo puppet apply $(puppet apply --configprint manifest)
-  - sudo puppet cert list --all
   - sudo puppet config set server puppet.localdomain --section agent
-  - sudo puppet agent --no-daemonize --server puppet.localdomain --onetime --verbose
   - sudo puppet cert --list
+  - sudo puppet cert list --all
   - sudo puppet cert sign --all
+  - sudo puppet agent --no-daemonize --server puppet.localdomain --onetime --verbose
   
   # Install puppet modules
   - sudo puppet module install rtyler/jenkins
