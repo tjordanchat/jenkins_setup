@@ -12,6 +12,7 @@ addons:
     packages:
       - xvfb
       - figlet
+      - toilet
 
 install:
   - export DISPLAY=':99.0'
@@ -20,7 +21,7 @@ install:
 script:
   - export TZ="America/New_York"
   - export ROOT_DIR="`pwd`"
-  - figlet `date`
+  - toilet `date`
   - cat /etc/*-release 
   
   # Install puppet server
