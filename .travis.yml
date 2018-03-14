@@ -5,40 +5,16 @@ jdk: oraclejdk8
 
 script:
   - export TZ="America/New_York"
-  - date
-  - pwd
   - export ROOT_DIR="`pwd`"
-  - find . -ls
+  - date
   - cat /etc/*-release
-  - hostname
-  - hostname -d
-  - java -version
-  - which java
-  - who am i
-  - whoami
-  - sudo who am i
   
-  # Install ruby
-  #- curl -sSL https://get.rvm.io | sudo bash -s stable --ruby
-  #- sudo /home/travis/.rvm/bin/rvm install ruby --latest
-  #- sudo apt-get install ruby-full
-  #- sudo gem install puppetlabs_spec_helper
-  #- sudo gem install facter
-  #- bundle install
-  #- sudo gem install puppet
   
   # Install puppet server
-  #- sudo apt-get update
-  #- bundle exec rake spec
-  - cd /tmp
-  - pwd
-  - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
-  - sudo dpkg --force-all -i puppetlabs-release-trusty.deb
-  - cd ~
+  - curl https://apt.puppetlabs.com/puppetlabs-release-trusty.deb | sudo dpkg --force-all
   - sudo apt-get update
   - sudo apt-get install puppetserver
   - sudo apt-get update
-  #- sudo puppet plugin download
   - sudo puppet resource package puppetserver ensure=latest
   - sudo puppet resource service puppetserver ensure=running enable=true
   
@@ -51,16 +27,13 @@ script:
   - puppet --version
   - puppet master --version 
   - puppet agent --version
-  #- puppet config print
   - ps -ef
   
   # Set hostname
-  - ls -l $ROOT_DIR/bin/deploy_root
   - sudo sh -c $ROOT_DIR/bin/deploy_root $ROOT_DIR
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet $ROOT_DIR
   - sudo hostname puppetmaster.localdomain
   - sudo hostname puppet.localdomain
-  - find ~/.puppet -ls
   
   # Sign certs
   - sudo puppet cert generate puppetmaster.localdomain
@@ -72,20 +45,11 @@ script:
   - sudo puppet agent --no-daemonize --server puppet.localdomain --onetime --verbose
   - sudo puppet cert --list
   
-  # Start pupper server
-  #- sudo service puppetmaster start
-  - sudo ps -ef | egrep puppet
-  
-  # Start pupper agent
-  #- sudo service puppet start
-  - puppetserver gem list           
-  
   # Install puppet modules
   - sudo puppet module install rtyler/jenkins
   
   # Run modules
   - sudo puppet agent -t
-  #- sudo puppet apply site.pp
   - sudo puppet apply /etc/puppet/modules/jenkins/manifests/init.pp
   - sudo puppet apply -e "include jenkins"
   
