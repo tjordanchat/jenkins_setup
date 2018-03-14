@@ -21,7 +21,7 @@ install:
 script:
   - export TZ="America/New_York"
   - export ROOT_DIR="`pwd`"
-  - toilet -f mono12 -F metal `date "+DATE: %Y-%m-%d%nTIME: %H:%M:%S"`
+  - toilet -f mono12 -F metal `date '+DATE: %Y-%m-%d%nTIME: %H:%M:%S'`
   - cat /etc/*-release 
   
   # Install puppet server
