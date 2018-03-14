@@ -20,7 +20,7 @@ install:
   
 script:
   - export TZ='America/New_York'
-  - export ROOT_DIR="`pwd`"
+  - export ROOT_DIR=`pwd`
   - toilet -f mono12 -F metal `date '+%Y-%m-%d%n %H:%M:%S'`
   - cat /etc/*-release 
   
