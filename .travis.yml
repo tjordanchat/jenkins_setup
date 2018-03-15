@@ -51,13 +51,13 @@ script:
   #- sudo hostname puppet.localdomain
   
   # Sign certs
-  - sudo puppet cert generate puppetmaster.localdomain
-  - puppet apply --configprint manifest
-  - sudo puppet apply $(puppet apply --configprint manifest)
-  - sudo puppet config set server puppet.localdomain --section agent
-  - sudo puppet cert --list
-  - sudo puppet cert list --all
-  - sudo puppet agent --no-daemonize --server puppet.localdomain --onetime --verbose
+  #- sudo puppet cert generate puppetmaster.localdomain
+  #- puppet apply --configprint manifest
+  #- sudo puppet apply $(puppet apply --configprint manifest)
+  #- sudo puppet config set server puppet.localdomain --section agent
+  #- sudo puppet cert --list
+  #- sudo puppet cert list --all
+  #- sudo puppet agent --no-daemonize --server puppet.localdomain --onetime --verbose
   
   # Run modules
   - sudo rm -f /var/lib/puppet/ssl/certificate_requests/puppet.localdomain.pem
