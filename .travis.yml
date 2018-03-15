@@ -34,21 +34,21 @@ script:
   - sudo puppet resource service puppetserver ensure=running enable=true
   
   # Install puppet agent
-  - sudo apt-get install puppet
-  - sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
-  - sudo apt-get update
-  - sudo puppet resource package puppet ensure=latest
-  - sudo puppet resource service puppet ensure=running enable=true
-  - puppet --version
-  - puppet master --version 
-  - puppet agent --version
+  #- sudo apt-get install puppet
+  #- sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
+  #- sudo apt-get update
+  #- sudo puppet resource package puppet ensure=latest
+  #- sudo puppet resource service puppet ensure=running enable=true
+  #- puppet --version
+  #- puppet master --version 
+  #- puppet agent --version
   - ps -ef
   
   # Set hostname
   - sudo sh -c $ROOT_DIR/bin/deploy_root $ROOT_DIR
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet $ROOT_DIR
   - sudo hostname puppetmaster.localdomain
-  - sudo hostname puppet.localdomain
+  #- sudo hostname puppet.localdomain
   
   # Sign certs
   - sudo puppet cert generate puppetmaster.localdomain
