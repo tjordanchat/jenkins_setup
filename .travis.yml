@@ -3,11 +3,6 @@ sudo: true
 language: java
 jdk: openjdk-7-jre-headless 
 
-  
-branches:
-  only:
-    - master
-
 addons:
   apt:
     packages:
