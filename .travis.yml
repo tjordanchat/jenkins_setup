@@ -60,7 +60,7 @@ install:
   - sudo rm -f /var/lib/puppet/ssl/certificate_requests/puppet.localdomain.pem
   
   # Test agent
-  - ps -efa | egrep puppet
+  - ps -ef | egrep puppet
   - ps -ef | egrep jenkins
   - ps -ef | egrep docker
   - cat /etc/passwd
