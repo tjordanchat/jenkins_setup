@@ -30,8 +30,8 @@ script:
   - sudo apt-get update
   - sudo apt-get install puppetserver
   - sudo apt-get update
-  #- sudo puppet resource package puppetserver ensure=latest
-  #- sudo puppet resource service puppetserver ensure=running enable=true
+  - sudo puppet resource package puppetserver ensure=latest
+  - sudo puppet resource service puppetserver ensure=running enable=true
   
   # Install puppet agent
   #- sudo apt-get install puppet
