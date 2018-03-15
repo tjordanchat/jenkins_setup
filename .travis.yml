@@ -11,6 +11,7 @@ addons:
 
 install:
   - export DISPLAY=':99'
+  - export JCLI_JAR=/var/cache/jenkins/war/WEB-INF/jenkins-cli.jar
   - sudo apt-get install openjdk-7-jre-headless
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
   - wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
