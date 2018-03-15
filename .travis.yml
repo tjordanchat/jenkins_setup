@@ -31,6 +31,7 @@ script:
   - export ROOT_DIR=`pwd`
   - toilet -f mono12 `date '+%y-%m-%d%n%H.%M'`
   - cat /etc/*-release 
+  - java -jar $JCLI_JAR -s http://localhost:8080 help
   
   # Install puppet agent
   #- sudo apt-get install puppet
