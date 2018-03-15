@@ -68,5 +68,5 @@ script:
   - cat /etc/passwd
   - sudo netstat -tunpl
   - env | sort
-  - sudo find / -name jenkins-cli.jar 2>/dev/null
+  - sudo find / -name jenkins-cli.jar -ls 2>/dev/null
   - echo Done
