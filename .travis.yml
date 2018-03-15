@@ -57,7 +57,6 @@ script:
   - sudo puppet config set server puppet.localdomain --section agent
   - sudo puppet cert --list
   - sudo puppet cert list --all
-  - sudo puppet cert sign --all
   - sudo puppet agent --no-daemonize --server puppet.localdomain --onetime --verbose
   
   # Run modules
