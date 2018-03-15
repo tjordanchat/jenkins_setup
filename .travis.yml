@@ -1,7 +1,6 @@
 ---
 sudo: true
-language: java
-jdk: openjdk-7-jre-headless 
+language: go
 
 addons:
   apt:
@@ -12,7 +11,8 @@ addons:
 
 install:
   - export DISPLAY=':99'
-  #- Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  - sudo apt-get install openjdk-7-jre-headless
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
   
 script:
   - export TZ='America/New_York'
