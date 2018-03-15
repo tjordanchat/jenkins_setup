@@ -17,14 +17,6 @@ install:
   - sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - sudo apt-get update
   - sudo apt-get install jenkins
-  
-script:
-  - export TZ='America/New_York'
-  - export ROOT_DIR=`pwd`
-  - toilet -f mono12 `date '+%y-%m-%d%n%H.%M'`
-  - cat /etc/*-release 
-  
-  # Install puppet server
   - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
   - sudo dpkg --force-all -i puppetlabs-release-trusty.deb
   - sudo apt-get update
@@ -32,6 +24,12 @@ script:
   - sudo apt-get update
   - sudo puppet resource package puppetserver ensure=latest
   - sudo puppet resource service puppetserver ensure=running enable=true
+  
+  script:
+  - export TZ='America/New_York'
+  - export ROOT_DIR=`pwd`
+  - toilet -f mono12 `date '+%y-%m-%d%n%H.%M'`
+  - cat /etc/*-release 
   
   # Install puppet agent
   #- sudo apt-get install puppet
@@ -42,7 +40,6 @@ script:
   #- puppet --version
   #- puppet master --version 
   #- puppet agent --version
-  - ps -ef
   
   # Set hostname
   - sudo sh -c $ROOT_DIR/bin/deploy_root $ROOT_DIR
@@ -63,8 +60,9 @@ script:
   - sudo rm -f /var/lib/puppet/ssl/certificate_requests/puppet.localdomain.pem
   
   # Test agent
-  - sudo ps -ef | egrep jenkins
-  - sudo ps -ef | egrep docker
+  - ps -efa | egrep puppet
+  - ps -ef | egrep jenkins
+  - ps -ef | egrep docker
   - cat /etc/passwd
   - sudo netstat -tunpl
   - env | sort
