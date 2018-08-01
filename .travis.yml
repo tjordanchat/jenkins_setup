@@ -31,8 +31,8 @@ script:
   - export ROOT_DIR=`pwd`
   - toilet -f mono12 `date '+%y-%m-%d%n%H.%M'`
   - cat /etc/*-release 
-  - cat "/var/lib/jenkins/secrets/initialAdminPassword"
-  - sudo java -jar $JCLI_JAR -s http://localhost:8080 help  --username admin --password "`cat /var/lib/jenkins/secrets/initialAdminPassword`"
+  - export PASS="`sudo cat /var/lib/jenkins/secrets/initialAdminPassword`"
+  - sudo java -jar $JCLI_JAR -s http://localhost:8080 help --username admin --password "$PASS"
   
   # Install puppet agent
   #- sudo apt-get install puppet
