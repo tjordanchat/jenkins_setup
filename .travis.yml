@@ -70,4 +70,5 @@ script:
   - sudo netstat -tunpl
   - env | sort
   - sudo find / -name jenkins-cli.jar -ls 2>/dev/null
+  - sudo java -jar $JCLI_JAR -s http://127.0.0.1:8080 install-plugin Pipeline
   - echo Done
