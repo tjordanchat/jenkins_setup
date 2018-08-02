@@ -74,5 +74,5 @@ script:
       admin
       $PASS
       EOF
-  - sudo java -jar $JCLI_JAR -s http://localhost:8080 install-plugin Pipeline -restart --username admin --password "$PASS"
+  - sudo java -jar $JCLI_JAR -s http://localhost:8080 install-plugin -restart --username admin --password "$PASS" Pipeline
   - echo Done
