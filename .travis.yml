@@ -73,5 +73,5 @@ script:
   - head -5  /var/lib/jenkins/config.xml| grep -oP '(?<=<version>).*?(?=</version>)'
   - sudo java -jar $JCLI_JAR -s http://localhost:8080 -auth "admin:$PASS" install-plugin pipeline-rest-api -restart
   #- sudo java -jar $JCLI_JAR -s http://localhost:8080 -auth "admin:$PASS" list-plugins -remoting
-  - wget http://localhost:8080/pluginManager/api/xml?depth=1&xpath=/*/*/shortName|/*/*/version&wrapper=plugins
+  - wget http://localhost:8080/pluginManager/api/xml?depth=1&xpath=/*/*/shortName&wrapper=plugins
   - echo Done
