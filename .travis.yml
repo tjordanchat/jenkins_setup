@@ -31,7 +31,7 @@ script:
   - export ROOT_DIR=`pwd`
   - toilet -f mono12 `date '+%y-%m-%d%n%H.%M'`
   - cat /etc/*-release 
-  - export PASS="`sudo cat /var/lib/jenkins/secrets/initialAdminPassword`"
+  #- export PASS="`sudo cat /var/lib/jenkins/secrets/initialAdminPassword`"
   #- sudo java -jar $JCLI_JAR -s http://localhost:8080 help --username admin --password "$PASS"
   
   # Install puppet agent
@@ -45,8 +45,8 @@ script:
   #- puppet agent --version
   
   # Set hostname
-  - sudo sh -c $ROOT_DIR/bin/deploy_root $ROOT_DIR
-  - sudo sh -c $ROOT_DIR/bin/deploy_puppet $ROOT_DIR
+  #- sudo sh -c $ROOT_DIR/bin/deploy_root $ROOT_DIR
+  #- sudo sh -c $ROOT_DIR/bin/deploy_puppet $ROOT_DIR
   - sudo hostname puppetmaster.localdomain
   #- sudo hostname puppet.localdomain
   
