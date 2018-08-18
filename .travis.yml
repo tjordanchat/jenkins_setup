@@ -11,13 +11,13 @@ addons:
 
 install:
   - export DISPLAY=':99'
-  - export JCLI_JAR=/var/cache/jenkins/war/WEB-INF/jenkins-cli.jar
+  #- export JCLI_JAR=/var/cache/jenkins/war/WEB-INF/jenkins-cli.jar
   - sudo apt-get install openjdk-7-jre-headless
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-  - wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
-  - sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+  #- wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+  #- sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - sudo apt-get update
-  - sudo apt-get install jenkins
+  #- sudo apt-get install jenkins
   - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
   - sudo dpkg --force-all -i puppetlabs-release-trusty.deb
   - sudo apt-get update
@@ -32,7 +32,7 @@ script:
   - toilet -f mono12 `date '+%y-%m-%d%n%H.%M'`
   - cat /etc/*-release 
   - export PASS="`sudo cat /var/lib/jenkins/secrets/initialAdminPassword`"
-  - sudo java -jar $JCLI_JAR -s http://localhost:8080 help --username admin --password "$PASS"
+  #- sudo java -jar $JCLI_JAR -s http://localhost:8080 help --username admin --password "$PASS"
   
   # Install puppet agent
   #- sudo apt-get install puppet
@@ -64,15 +64,15 @@ script:
   
   # Test agent
   - ps -ef | egrep puppet
-  - ps -ef | egrep jenkins
+  #- ps -ef | egrep jenkins
   - ps -ef | egrep docker
   - cat /etc/passwd
   - sudo netstat -tunpl
   - env | sort
-  - sudo find / -name jenkins-cli.jar -ls 2>/dev/null
-  - head -5  /var/lib/jenkins/config.xml| grep -oP '(?<=<version>).*?(?=</version>)'
-  - sudo java -jar $JCLI_JAR -s http://localhost:8080 -auth "admin:$PASS" install-plugin pipeline-rest-api -restart
+  #- sudo find / -name jenkins-cli.jar -ls 2>/dev/null
+  #- head -5  /var/lib/jenkins/config.xml| grep -oP '(?<=<version>).*?(?=</version>)'
+  #- sudo java -jar $JCLI_JAR -s http://localhost:8080 -auth "admin:$PASS" install-plugin pipeline-rest-api -restart
   #- sudo java -jar $JCLI_JAR -s http://localhost:8080 -auth "admin:$PASS" list-plugins -remoting
-  - wget http://127.0.0.1:8080/jenkins
-  - sleep 5
+  #- wget http://127.0.0.1:8080/jenkins
+  #- sleep 5
   - echo Done
