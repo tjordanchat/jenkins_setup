@@ -74,5 +74,5 @@ script:
   #- sudo java -jar $JCLI_JAR -s http://localhost:8080 -auth "admin:$PASS" install-plugin pipeline-rest-api -restart
   #- sudo java -jar $JCLI_JAR -s http://localhost:8080 -auth "admin:$PASS" list-plugins -remoting
   #- wget http://127.0.0.1:8080/jenkins
-  #- sleep 5
+  - ls -la /etc/puppetlabs/code/environments/production/modules
   - echo Done
