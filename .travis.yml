@@ -33,12 +33,15 @@ script:
   - sudo netstat -tunpl
   - env | sort
   - sudo find / -name manifests -type d 2>/dev/null
-  - sudo find /etc/puppet -ls
   - sudo puppet config print modulepath 
   - sudo find / -name puppet.conf
   - sudo cat /etc/puppet/puppet.conf
   
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
-  - puppet apply /etc/puppet/manifests/site.pp 
+  
+  - puppet apply /etc/puppet/manifests/site.pp
+  
+  - sudo find /etc/puppet -ls
+  - sudo cat /etc/puppet/puppet.conf
   
   - echo Done
