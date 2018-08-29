@@ -75,5 +75,5 @@ script:
   #- sudo java -jar $JCLI_JAR -s http://localhost:8080 -auth "admin:$PASS" list-plugins -remoting
   #- wget http://127.0.0.1:8080/jenkins
   - sudo find / -name manifests -type d 2>/dev/null
-  - sudo find /etc/puppet -ls 2>/dev/null
+  - sudo find /etc/puppet -ls
   - echo Done
