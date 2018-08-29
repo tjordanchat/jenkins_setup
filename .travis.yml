@@ -76,4 +76,5 @@ script:
   #- wget http://127.0.0.1:8080/jenkins
   - sudo find / -name manifests -type d 2>/dev/null
   - sudo find /etc/puppet -ls
+  - puppet apply --modulepath modules manifests/site.pp 
   - echo Done
