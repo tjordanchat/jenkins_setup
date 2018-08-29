@@ -39,7 +39,7 @@ script:
   
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
   
-  - puppet apply /etc/puppet/manifests/site.pp
+  - puppet --debug --verbose apply /etc/puppet/manifests/site.pp
   
   - sudo find /etc/puppet -ls
   - sudo cat /etc/puppet/puppet.conf
