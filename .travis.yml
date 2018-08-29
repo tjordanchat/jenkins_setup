@@ -43,6 +43,6 @@ script:
   - sudo find / -name manifests -type d 2>/dev/null
   - sudo find /etc/puppet -ls
   - sudo puppet config print modulepath 
-  - sudo cat /etc/puppet.conf
+  - sudo find / -name puppet.conf
   - puppet apply /etc/puppet/manifests/site.pp 
   - echo Done
