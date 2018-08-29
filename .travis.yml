@@ -44,5 +44,6 @@ script:
   - sudo find /etc/puppet -ls
   - sudo puppet config print modulepath 
   - sudo find / -name puppet.conf
+  - sudo cat /etc/puppet/puppet.conf
   - puppet apply /etc/puppet/manifests/site.pp 
   - echo Done
