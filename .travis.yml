@@ -27,14 +27,6 @@ script:
   - export ROOT_DIR=`pwd`
   - toilet -f mono12 `date '+%y-%m-%d%n%H.%M'`
   - cat /etc/*-release 
-  
-  # Set hostname
-  - sudo sh -c $ROOT_DIR/bin/deploy_puppet
-
-  # Run modules
-  - sudo rm -f /var/lib/puppet/ssl/certificate_requests/puppet.localdomain.pem
-  
-  # Test agent
   - ps -ef | egrep puppet
   - ps -ef | egrep docker
   - cat /etc/passwd
@@ -45,5 +37,8 @@ script:
   - sudo puppet config print modulepath 
   - sudo find / -name puppet.conf
   - sudo cat /etc/puppet/puppet.conf
+  
+  - sudo sh -c $ROOT_DIR/bin/deploy_puppet
   - puppet apply /etc/puppet/manifests/site.pp 
+  
   - echo Done
