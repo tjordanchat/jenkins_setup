@@ -43,5 +43,5 @@ script:
   - sudo find / -name manifests -type d 2>/dev/null
   - sudo find /etc/puppet -ls
   - sudo puppet config print modulepath 
-  #- puppet apply /etc/manifests/site.pp 
+  - puppet apply /etc/puppet/manifests/site.pp 
   - echo Done
