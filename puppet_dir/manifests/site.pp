@@ -1,1 +1,3 @@
-include foo
+node default {
+   include foo
+}
