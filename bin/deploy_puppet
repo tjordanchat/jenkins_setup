@@ -1,5 +1,5 @@
 OPWD=`pwd`
-cd $ROOT_DIR
+cd /etc/puppet
 find puppet_dir -type f | while read file
 do
 	F=$(echo $file | sed "s#puppet_dir#$HOME/.puppet#")
