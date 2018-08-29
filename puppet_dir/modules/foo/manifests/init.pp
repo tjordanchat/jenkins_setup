@@ -2,6 +2,6 @@ class foo {
   file {
     "/tmp/hello":
       ensure => file,
-      source => "puppet:///modules/foo/hello";
+      source => "puppet:///modules/foo/files/hello";
   }
 }
