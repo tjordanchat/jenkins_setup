@@ -11,13 +11,9 @@ addons:
 
 install:
   - export DISPLAY=':99'
-  #- export JCLI_JAR=/var/cache/jenkins/war/WEB-INF/jenkins-cli.jar
   - sudo apt-get install openjdk-7-jre-headless
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-  #- wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
-  #- sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - sudo apt-get update
-  #- sudo apt-get install jenkins
   - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
   - sudo dpkg --force-all -i puppetlabs-release-trusty.deb
   - sudo apt-get update
@@ -31,50 +27,21 @@ script:
   - export ROOT_DIR=`pwd`
   - toilet -f mono12 `date '+%y-%m-%d%n%H.%M'`
   - cat /etc/*-release 
-  #- export PASS="`sudo cat /var/lib/jenkins/secrets/initialAdminPassword`"
-  #- sudo java -jar $JCLI_JAR -s http://localhost:8080 help --username admin --password "$PASS"
-  
-  # Install puppet agent
-  #- sudo apt-get install puppet
-  #- sudo sed -i 's/START=no/START=yes/g' /etc/default/puppet
-  #- sudo apt-get update
-  #- sudo puppet resource package puppet ensure=latest
-  #- sudo puppet resource service puppet ensure=running enable=true
-  #- puppet --version
-  #- puppet master --version 
-  #- puppet agent --version
   
   # Set hostname
-  #- sudo sh -c $ROOT_DIR/bin/deploy_root $ROOT_DIR
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
-  - sudo hostname puppetmaster.localdomain
-  #- sudo hostname puppet.localdomain
-  
-  # Sign certs
-  #- sudo puppet cert generate puppetmaster.localdomain
-  #- puppet apply --configprint manifest
-  #- sudo puppet apply $(puppet apply --configprint manifest)
-  #- sudo puppet config set server puppet.localdomain --section agent
-  #- sudo puppet cert --list
-  #- sudo puppet cert list --all
-  #- sudo puppet agent --no-daemonize --server puppet.localdomain --onetime --verbose
-  
+
   # Run modules
   - sudo rm -f /var/lib/puppet/ssl/certificate_requests/puppet.localdomain.pem
   
   # Test agent
   - ps -ef | egrep puppet
-  #- ps -ef | egrep jenkins
   - ps -ef | egrep docker
   - cat /etc/passwd
   - sudo netstat -tunpl
   - env | sort
-  #- sudo find / -name jenkins-cli.jar -ls 2>/dev/null
-  #- head -5  /var/lib/jenkins/config.xml| grep -oP '(?<=<version>).*?(?=</version>)'
-  #- sudo java -jar $JCLI_JAR -s http://localhost:8080 -auth "admin:$PASS" install-plugin pipeline-rest-api -restart
-  #- sudo java -jar $JCLI_JAR -s http://localhost:8080 -auth "admin:$PASS" list-plugins -remoting
-  #- wget http://127.0.0.1:8080/jenkins
   - sudo find / -name manifests -type d 2>/dev/null
   - sudo find /etc/puppet -ls
-  - puppet apply --modulepath modules manifests/site.pp 
+  - sudo puppet config print modulepath 
+  #- puppet apply --modulepath modules manifests/site.pp 
   - echo Done
