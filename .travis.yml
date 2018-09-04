@@ -43,6 +43,7 @@ script:
   
   - sudo find /etc/puppet -ls
   - sudo cat /etc/puppet/puppet.conf
+  - puppet master --configprint manifest
   - ls -l /tmp/hello
   - cat /tmp/hello
   
