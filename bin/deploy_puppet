@@ -1,11 +1,12 @@
 set -x
+export PDIR=/home/travis/.puppet
 ls -la
 OPWD=`pwd`
 find puppet_dir -type f | while read file
 do
 	F=$(echo $file | sed "s#puppet_dir##")
 	D=$(dirname $F)
-	sudo mkdir -p /etc/puppet/$D
-	sudo cp $file /etc/puppet/$F
+	sudo mkdir -p $PDIR/$D
+	sudo cp $file $PDIR/$F
 done
 cd $OPWD
