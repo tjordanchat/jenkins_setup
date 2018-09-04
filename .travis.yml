@@ -39,7 +39,7 @@ script:
   
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
   
-  - puppet apply /home/travis/.puppet/modules/foo/manifests/init.pp
+  - sudo puppet apply /home/travis/.puppet/modules/foo/manifests/init.pp
   
   - sudo find /etc/puppet -ls
   - sudo cat /etc/puppet/puppet.conf
