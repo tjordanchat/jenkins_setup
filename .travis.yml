@@ -21,8 +21,8 @@ install:
   - sudo apt-get install puppetmaster
   - sudo apt-get update
   - sudo apt-get install puppet
-  - sudo puppet resource package puppetserver ensure=latest
-  - sudo puppet resource service puppetserver ensure=running enable=true
+  - sudo puppet resource package puppetmaster ensure=latest
+  - sudo puppet resource service puppetmaster ensure=running enable=true
   - sudo puppet agent
   - sudo timedatectl set-timezone America/New_York
   
