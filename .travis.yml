@@ -21,6 +21,7 @@ install:
   - sudo apt-get update
   - sudo puppet resource package puppetserver ensure=latest
   - sudo puppet resource service puppetserver ensure=running enable=true
+  - sudo puppet agent
   
 script:
   - export PDIR=/home/travis/.puppet
