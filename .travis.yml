@@ -49,5 +49,5 @@ script:
   - cat /tmp/hello
   - sudo ls -l /var/log/puppet
   - sudo find / -name puppetd 2>/dev/null 
-  - sudo puppetd –genconfig
+  - sudo /usr/share/bash-completion/completions/puppetd –genconfig
   - echo Done
