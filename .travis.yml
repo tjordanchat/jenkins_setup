@@ -40,7 +40,7 @@ script:
   
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
   
-  - sudo puppet apply --debug $PDIR/modules/foo/manifests/init.pp
+  - sudo puppet apply --debug --verbose $PDIR/modules/foo/manifests/init.pp
   
   - sudo find $PDIR -ls
   - sudo cat $PDIR/puppet.conf
