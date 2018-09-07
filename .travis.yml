@@ -23,10 +23,11 @@ install:
   - sudo puppet resource package puppetserver ensure=latest
   - sudo puppet resource service puppetserver ensure=running enable=true
   - sudo puppet agent
+  - sudo timedatectl set-timezone America/New_York
   
 script:
   - export PDIR=/home/travis/.puppet
-  - export TZ='America/New_York'
+  #- export TZ='America/New_York'
   - export ROOT_DIR=`pwd`
   - toilet -f mono12 `date '+%y-%m-%d%n%H.%M'`
   - cat /etc/*-release 
