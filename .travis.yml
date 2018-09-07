@@ -47,6 +47,6 @@ script:
   - sudo puppet master --configprint manifest
   - ls -l /tmp/hello
   - cat /tmp/hello
-  - sudo cat /var/log/puppet
+  - sudo ls -l /var/log/puppet
   
   - echo Done
