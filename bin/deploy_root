@@ -1,13 +1,12 @@
 set -x
-
+export PDIR=/
+ls -la
 OPWD=`pwd`
-cd $ROOT_DIR
-find root -type f |
-while read file
-	do
-		F=$(echo $file | sed "s#^root##")
-		D=$(dirname $F)
-		sudo mkdir -p $D
-		sudo cp $file $F
-	done
+find root -type f | while read file
+do
+	F=$(echo $file | sed "s#root##")
+	D=$(dirname $F)
+	sudo mkdir -p $PDIR/$D
+	sudo cp $file $PDIR/$F
+done
 cd $OPWD
