@@ -23,6 +23,7 @@ install:
   - sudo puppet resource service puppetserver ensure=running enable=true
   
 script:
+  - export PDIR=/home/travis/.puppet
   - export TZ='America/New_York'
   - export ROOT_DIR=`pwd`
   - toilet -f mono12 `date '+%y-%m-%d%n%H.%M'`
@@ -35,14 +36,14 @@ script:
   - sudo find / -name manifests -type d 2>/dev/null
   - sudo puppet config print modulepath 
   - sudo find / -name puppet.conf
-  - sudo cat /etc/puppet/puppet.conf
+  - sudo cat $PDIR/puppet.conf
   
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
   
   - sudo puppet --debug apply /home/travis/.puppet/manifests/site.pp
   
-  - sudo find /etc/puppet -ls
-  - sudo cat /etc/puppet/puppet.conf
+  - sudo find $PDIR -ls
+  - sudo cat $PDIR/puppet.conf
   - sudo puppet master --configprint manifest
   - ls -l /tmp/hello
   - cat /tmp/hello
