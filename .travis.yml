@@ -17,8 +17,9 @@ install:
   - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
   - sudo dpkg --force-all -i puppetlabs-release-trusty.deb
   - sudo apt-get update
-  - sudo apt-get install puppetserver
+  - sudo apt-get install puppetmaster
   - sudo apt-get update
+  - sudo apt-get install puppet
   - sudo puppet resource package puppetserver ensure=latest
   - sudo puppet resource service puppetserver ensure=running enable=true
   - sudo puppet agent
