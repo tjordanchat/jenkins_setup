@@ -48,5 +48,5 @@ script:
   - ls -l /tmp/hello
   - cat /tmp/hello
   - sudo ls -l /var/log/puppet
-  
+  - sudo puppetd –genconfig
   - echo Done
