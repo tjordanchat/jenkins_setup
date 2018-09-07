@@ -41,6 +41,7 @@ script:
   - sudo cat $PDIR/puppet.conf
   
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
+  - sudo sh -c $ROOT_DIR/bin/deploy_root
   
   - sudo puppet apply --debug --verbose $PDIR/modules/foo/manifests/init.pp
   
