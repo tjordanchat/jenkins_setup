@@ -39,11 +39,11 @@ script:
   
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
   
-  - sudo puppet apply /home/travis/.puppet/manifests/site.pp
+  - sudo puppet --debug apply /home/travis/.puppet/manifests/site.pp
   
   - sudo find /etc/puppet -ls
   - sudo cat /etc/puppet/puppet.conf
-  - puppet master --configprint manifest
+  - sudo puppet master --configprint manifest
   - ls -l /tmp/hello
   - cat /tmp/hello
   
