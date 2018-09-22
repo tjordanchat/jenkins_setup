@@ -37,23 +37,10 @@ script:
   - cat /etc/passwd
   - sudo netstat -tunpl
   - env | sort
-  - sudo find / -name manifests -type d 2>/dev/null
-  - sudo puppet config print modulepath 
-  - sudo find / -name puppet.conf
-  - sudo cat $PDIR/puppet.conf
   
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
   - sudo sh -c $ROOT_DIR/bin/deploy_root
   
-  - sudo puppet apply --debug --verbose $PDIR/modules/foo/manifests/init.pp
-  
-  - sudo find $PDIR -ls
-  - sudo cat $PDIR/puppet.conf
-  - sudo puppet master --configprint manifest
-  - ls -l /tmp/hello
-  - cat /tmp/hello
-  - sudo ls -l /var/log/puppet
-  - sudo find / -name puppetd 2>/dev/null 
-  - sudo /usr/share/bash-completion/completions/puppetd –genconfig
   - sudo puppet apply -e 'file { "/tmp/adhoc": content => "Written from puppet on ${::hostname}\n" }'
+  - sudo cat /tmp/adhoc
   - echo Done
