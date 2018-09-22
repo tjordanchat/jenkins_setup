@@ -1,6 +1,6 @@
 ---
 sudo: true
-language: go
+language: ruby
 
 addons:
   apt:
