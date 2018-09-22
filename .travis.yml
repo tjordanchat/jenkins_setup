@@ -41,6 +41,6 @@ script:
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
   - sudo sh -c $ROOT_DIR/bin/deploy_root
   
-  - sudo puppet apply -e 'file { "/tmp/adhoc": content => "Written from puppet on ${::hostname}\n" }'
+  - sudo puppet apply -e 'file { "/tmp/adhoc": content => "Written from puppet on ${::hostname}" }'
   - sudo cat /tmp/adhoc
   - echo Done
