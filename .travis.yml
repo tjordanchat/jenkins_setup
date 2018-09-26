@@ -41,6 +41,6 @@ script:
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
   - sudo sh -c $ROOT_DIR/bin/deploy_root
   
-  - sudo puppet apply -e 'file { "/tmp/adhoc": content => "Written from puppet on ${::hostname}" }'
+  - sudo puppet apply /home/travis/.puppet//modules/jenkins/manifests/init.pp
   - sudo cat /tmp/adhoc
   - echo Done
