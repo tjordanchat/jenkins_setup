@@ -1,6 +1,6 @@
 group { 'web':
   			  ensure => 'present',
-  			  gid    => '502',
+  			  gid    => '1000',
 }
 user { 'mitchell':
   ensure     => present,
