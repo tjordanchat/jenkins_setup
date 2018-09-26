@@ -34,13 +34,13 @@ script:
   - cat /etc/*-release 
   - ps -ef | egrep puppet
   - ps -ef | egrep docker
-  - cat /etc/passwd
   - sudo netstat -tunpl
   - env | sort
   
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
   - sudo sh -c $ROOT_DIR/bin/deploy_root
   
-  - sudo puppet apply /home/travis/.puppet//modules/jenkins/manifests/init.pp
+  - sudo puppet apply /modules/jenkins/manifests/init.pp
+  - cat /etc/passwd | sort
   - sudo cat /tmp/adhoc
   - echo Done
