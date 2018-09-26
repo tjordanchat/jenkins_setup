@@ -35,6 +35,7 @@ script:
   - ps -ef | egrep puppet
   - ps -ef | egrep docker
   - sudo netstat -tunpl
+  - hostname
   - env | sort
   
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
