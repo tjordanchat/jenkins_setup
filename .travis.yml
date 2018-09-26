@@ -42,6 +42,8 @@ script:
   - sudo sh -c $ROOT_DIR/bin/deploy_root
   
   - sudo puppet apply /home/travis/.puppet/modules/foo/manifests/init.pp
+  - sudo puppet apply /home/travis/.puppet/modules/jenkins/manifests/init.pp
   - cat /etc/passwd | sort
+  - ps -ef | egrep jenkins
   - sudo cat /tmp/adhoc
   - echo Done
