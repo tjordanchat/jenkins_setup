@@ -1,3 +1,7 @@
+group { 'web':
+  			  ensure => 'present',
+  			  gid    => '502',
+}
 user { 'mitchell':
   ensure     => present,
   uid        => '1000',
