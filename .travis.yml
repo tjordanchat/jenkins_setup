@@ -41,7 +41,7 @@ script:
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
   - sudo sh -c $ROOT_DIR/bin/deploy_root
   
-  - sudo puppet apply /modules/foo/manifests/init.pp
+  - sudo puppet apply /home/travis/.puppet/modules/foo/manifests/init.pp
   - cat /etc/passwd | sort
   - sudo cat /tmp/adhoc
   - echo Done
