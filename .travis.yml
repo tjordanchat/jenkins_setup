@@ -43,8 +43,7 @@ script:
   
   - export CDIR="$(sudo puppet config print confdir)"
   - sudo puppet apply $CDIR/modules/foo/manifests/init.pp
-  - sudo puppet apply $CDIR/modules/jenkins/manifests/init.pp
+  - sudo puppet apply $CDIR/manifests/site.pp
   - cat /etc/passwd | sort
-  - sudo puppet config print
   - ps -ef | egrep jenkins
   - echo Done
