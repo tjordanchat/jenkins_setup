@@ -39,10 +39,11 @@ script:
   - env | sort
   
   - sudo sh -c $ROOT_DIR/bin/deploy_puppet
-  - sudo sh -c $ROOT_DIR/bin/deploy_root
+  #- sudo sh -c $ROOT_DIR/bin/deploy_root
   
-  - sudo puppet apply /home/travis/.puppet/modules/foo/manifests/init.pp
-  - sudo puppet apply /home/travis/.puppet/modules/jenkins/manifests/init.pp
+  - export CDIR="$(puppet config print confdir)"
+  - sudo puppet apply $CDIR/modules/foo/manifests/init.pp
+  - sudo puppet apply $CDIR/modules/jenkins/manifests/init.pp
   - cat /etc/passwd | sort
   - sudo puppet config print
   - ps -ef | egrep jenkins
