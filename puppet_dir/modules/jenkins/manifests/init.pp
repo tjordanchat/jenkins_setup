@@ -4,7 +4,7 @@ class jenkins {
         command => 'wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add - ',
     }
     
-    # source file	    # source file
+    # source file
     file { '/etc/apt/sources.list.d/jenkins.list':
         content => "deb http://pkg.jenkins-ci.org/debian binary/\n",
         mode    => '0644',
