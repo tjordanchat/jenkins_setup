@@ -51,4 +51,5 @@ script:
   - cat /etc/passwd | sort
   - ps -ef | egrep jenkins
   - sudo netstat -tunpl
+  - sudo cat ~jenkins/.jenkins/secrets/initialAdminPassword
   - echo Done
