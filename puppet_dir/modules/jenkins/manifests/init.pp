@@ -5,12 +5,12 @@ class jenkins {
     }
     
     # source file	    # source file
-    file { '/etc/apt/sources.list.d/jenkins.list':	    file { '/etc/apt/sources.list.d/jenkins.list':
-        content => "deb http://pkg.jenkins-ci.org/debianbinary/",	        content => "deb http://pkg.jenkins-ci.org/debianbinary/\\n",
+    file { '/etc/apt/sources.list.d/jenkins.list':
+        content => "deb http://pkg.jenkins-ci.org/debian binary/\n",
         mode    => '0644',	        mode    => '0644',
         owner   => root,	        owner   => root,
         group   => root,	        group   => root,
-        require => Exec['install_jenkins_key'],	         require => Exec['install_jenkins_key'],
+        require => Exec['install_jenkins_key'],
     }
 
     # update
