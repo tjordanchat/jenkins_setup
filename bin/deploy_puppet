@@ -1,5 +1,5 @@
 set -x
-export PDIR=/home/travis/.puppet
+export PDIR="$(puppet config print confdir)"
 ls -la
 OPWD=`pwd`
 find puppet_dir -type f | while read file
