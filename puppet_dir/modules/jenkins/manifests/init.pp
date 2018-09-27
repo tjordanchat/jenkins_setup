@@ -5,8 +5,8 @@ class jenkins {
     }
 
     # source file
-    file { '/etc /apt/sources.list.d/jenkins.list':
-        content => "deb http://pkg.jenkins-ci.org/debian binary/\n",
+    file { '/etc/apt/sources.list.d/jenkins.list':
+        content => "deb http://pkg.jenkins-ci.org/debianbinary/\n",
         mode    => '0644',
         owner   => root,
         group   => root,
