@@ -55,4 +55,5 @@ script:
   - sudo find / -name hiera.yaml 2>/dev/null
   - sudo hiera --help
   - sudo facter --help
+  - sudo facter -y
   - echo Done
