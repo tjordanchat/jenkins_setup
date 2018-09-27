@@ -44,7 +44,8 @@ script:
   - sudo puppet apply $CDIR/modules/foo/manifests/init.pp
   - sudo puppet apply $CDIR/manifests/site.pp
   
-  - sudo find / -name jenkins-cli.jar -print 2>/dev/null
+  - export CLI="$( sudo find / -name jenkins-cli.jar -print 2>/dev/null | sed -n 1p )"
+  - java -jar $CLI -s http://127.0.0.1:8080/ install-plugin Pipeline
   - cat /etc/passwd | sort
   - ps -ef | egrep jenkins
   - sudo netstat -tunpl
