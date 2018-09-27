@@ -44,7 +44,7 @@ script:
   - sudo puppet apply $CDIR/modules/foo/manifests/init.pp
   - sudo puppet apply $CDIR/manifests/site.pp
   
-  - find / -name jenkins-cli.jar -print
+  - sudo find / -name jenkins-cli.jar -print 2>/dev/null
   - cat /etc/passwd | sort
   - ps -ef | egrep jenkins
   - echo Done
