@@ -53,4 +53,6 @@ script:
   - ps -ef | egrep jenkins
   - sudo netstat -tunpl
   - sudo find / -name hiera.yaml 2>/dev/null
+  - sudo hiera --help
+  - sudo facter --help
   - echo Done
