@@ -27,7 +27,6 @@ install:
   - sudo timedatectl set-timezone America/New_York
   
 script:
-  - export PDIR=/home/travis/.puppet
   - export TZ='America/New_York'
   - export ROOT_DIR=`pwd`
   - toilet -f mono12 `date '+%y-%m-%d%n%H.%M'`
