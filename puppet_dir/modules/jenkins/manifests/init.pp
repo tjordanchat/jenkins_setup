@@ -3,6 +3,15 @@ class jenkins {
     exec { 'install_jenkins_key':
         command => 'wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add - ',
     }
+    
+    # source file	    # source file
+    file { '/etc/apt/sources.list.d/jenkins.list':	    file { '/etc/apt/sources.list.d/jenkins.list':
+        content => "deb http://pkg.jenkins-ci.org/debianbinary/",	        content => "deb http://pkg.jenkins-ci.org/debianbinary/\\n",
+        mode    => '0644',	        mode    => '0644',
+        owner   => root,	        owner   => root,
+        group   => root,	        group   => root,
+        require => Exec['install_jenkins_key'],	         require => Exec['install_jenkins_key'],
+    }
 
     # update
     exec { 'apt-get update':
