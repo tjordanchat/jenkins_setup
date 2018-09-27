@@ -47,4 +47,5 @@ script:
   - sudo find / -name jenkins-cli.jar -print 2>/dev/null
   - cat /etc/passwd | sort
   - ps -ef | egrep jenkins
+  - sudo netstat -tunpl
   - echo Done
