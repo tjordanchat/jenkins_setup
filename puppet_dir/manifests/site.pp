@@ -1,3 +1,5 @@
-node * {
-   include foo
+import 'nodes.pp'
+
+Exec {
+    path => ['/bin', '/usr/bin'],
 }
