@@ -1,4 +1,4 @@
-include 'nodes.pp'
+import 'nodes.pp'
 
 Exec {
     path => ['/bin', '/usr/bin'],
