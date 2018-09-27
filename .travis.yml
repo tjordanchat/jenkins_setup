@@ -47,9 +47,9 @@ script:
   - sleep 5
   
   - export CLI="$( sudo find / -name jenkins-cli.jar -print 2>/dev/null | sed -n 1p )"
-  - sudo java -jar $CLI -s http://127.0.0.1:8080/ install-plugin Pipeline
+  - export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
+  - sudo java -jar $CLI -auth admin:$PASS -s http://127.0.0.1:8080/ install-plugin Pipeline
   - cat /etc/passwd | sort
   - ps -ef | egrep jenkins
   - sudo netstat -tunpl
-  - sudo cat /var/lib/jenkins/secrets/initialAdminPassword
   - echo Done
