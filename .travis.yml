@@ -47,5 +47,4 @@ script:
   - cat /etc/passwd | sort
   - sudo puppet config print
   - ps -ef | egrep jenkins
-  - sudo cat /tmp/adhoc
   - echo Done
