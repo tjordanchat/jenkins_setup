@@ -39,7 +39,6 @@ script:
   #- sudo sh -c bin/deploy_root
   
   - export CDIR="$(sudo puppet config print confdir)"
-  - sudo puppet apply $CDIR/modules/foo/manifests/init.pp
   - sudo puppet apply $CDIR/manifests/site.pp
   
   - sleep 5
