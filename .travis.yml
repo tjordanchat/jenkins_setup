@@ -36,7 +36,7 @@ script:
   #- env | sort
   
   - sudo sh -c bin/deploy_puppet
-  - sudo sh -c bin/deploy_root
+  #- sudo sh -c bin/deploy_root
   
   - export CDIR="$(sudo puppet config print confdir)"
   - sudo puppet apply $CDIR/modules/foo/manifests/init.pp
