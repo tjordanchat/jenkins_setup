@@ -25,3 +25,4 @@ pipeline-stage-view
 pipeline-utility-steps
 timestamper
 git
+job-dsl
