@@ -53,4 +53,5 @@ script:
   #- sudo hiera --help
   #- sudo facter --help
   #- sudo facter -y
+  - sudo git clone https://github.com/cfpb/jenkins-as-code-starter-project.git
   - echo Done
