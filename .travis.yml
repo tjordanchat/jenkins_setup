@@ -11,6 +11,7 @@ addons:
 
 install:
   - export DISPLAY=':99'
+  - export TZ='America/New_York'
   - sudo apt-get install openjdk-7-jre-headless
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
   - sudo apt-get update
@@ -26,7 +27,6 @@ install:
   - sudo puppet agent
   
 script:
-  - export TZ='America/New_York'
   - toilet -f mono12 `date '+%y-%m-%d%n%H.%M'`
   #- cat /etc/*-release 
   #- ps -ef | egrep puppet
