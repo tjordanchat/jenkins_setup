@@ -54,4 +54,5 @@ script:
   #- sudo facter --help
   #- sudo facter -y
   - sudo git clone https://github.com/cfpb/jenkins-as-code-starter-project.git
+  - sudo ./jenkins-as-code-starter-project/gradlew rest -Dusername=admin -Dpassword=$PASS -DbaseUrl=http://localhost:8080 -Dpattern=jenkins_dir/dsl/pipeline.groovy
   - echo Done
