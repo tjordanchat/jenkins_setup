@@ -55,6 +55,7 @@ script:
   #- sudo facter -y
   - sudo git clone https://github.com/cfpb/jenkins-as-code-starter-project.git
   #- cd ./jenkins-as-code-starter-project; ./gradlew rest -Dusername=admin -Dpassword=$PASS -DbaseUrl=http://localhost:8080 -Dpattern=../jenkins_dir/dsl/pipeline.groovy; cd -
+  - curl -u "admin:$PASS" 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)'
   - bin/create_job $PASS
   - sudo java -jar $CLI -auth admin:$PASS  -s http://127.0.0.1:8080 build 'Pipeline' 
   - sudo java -jar $CLI -auth admin:$PASS  -s http://127.0.0.1:8080 list-jobs 
