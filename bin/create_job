@@ -1,4 +1,6 @@
 #!/bin/bash
+set -x
+
 PASS=$1
 CRUMB=$(curl -s 'http://admin:$PASS@localhost:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
 curl -X POST -H "$CRUMB" "http://admin:$PASS@localhost:8080/createItem?name=Pipeline"
