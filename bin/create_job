@@ -1,4 +1,5 @@
 #!/bin/bash
 PASS=$1
 CRUMB=$2
-curl -s -XPOST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u "admin:$PASS" -H "$CRUMB" --data-binary @jenkins_dir/jobs/config.xml -H "Content-Type:text/xml"
+#curl -s -XPOST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u "admin:$PASS" -H "$CRUMB" --data-binary @jenkins_dir/jobs/config.xml -H "Content-Type:text/xml"
+curl -s -XPOST 'http://127.0.0.1:8080/createItem?name=Pipeline' -H "$CRUMB" --data-binary @jenkins_dir/jobs/config.xml -H "Content-Type:text/xml"
