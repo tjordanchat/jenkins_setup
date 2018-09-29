@@ -1,0 +1,4 @@
+#!/bin/bash
+
+PASS=$1
+curl -s -XPOST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u admin:$PASS --data-binary @jenkins_dir/jobs/config.xml -H "Content-Type:text/xml"
