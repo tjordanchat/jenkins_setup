@@ -26,3 +26,4 @@ pipeline-utility-steps
 timestamper
 git
 job-dsl
+configuration-as-code
