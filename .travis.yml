@@ -42,7 +42,7 @@ script:
   #- sudo git clone https://github.com/cfpb/jenkins-as-code-starter-project.git
   - sudo find . -name configure 2>/dev/null 
   #- cd ./jenkins-as-code-starter-project; ./gradlew rest -Dusername=admin -Dpassword=$PASS -DbaseUrl=http://localhost:8080 -Dpattern=../jenkins_dir/dsl/pipeline.groovy; cd -
-  - bin/create_job $PASS
+  - bin/create_job $PASS $CLI
   - sudo java -jar $CLI -auth admin:$PASS  -s http://127.0.0.1:8080 build 'Pipeline' 
   - sudo java -jar $CLI -auth admin:$PASS  -s http://127.0.0.1:8080 list-jobs 
   - echo Done
