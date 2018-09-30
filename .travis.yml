@@ -10,7 +10,7 @@ addons:
       - toilet
 
 install:
-  - export JENK="http://127.0.0.1:8080"
+  - export JENK="http://localhost:8080"
   - export DISPLAY=':99'
   - export TZ='America/New_York'
   - sudo apt-get install openjdk-7-jre-headless
