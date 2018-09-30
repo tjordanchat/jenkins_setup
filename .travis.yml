@@ -39,9 +39,10 @@ script:
   - export CLI="$( sudo find / -name jenkins-cli.jar -print 2>/dev/null | sed -n 1p )"
   - export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
   - xargs sudo java -jar $CLI -auth admin:$PASS -s http://127.0.0.1:8080 install-plugin < jenkins_dir/plugins.list
-  - sudo git clone https://github.com/cfpb/jenkins-as-code-starter-project.git
+  #- sudo git clone https://github.com/cfpb/jenkins-as-code-starter-project.git
   #- cd ./jenkins-as-code-starter-project; ./gradlew rest -Dusername=admin -Dpassword=$PASS -DbaseUrl=http://localhost:8080 -Dpattern=../jenkins_dir/dsl/pipeline.   groovy; cd -
-  - bin/create_job $PASS
-  - sudo java -jar $CLI -auth admin:$PASS  -s http://127.0.0.1:8080 build 'Pipeline' 
-  - sudo java -jar $CLI -auth admin:$PASS  -s http://127.0.0.1:8080 list-jobs 
+  #- bin/create_job $PASS
+  - CRUMB=$( wget -q --auth-no-challenge --user admin --password $PASS --output-document - 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' )
+  - curl -s -X POST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u admin:$PASS --data-binary @jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:text/xml"
+  - sudo java -jar $CLI -auth admin:$PASS -s http://127.0.0.1:8080 build 'Pipeline' 
   - echo Done
