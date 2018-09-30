@@ -4,5 +4,7 @@ set -x
 PASS=$1
 CLI=$2
 CRUMB=$( wget -q --auth-no-challenge --user admin --password $PASS --output-document - 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' )
+
+sudo ls -l /var/lib
 curl -s -X POST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u admin:$PASS --data-binary @jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:text/xml"
 java -jar $CLI -s http://127.0.0.1:8080 create-job Pipeline -auth admin:$PASS < jenkins_dir/jobs/config.xml
