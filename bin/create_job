@@ -2,5 +2,6 @@
 set -x
 
 PASS=$1
-CRUMB=$(curl -s 'http://admin:$PASS@127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
+#CRUMB=$(curl -s 'http://admin:$PASS@127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
+CRUMB=$( wget -q --auth-no-challenge --user admin --password $PASS --output-document - 'http://192.168.99.20:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' )
 curl -X POST -H "$CRUMB" "http://admin:$PASS@127.0.0.1:8080/createItem?name=Pipeline"
