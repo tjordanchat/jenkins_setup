@@ -10,7 +10,6 @@ addons:
       - toilet
 
 install:
-  - export JENK="http://localhost:8080"
   - export DISPLAY=':99'
   - export TZ='America/New_York'
   - sudo apt-get install openjdk-7-jre-headless
@@ -18,7 +17,7 @@ install:
   - sudo apt-get update
   - wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
   - sudo dpkg --force-all -i puppetlabs-release-trusty.deb
-  - sudo apt-get -y install ntp
+  - sudo apt-get -y install ntp 
   - sudo apt-get update
   - sudo apt-get install puppetmaster
   - sudo apt-get update
@@ -35,15 +34,14 @@ script:
   - export CDIR="$(sudo puppet config print confdir)"
   - sudo puppet apply $CDIR/manifests/site.pp
   
-  - sleep 10
+  - sleep 5
   
-  - cd bin; wget $JENK/jnlpJars/jenkins-cli.jar; cd -
-  - export CLI=`pwd`/bin/jenkins-cli.jar
+  - export CLI="$( sudo find / -name jenkins-cli.jar -print 2>/dev/null | sed -n 1p )"
   - export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
   - xargs sudo java -jar $CLI -auth admin:$PASS -s http://127.0.0.1:8080 install-plugin < jenkins_dir/plugins.list
-  #- sudo git clone https://github.com/cfpb/jenkins-as-code-starter-project.git 
-  #- cd ./jenkins-as-code-starter-project; ./gradlew rest -Dusername=admin -Dpassword=$PASS -DbaseUrl=http://localhost:8080 -Dpattern=../jenkins_dir/dsl/pipeline.groovy; cd -
-  - bin/create_job $PASS $CLI
+  - sudo git clone https://github.com/cfpb/jenkins-as-code-starter-project.git
+  #- cd ./jenkins-as-code-starter-project; ./gradlew rest -Dusername=admin -Dpassword=$PASS -DbaseUrl=http://localhost:8080 -Dpattern=../jenkins_dir/dsl/pipeline.   groovy; cd -
+  - bin/create_job $PASS
   - sudo java -jar $CLI -auth admin:$PASS  -s http://127.0.0.1:8080 build 'Pipeline' 
   - sudo java -jar $CLI -auth admin:$PASS  -s http://127.0.0.1:8080 list-jobs 
   - echo Done
