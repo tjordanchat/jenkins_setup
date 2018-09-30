@@ -10,6 +10,7 @@ addons:
       - toilet
 
 install:
+  - export JENK="http://127.0.0.1:8080"
   - export DISPLAY=':99'
   - export TZ='America/New_York'
   - sudo apt-get install openjdk-7-jre-headless
@@ -36,7 +37,7 @@ script:
   
   - sleep 10
   
-  - sudo cp /var/cache/jenkins/war/WEB-INF/jenkins-cli.jar bin
+  - cd bin; wget $JENK/jnlpJars/jenkins-cli.jar; cd -
   - export CLI=`pwd`/bin/jenkins-cli.jar
   - export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
   - xargs sudo java -jar $CLI -auth admin:$PASS -s http://127.0.0.1:8080 install-plugin < jenkins_dir/plugins.list
