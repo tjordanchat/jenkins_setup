@@ -9,7 +9,7 @@
         <script>
 node {
     currentBuild.result = "SUCCESS"
-    sh 'date'
+    sh date
 }
       </script>
         <sandbox>true</sandbox>
