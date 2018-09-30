@@ -28,7 +28,11 @@ install:
   
 script:
   - toilet -f mono12 `date '+%y-%m-%d%n%H.%M'`
-  
+  - export JENKINS_HOME=/var/lib/jenkins
+  - sudo service jenkins stop
+  - rm -rf $JENKINS_HOME/config.xml
+  - sudo service jenkins start
+  - sleep 5
   - sudo sh -c bin/deploy_puppet
   
   - export CDIR="$(sudo puppet config print confdir)"
