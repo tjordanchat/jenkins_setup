@@ -35,8 +35,8 @@ script:
   - sudo puppet apply $CDIR/manifests/site.pp
   
   - sleep 5
-  - sudo wget http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
-  - export CLI="$(pwd)/jenkins-cli.jar"
+  
+  - export CLI="$( sudo find / -name jenkins-cli.jar -print 2>/dev/null | sed -n 1p )"
   - export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
   - xargs sudo java -jar $CLI -auth admin:$PASS -s http://127.0.0.1:8080 install-plugin < jenkins_dir/plugins.list
   - sudo git clone https://github.com/cfpb/jenkins-as-code-starter-project.git
