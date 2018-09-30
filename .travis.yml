@@ -34,7 +34,7 @@ script:
   - export CDIR="$(sudo puppet config print confdir)"
   - sudo puppet apply $CDIR/manifests/site.pp
   
-  - sleep 5
+  - sleep 8
   
   - sudo cp /var/cache/jenkins/war/WEB-INF/jenkins-cli.jar bin
   - export CLI=`pwd`/bin/jenkins-cli.jar
