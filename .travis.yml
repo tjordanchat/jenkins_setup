@@ -40,7 +40,7 @@ script:
   - export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
   - xargs sudo java -jar $CLI -auth admin:$PASS -s http://127.0.0.1:8080 install-plugin < jenkins_dir/plugins.list
   #- sudo git clone https://github.com/cfpb/jenkins-as-code-starter-project.git
-  - sudo cat /var/lib/jenkins/configure 
+  - sudo find . -name configure 2>/dev/null 
   #- cd ./jenkins-as-code-starter-project; ./gradlew rest -Dusername=admin -Dpassword=$PASS -DbaseUrl=http://localhost:8080 -Dpattern=../jenkins_dir/dsl/pipeline.groovy; cd -
   - bin/create_job $PASS
   - sudo java -jar $CLI -auth admin:$PASS  -s http://127.0.0.1:8080 build 'Pipeline' 
