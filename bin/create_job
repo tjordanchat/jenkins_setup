@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 
 PASS=$1
 CLI=$2
