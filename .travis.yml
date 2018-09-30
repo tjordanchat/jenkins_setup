@@ -32,8 +32,6 @@ script:
   - sudo sh -c bin/deploy_puppet
   
   - export CDIR="$(sudo puppet config print confdir)"
-  - echo $CDIR
-  - sudo ls -l #CDIR/jobs
   - sudo puppet apply $CDIR/manifests/site.pp
   
   - sleep 5
