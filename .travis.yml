@@ -27,7 +27,6 @@ install:
   - sudo puppet agent
   
 script:
-  - set -x
   - toilet -f mono12 `date '+%y-%m-%d%n%H.%M'`
   
   - sudo sh -c bin/deploy_puppet
