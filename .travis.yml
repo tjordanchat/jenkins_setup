@@ -47,9 +47,8 @@ script:
   #- sudo git clone https://github.com/cfpb/jenkins-as-code-starter-project.git
   #- cd ./jenkins-as-code-starter-project; ./gradlew rest -Dusername=admin -Dpassword=$PASS -DbaseUrl=http://localhost:8080 -Dpattern=../jenkins_dir/dsl/pipeline.   groovy; cd -
   #- bin/create_job $PASS
-  - sudo cat /var/lib/jenkins/config.xml
-  - sudo ls /var/lib/jenkins/jobs/
-  - sudo ls -l /var/lib/jenkins/jobs/Pipeline
+  - sudo mkdir -p /var/lib/jenkins/jobs/Pipeline /var/lib/jenkins/jobs/Pipeline
+  - sudo cp jenkins_dir/jobs/config.xml 
   - curl -s -X POST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u admin:$PASS --data-binary @jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:text/xml"
   - sudo java -jar $CLI -auth admin:$PASS -s http://127.0.0.1:8080 build 'Pipeline' 
   - echo Done
