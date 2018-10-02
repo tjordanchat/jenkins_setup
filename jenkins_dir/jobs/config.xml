@@ -1,17 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<flow-definition>
-    <actions/>
-    <description/>
-    <keepDependencies>false</keepDependencies>
-    <properties/>
-    <triggers/>
-    <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition">
-        <script>
-node {
-    currentBuild.result = "SUCCESS"
-    sh date
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.25">
+  <description>description</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.55">
+    <script>node(&quot;linux &amp;&amp; jdk8&quot;) {
+    stage &quot;Checkout&quot;
+    git url: &quot;https://github.com/instil/jenkins-pipeline-dsl-plugin&quot;
+    
+    stage &quot;Build/Analyse/Test&quot;
+    sh &quot;./gradlew clean build&quot;
+    archiveUnitTestResults()
+    archiveCheckstyleResults()
+    
+    stage &quot;Generate AMI&quot;
+    sh &quot;./gradlew boxfuseFuse&quot;
+    
+    stage name: &quot;Deploy to AWS&quot;, concurrency: 1
+    sh &quot;./gradlew boxfuseRun&quot;
 }
-        </script>
-        <sandbox>true</sandbox>
-    </definition>
+
+def archiveUnitTestResults() {
+    step([$class: &quot;JUnitResultArchiver&quot;, testResults: &quot;build/**/TEST-*.xml&quot;])
+}
+
+def archiveCheckstyleResults() {
+    step([$class: &quot;CheckStylePublisher&quot;,
+          canComputeNew: false,
+          defaultEncoding: &quot;&quot;,
+          healthy: &quot;&quot;,
+          pattern: &quot;build/reports/checkstyle/main.xml&quot;,
+          unHealthy: &quot;&quot;])
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
 </flow-definition>
