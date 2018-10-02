@@ -6,12 +6,10 @@
     <properties/>
     <triggers/>
     <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition">
-        <script>
-node {
+        <script>node {
     currentBuild.result = "SUCCESS"
     sh date
-}
-      </script>
+}</script>
         <sandbox>true</sandbox>
     </definition>
 </flow-definition>
