@@ -48,6 +48,7 @@ script:
   #- sudo curl -v -s -X POST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u admin:$PASS --data-binary @jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:text/xml"
   - sudo nl -ba < /home/travis/.travis/job_stages
   #- sudo java -jar $CLI -auth admin:$PASS -s http://127.0.0.1:8080 create-job Pipeline < jenkins_dir/jobs/config.xml
+  - echo - curl --user admin:$PASS -d "$CRUMB" --data-urlencode "script=$(<./jenkins_dir/dsl/pipeline.groovy)" http://127.0.0.1:8080/scriptTex
   - curl --user admin:$PASS -d "$CRUMB" --data-urlencode "script=$(<./jenkins_dir/dsl/pipeline.groovy)" http://127.0.0.1:8080/scriptTex
   - sudo java -jar $CLI -auth admin:$PASS -s http://127.0.0.1:8080 build 'Pipeline' 
   - echo Done
