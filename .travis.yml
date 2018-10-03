@@ -36,7 +36,6 @@ script:
   - sudo puppet apply $CDIR/manifests/site.pp
   
   - sleep 5
-  - set -x
   - export CLI="$( sudo find / -name jenkins-cli.jar -print 2>/dev/null | sed -n 1p )"
   - export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
   - export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
