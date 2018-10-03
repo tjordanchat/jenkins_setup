@@ -46,7 +46,7 @@ script:
   - sudo ps -ef
   - sudo netstat -tunlp
   #- sudo curl -v -s -X POST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u admin:$PASS --data-binary @jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:text/xml"
-  - sudo nl < /home/travis/.travis/job_stages
+  - sudo nl -ba < /home/travis/.travis/job_stages
   - sudo java -jar $CLI -auth admin:$PASS -s http://127.0.0.1:8080 create-job Pipeline < jenkins_dir/jobs/config.xml
   - sudo java -jar $CLI -auth admin:$PASS -s http://127.0.0.1:8080 build 'Pipeline' 
   - echo Done
