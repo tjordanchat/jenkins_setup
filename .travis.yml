@@ -43,7 +43,13 @@ script:
   - xargs sudo java -jar $CLI -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < jenkins_dir/plugins.list
   - export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
   #- curl --user admin:$PASS -d "$CRUMB" --data-urlencode "script=$(<./jenkins_dir/dsl/pipeline.groovy)" http://127.0.0.1:8080/scriptText
-  - curl -s -XPOST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u admin:$PASS --data-binary @./jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:application/xml"
+  #- curl -s -XPOST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u admin:$PASS --data-binary @./jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:application/xml"
+  - sudo mkdir -p /var/lib/jenkins/jobs/Pipeline
+  - sudo cp ./jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/Pipeline
+  - sudo chown jenkins /var/lib/jenkins/jobs/Pipeline
+  - sudo chown jenkins /var/lib/jenkins/jobs/Pipeline/config.xml
+  - sudo /etc/init.d/jenkins safeRestart
+  - sleep 5
   - echo "CRUMB=$CRUMB"
   - sudo ls -l /var/lib/jenkins/jobs/Pipeline
   - sudo java -jar "$CLI" -auth "admin:$PASS" -s http://127.0.0.1:8080 build 'Pipeline' 
