@@ -49,6 +49,7 @@ script:
   - sudo chown jenkins /var/lib/jenkins/jobs/Pipeline
   - sudo chown jenkins /var/lib/jenkins/jobs/Pipeline/config.xml
   - sudo /etc/init.d/jenkins force-reload
+  - sudo /etc/init.d/jenkins restart
   - sleep 5
   - echo "CRUMB=$CRUMB"
   - sudo ls -l /var/lib/jenkins/jobs/Pipeline
