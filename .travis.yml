@@ -55,6 +55,6 @@ script:
   - sudo ps -ef | egrep jenkins
   - sudo netstat -tunpl
   - sudo curl -H ".crumb:$CRUMB" -X POST http://127.0.0.1:8080/job/Pipeline/build --user admin:$PASS
-  - sudo curl -s http://127.0.0.1:8080/job/Pipeline/lastBuild/api/json --user admin:$PASS
+  - sudo curl -H ".crumb:$CRUMB" -X POST http://127.0.0.1:8080/computer/api/xml?tree=computer[executors[currentExecutable[url]],oneOffExecutors[currentExecutable[url]]]&xpath=//url&wrapper=builds
   #- sudo java -jar "$CLI" -auth "admin:$PASS" -remoting -s http://127.0.0.1:8080 list-jobs
   - echo Done
