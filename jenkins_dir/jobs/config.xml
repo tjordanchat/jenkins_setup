@@ -5,7 +5,7 @@
     <keepDependencies>false</keepDependencies>
     <properties/>
     <triggers/>
-    <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition">
+    <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition">
       <script>
 node {
     currentBuild.result = "SUCCESS"
