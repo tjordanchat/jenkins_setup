@@ -52,6 +52,7 @@ script:
   - sudo /etc/init.d/jenkins restart
   - sleep 5
   - echo "CRUMB=$CRUMB"
-  - sudo ls -l /var/lib/jenkins/jobs/Pipeline
+  - sudo ps -ef | egrep jenkins
+  - sudo netstat -tunpl
   - sudo java -jar "$CLI" -auth "admin:$PASS" -remoting -s http://127.0.0.1:8080 build 'Pipeline' 
   - echo Done
