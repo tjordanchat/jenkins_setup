@@ -34,6 +34,7 @@ script:
   
   - export CDIR="$(sudo puppet config print confdir)"
   - sudo puppet apply $CDIR/manifests/site.pp
+  - sudo ls -l /etc/init.d
   
   - sleep 5
   - export CLI="$( sudo find / -name jenkins-cli.jar -print 2>/dev/null | sed -n 1p )"
@@ -41,10 +42,8 @@ script:
   - export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
   - xargs sudo java -jar $CLI -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < jenkins_dir/plugins.list
   - export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
-  - set -x
   #- curl --user admin:$PASS -d "$CRUMB" --data-urlencode "script=$(<./jenkins_dir/dsl/pipeline.groovy)" http://127.0.0.1:8080/scriptText
   - curl -s -XPOST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u admin:$PASS --data-binary @./jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:application/xml"
-  - set +x
   - echo "CRUMB=$CRUMB"
   - sudo ls -l /var/lib/jenkins/jobs/Pipeline
   - sudo java -jar "$CLI" -auth "admin:$PASS" -s http://127.0.0.1:8080 build 'Pipeline' 
