@@ -54,5 +54,5 @@ script:
   - echo "CRUMB=$CRUMB"
   - sudo ps -ef | egrep jenkins
   - sudo netstat -tunpl
-  - sudo java -jar "$CLI" -auth "admin:$PASS" -remoting -s http://127.0.0.1:8080 build 'Pipeline' 
+  - sudo java -jar "$CLI" -auth "admin:$PASS" -remoting -s http://127.0.0.1:8080 list-jobs
   - echo Done
