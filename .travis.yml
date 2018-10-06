@@ -54,5 +54,6 @@ script:
   - echo "CRUMB=$CRUMB"
   - sudo ps -ef | egrep jenkins
   - sudo netstat -tunpl
+  - sudo curl -H ".crumb:$CRUMB" -X POST http://127.0.0.1:8080/job/Pipeline/build --user admin:$PASS
   - sudo java -jar "$CLI" -auth "admin:$PASS" -remoting -s http://127.0.0.1:8080 list-jobs
   - echo Done
