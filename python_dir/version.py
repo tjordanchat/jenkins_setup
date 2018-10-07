@@ -1,4 +1,7 @@
 from jenkinsapi.jenkins import Jenkins
+import sys
+
+print 'First argument is:', sys.argv[1]
 
 def get_server_instance():
    jenkins_url = 'http://127.0.0.1:8080'
