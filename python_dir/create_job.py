@@ -16,10 +16,3 @@ job = jenkins.create_job(jobname=job_name, xml=xml)
 # Get job from Jenkins by job name
 my_job = jenkins[job_name]
 print(my_job)
-
-# Delete job using method in Jenkins class
-#
-# Another way is to use:
-#
-# del jenkins[job_name]
-jenkins.delete_job(job_name)
