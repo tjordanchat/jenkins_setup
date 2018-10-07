@@ -56,6 +56,6 @@ script:
   - sudo netstat -tunpl
   - sudo curl -H ".crumb:$CRUMB" -X POST http://127.0.0.1:8080/job/Pipeline/build --user admin:$PASS
   - sleep 5
-  - sudo curl -H ".crumb:$CRUMB" -X POST http://127.0.0.1:8080/job/Pipeline/api/xml
+  - sudo curl -H "$CRUMB" -X POST http://127.0.0.1:8080/job/Pipeline/api/xml
   #- sudo java -jar "$CLI" -auth "admin:$PASS" -remoting -s http://127.0.0.1:8080 list-jobs
   - echo Done
