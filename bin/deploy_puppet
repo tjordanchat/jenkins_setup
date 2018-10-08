@@ -1,7 +1,6 @@
 set -x
+cd jenkins_setup
 export PDIR="$(sudo puppet config print confdir)"
-ls -la
-OPWD=`pwd`
 find puppet_dir -type f | while read file
 do
 	F=$(echo $file | sed "s#puppet_dir##")
@@ -9,4 +8,3 @@ do
 	sudo mkdir -p $PDIR/$D
 	sudo cp $file $PDIR/$F
 done
-cd $OPWD
