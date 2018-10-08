@@ -14,8 +14,8 @@ apt-get update
 apt-get -y install xvfb
 apt-get update
 Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
-dpkg --force-all -i puppetlabs-release-trusty.deb
+#wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
+#dpkg --force-all -i puppetlabs-release-trusty.deb
 apt-get -y install ntp 
 apt-get update
 apt-get -y install puppetmaster
