@@ -6,5 +6,5 @@ do
 	F=$(echo $file | sed "s#puppet_dir##")
 	D=$(dirname $F)
 	sudo mkdir -p $PDIR/$D
-	sudo cp $file $PDIR/$F
+	sudo cp -f $file $PDIR/$F
 done
