@@ -9,7 +9,7 @@ export TZ='America/New_York'
 git clone https://github.com/tjordanchat/jenkins_setup.git
 apt-get update
 apt-get -y install openjdk-8-jre-headless
-export PATH=$PATH:/usr/lib/jvm/java-11-openjdk-amd64/bin
+export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 apt-get update
 apt-get -y install xvfb
 apt-get update
