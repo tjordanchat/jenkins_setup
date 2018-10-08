@@ -6,6 +6,7 @@
 set -x
 export DISPLAY=':99'
 export TZ='America/New_York'
+git clone https://github.com/tjordanchat/jenkins_setup.git
 apt-get update
 apt-get -y install openjdk-7-jre-headless
 apt-get update
@@ -34,12 +35,11 @@ cp ~/.ssh/authorized_keys ~myuser/.ssh
 chown ~myuser/.ssh/authorized_keys
 chmod 600 ~myuser/.ssh/authorized_keys
 export JENKINS_HOME=/var/lib/jenkins
-curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/bin/deploy_puppet | sh
+./bin/deploy_puppet
 export CDIR="$(sudo puppet config print confdir)"
 puppet apply $CDIR/manifests/site.pp
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
-curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/jenkins_dir/plugins.list |
-   xargs java -jar $CLI -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin
+xargs java -jar $CLI -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_dir/plugins.list
 
 sleep 5
 ps -ef | egrep jenkins
