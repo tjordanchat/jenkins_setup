@@ -23,7 +23,8 @@ apt-get -y install python-jenkinsapi
 apt-get update
 apt-get -y install puppet
 apt-get update
-apt-get install openjdk-11-jre-headless
+apt-get -y install openjdk-11-jre-headless
+apt-get update
 puppet resource package puppetmaster ensure=latest
 puppet resource service puppetmaster ensure=running enable=true
 puppet agent
