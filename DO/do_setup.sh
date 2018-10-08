@@ -3,6 +3,7 @@
 # Run this script as root: 
 # curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/DO/do_setup.sh | sh
 
+set -x
 export DISPLAY=':99'
 export TZ='America/New_York'
 apt-get update
