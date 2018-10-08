@@ -42,6 +42,7 @@ export CDIR="$(sudo puppet config print confdir)"
 puppet apply $CDIR/manifests/site.pp
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
 xargs java -jar $CLI -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_setup/jenkins_dir/plugins.list
+rm -rf jenkins_setup
 
 sleep 5
 ps -ef | egrep jenkins
