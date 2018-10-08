@@ -22,8 +22,6 @@ apt-get update
 #apt-get update
 #apt-get -y install puppet
 #apt-get update
-apt-get -y install openjdk-11-jre-headless
-apt-get update
 puppet resource package puppetmaster ensure=latest
 puppet resource service puppetmaster ensure=running enable=true
 puppet agent
@@ -38,7 +36,6 @@ chmod 600 ~myuser/.ssh/authorized_keys
 cp -f ./jenkins_setup/.bashrc ./jenkins_setup/.vimrc .
 export JENKINS_HOME=/var/lib/jenkins
 #./jenkins_setup/bin/deploy_puppet
-export CDIR="$(sudo puppet config print confdir)"
 wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 sudo apt-get update
