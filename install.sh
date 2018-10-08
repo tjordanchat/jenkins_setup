@@ -42,7 +42,7 @@ export CDIR="$(sudo puppet config print confdir)"
 wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 sudo apt-get update
-sudo apt-get install jenkins
+sudo apt-get -y install jenkins
 sleep 5
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
 xargs java -jar $CLI -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_setup/jenkins_dir/plugins.list
