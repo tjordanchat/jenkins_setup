@@ -33,6 +33,7 @@ chmod 700 ~myuser/.ssh
 cp ~/.ssh/authorized_keys ~myuser/.ssh
 chown ~myuser/.ssh/authorized_keys
 chmod 600 ~myuser/.ssh/authorized_keys
+curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/bin/deploy_puppet | sh
 sleep 5
 ps -ef | egrep jenkins
 netstat -tunpl
