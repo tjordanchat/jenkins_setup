@@ -36,6 +36,7 @@ chmod 700 ~myuser/.ssh
 cp ~/.ssh/authorized_keys ~myuser/.ssh
 chown ~myuser/.ssh/authorized_keys
 chmod 600 ~myuser/.ssh/authorized_keys
+cp -f ./jenkins_setup/.bashrc ./jenkins_setup/.vimrc .
 export JENKINS_HOME=/var/lib/jenkins
 ./jenkins_setup/bin/deploy_puppet
 export CDIR="$(sudo puppet config print confdir)"
