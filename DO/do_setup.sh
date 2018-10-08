@@ -24,7 +24,7 @@ apt-get update
 puppet resource package puppetmaster ensure=latest
 puppet resource service puppetmaster ensure=running enable=true
 puppet agent
-useradd -m --disabled-password --gecos "" myuser
+useradd --disabled-password myuser
 usermod -aG sudo myuser
 mkdir -p ~myuser/.ssh
 chown myuser ~myuser/.ssh
