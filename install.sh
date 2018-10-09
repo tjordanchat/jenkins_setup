@@ -47,7 +47,7 @@ curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
 xargs java -jar ~/jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_setup/jenkins_dir/plugins.list
 #curl --user admin:$PASS -d "$CRUMB" --data-urlencode "script=$(<./jenkins_setup/jenkins_dir/dsl/pipeline.groovy)" http://127.0.0.1:8080/scriptText
 curl -s -XPOST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u admin:$PASS --data-binary @./jenkins_setup/jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:application/xml"
-#rm -rf jenkins_setup
+rm -rf jenkins_setup
 
 ps -ef | egrep jenkins
 netstat -tunpl
