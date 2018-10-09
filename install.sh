@@ -18,10 +18,10 @@ wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
 dpkg --force-all -i puppetlabs-release-trusty.deb
 apt-get -y install ntp 
 apt-get update
-#apt-get -y install puppetmaster
-#apt-get update
-#apt-get -y install puppet
-#apt-get update
+apt-get -y install puppetmaster
+apt-get update
+apt-get -y install puppet
+apt-get update
 puppet resource package puppetmaster ensure=latest
 puppet resource service puppetmaster ensure=running enable=true
 puppet agent
