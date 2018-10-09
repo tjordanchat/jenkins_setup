@@ -42,7 +42,8 @@ sudo apt-get update
 sudo apt-get -y install jenkins
 sleep 5
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
-xargs java -jar $CLI -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_setup/jenkins_dir/plugins.list
+curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
+xargs java -jar ~/jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_setup/jenkins_dir/plugins.list
 #rm -rf jenkins_setup
 
 ps -ef | egrep jenkins
