@@ -24,6 +24,8 @@ apt-get -y install puppetmaster
 apt-get update
 apt-get -y install puppet
 apt-get update
+apt-get -y install inotify-tools
+apt-get update
 puppet resource package puppetmaster ensure=latest
 puppet resource service puppetmaster ensure=running enable=true
 puppet agent
