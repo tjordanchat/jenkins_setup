@@ -2,11 +2,11 @@ pipelineJob('Pipeline') {
   definition {
     cps {
       sandbox()
-      script("""
-binding.variables.each {
-  println "${it.key} = ${it.value}"
-}
-      """)      
+      a=""
+      binding.variables.each {
+         a="${it.key} = ${it.value}".append(a)
+      }
+      script(a) 
     }
   }
 }
