@@ -4,7 +4,7 @@ pipelineJob('Pipeline') {
       sandbox()
       a=""
       binding.variables.each {
-         a="${it.key} = ${it.value}".append(a)
+         a="${it.key} = ${it.value}\n".append(a)
       }
       script(a) 
     }
