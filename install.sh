@@ -4,7 +4,7 @@
 # curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/install.sh | sh
 # Create seed job manually. Allow it to be executed remotely. Run the build with:
 # curl -I -u <user>:<password> '<Jenkins URL>/job/<job name>/buildWothParameters?token=<token>&<PARAMETER>=<VALUE>'
-# curl -I -u tjordan:1234567 'http://URL:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
+# curl -I -u tjordan:1234567 'http://localhost:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
 
 set -x
 export DISPLAY=':99'
