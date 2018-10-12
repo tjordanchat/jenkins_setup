@@ -1,12 +1,17 @@
+url=""
+binding.variables.each {
+   if ( "${it.key}" == "URL" ) {
+      url="${it.value}"
+   }
+}
+
 pipelineJob('Pipeline') {
+  scm {
+        git('git:'+url)
+  }
   definition {
     cps {
       sandbox()
-      binding.variables.each {
-         if ( "${it.key}" == "URL" ) {
-            url="${it.value}"
-         }
-      }
       script("def URL = '"+url+"'") 
     }
   }
