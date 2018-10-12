@@ -4,7 +4,8 @@ pipelineJob('Pipeline') {
       sandbox()
       binding.variables.each {
          if ( "${it.key}" == "URL" ) {
-         url="${it.value}"
+            url="${it.value}"
+         }
       }
       script("def URL = '"+url+"'") 
     }
