@@ -2,11 +2,11 @@ pipelineJob('Pipeline') {
   definition {
     cps {
       sandbox()
-      a=""
       binding.variables.each {
-         a+="${it.key} = ${it.value}\n"
+         if ( "${it.key}" == "URL" ) {
+         url="${it.value}"
       }
-      script(a) 
+      script("def URL = '"+url+"'") 
     }
   }
 }
