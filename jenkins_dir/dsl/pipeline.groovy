@@ -1,4 +1,4 @@
-pipelineJob('Pipeline') {
+pipelineJob('seed') {
   definition {
     cps {
       sandbox()
