@@ -8,7 +8,7 @@ binding.variables.each {
 pipelineJob('Pipeline') {
     description 'Build and test the app.'
     scm {
-        github 'tjordanchat/jenkins_setup'
+        github "'"+url+"'"
     }
     triggers {
         scm('H/15 * * * *')
