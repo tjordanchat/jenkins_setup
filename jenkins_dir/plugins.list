@@ -27,3 +27,5 @@ timestamper
 git
 job-dsl
 configuration-as-code
+cloudbees-folder
+digitalocean-plugin
