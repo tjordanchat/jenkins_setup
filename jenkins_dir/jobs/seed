@@ -10,6 +10,9 @@ pipelineJob('Pipeline') {
     scm {
         github 'tjordanchat/jenkins_setup'
     }
+    triggers {
+        scm('H/15 * * * *')
+    }
   }
   definition {
     cps {
