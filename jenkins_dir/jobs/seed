@@ -13,11 +13,10 @@ pipelineJob('Pipeline') {
     triggers {
         scm('H/15 * * * *')
     }
-  }
-  definition {
-    cps {
-      sandbox()
-      script("def URL = '"+url+"'") 
+    definition {
+       cps {
+          sandbox()
+          script("def URL = '"+url+"'") 
+       }
     }
-  }
 }
