@@ -16,7 +16,33 @@ pipelineJob('Pipeline') {
     definition {
        cps {
           sandbox()
-          script("def URL = '"+url+"'") 
+          script("""
+          #!groovy
+
+node {
+
+    currentBuild.result = "SUCCESS"
+    sh 'date'
+
+    try {
+
+    	timestamps {
+        
+       stage 'Pull Sourse Code'
+         
+            echo 'Pull Source Code'
+            git url: ""+url+""
+
+       stage 'Parse Message'
+
+            def commit = sh(script: 'git rev-parse HEAD', returnStdout: true)
+            def message = sh(script: "git log --format=%B -n 1 ${commit}", returnStdout: true)
+            def author = sh(script: "git --no-pager show -s --format='%ae' ${commit}", returnStdout: true)
+            def items = message.findAll(/[A-Z]{2,10}-[0-9]+/).unique()
+     }
+   }
+}
+          """) 
        }
     }
 }
