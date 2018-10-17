@@ -6,8 +6,10 @@ binding.variables.each {
 }
 
 pipelineJob('Pipeline') {
-  scm {
-        git('git:'+url)
+    description 'Build and test the app.'
+    scm {
+        github 'tjordanchat/jenkins_setup'
+    }
   }
   definition {
     cps {
