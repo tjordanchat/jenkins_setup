@@ -5,7 +5,7 @@ binding.variables.each {
    }
 }
 
-pipelineJob(url) {
+pipelineJob('Pipeline') {
     description 'Build and test the app.'
     scm {
         github "'"+url+"'"
