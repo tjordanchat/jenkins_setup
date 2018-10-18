@@ -38,7 +38,7 @@ node {
        stage 'Generate Dockerfile'
         
             echo 'Generate Dockerfile'
-            sh '~/bin/generate_dockerfile'
+            sh 'pwd; ls -l'
     }
 }
           """) 
