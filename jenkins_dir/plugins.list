@@ -29,3 +29,11 @@ job-dsl
 configuration-as-code
 cloudbees-folder
 digitalocean-plugin
+ws-cleanup
+subversion
+ldap
+build-timeout
+ant
+ssh-slaves
+email-ext
+gradle
