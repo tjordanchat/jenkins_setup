@@ -11,6 +11,7 @@ set -x
 export DISPLAY=':99'
 export TZ='America/New_York'
 git clone https://github.com/tjordanchat/jenkins_setup.git
+chmod -R +rx ./jenkins_setup 
 apt-get update
 apt-get -y install openjdk-8-jre-headless
 export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
