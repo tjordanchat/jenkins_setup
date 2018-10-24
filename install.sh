@@ -51,12 +51,13 @@ inotifywait -e close_write /var/lib/jenkins/secrets
 sudo add-apt-repository ppa:rmescandon/yq
 sudo apt update
 sudo apt install yq -y
+sleep 8
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
 export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
 xargs java -jar ~/jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_setup/jenkins_dir/plugins.list
 su -c "mkdir -p /var/lib/jenkins/seed" jenkins
-su cp ./jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/seed
+su -c "cp ./jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/seed" jenkins
 /etc/init.d/jenkins restart
 #java -jar jenkins-cli.jar -auth "admin:$PASS" -s http://localhost:8080/ create-job seed < ./jenkins_setup/jenkins_dir/jobs/config.xml
 #curl --user admin:$PASS -d "$CRUMB" --data-urlencode "script=$(<./jenkins_setup/jenkins_dir/dsl/pipeline.groovy)" http://127.0.0.1:8080/scriptText
@@ -66,3 +67,4 @@ su cp ./jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/seed
 ps -ef | egrep jenkins
 netstat -tunpl
 cat /etc/passwd
+echo $PASS
