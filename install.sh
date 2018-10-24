@@ -11,7 +11,7 @@ set -x
 export DISPLAY=':99'
 export TZ='America/New_York'
 git clone https://github.com/tjordanchat/jenkins_setup.git
-chmod -R +rx ./jenkins_setup 
+chmod -R +rx . 
 apt-get update
 apt-get -y install openjdk-8-jre-headless
 export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
@@ -58,7 +58,7 @@ export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(/
 curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
 xargs java -jar ~/jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_setup/jenkins_dir/plugins.list
 su -c "mkdir -p /var/lib/jenkins/seed" jenkins
-su -c "cp ./jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/seed" jenkins
+su -c "cp /root/jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/seed" jenkins
 /etc/init.d/jenkins restart
 #java -jar jenkins-cli.jar -auth "admin:$PASS" -s http://localhost:8080/ create-job seed < ./jenkins_setup/jenkins_dir/jobs/config.xml
 #curl --user admin:$PASS -d "$CRUMB" --data-urlencode "script=$(<./jenkins_setup/jenkins_dir/dsl/pipeline.groovy)" http://127.0.0.1:8080/scriptText
@@ -69,3 +69,4 @@ ps -ef | egrep jenkins
 netstat -tunpl
 cat /etc/passwd
 echo $PASS
+ifconfig eth0 | egrep inet 
