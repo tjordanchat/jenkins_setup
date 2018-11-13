@@ -12,7 +12,13 @@ addons:
 script:
   - curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/install.sh | sh
   - echo Done
-  
+
+before_deploy:
+      # Set up git user name and tag this commit
+      - git config --local user.name "tjordanchat"
+      - git config --local user.email "tjordanchat@gmail.com"
+      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+      
 deploy:
   provider: releases
   api_key: "GITHUB OAUTH TOKEN"
