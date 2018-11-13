@@ -1,28 +1,23 @@
----
 sudo: true
 language: ruby
-
 addons:
   apt:
     packages:
-      - xvfb
-      - figlet
-      - toilet
-  
+    - xvfb
+    - figlet
+    - toilet
 script:
-  - curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/install.sh | sh
-  - echo Done
-
+- curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/install.sh
+  | sh
+- echo Done
 before_deploy:
-      # Set up git user name and tag this commit
-      - git config --local user.name "tjordanchat"
-      - git config --local user.email "tjordanchat@gmail.com"
-      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
-      
+- git config --local user.name "tjordanchat"
+- git config --local user.email "tjordanchat@gmail.com"
+- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 deploy:
   provider: releases
-  api_key: "GITHUB OAUTH TOKEN"
-  file: "thumbnail.png"
-  skip_cleanup: true
+  api_key:
+    secure: N/HN3+PIw9X2IbBHYd++MWNF0OtVDL8DwpM6E5ik6zTDfTGpcOaRmR10VX+lfp2rtkC45DLU263G8Ejygi2ZEXJns+1kA5mPeezXy2Y9DUEDV/zjVYcaT5OQ7dJr/VNn06M/GagSqLkFNlnjHQj2sXzd9MwwBgiOKBJlQkxGNhRaAoUHTqsCJxr0gdBqRpfio5jWD941Rgj4IFBl23ga7cjM+CL9FZ67St56/oOTSz9KkGjM1pHBnjbdKH/fAb4s33Q1gXF1t5bjmirtrzG4d/LeXvWj+GhKuRK2vxlzgI1sbsz4/dXl3sXcQXRrzHEWsFWrQJTjSMHUuXvljscaHd4qdK40vacphgmBpJv/a3vhtX66utUlYGxpoi69lpEGqd0koj5IkN9CXUWH8BWoALl9gjypViBZArsH9KyXOIkHfGv3IbauXc19Vf8J9J1WBtQq1Ms4xYnklueRklyiJryW7AKSaS4N9342rWFW0EYgbJyOfL30D59+wk3y0dIho/n01HV6TtheFUyMiMIqJNjGuYX6p5LlmGkrnhAh2O0Oe+nx8Rovm1ePGXYHRAzvdRWMQ++glFp8NmlTyPER9eJFdHuoYUg5UcvfhTLdcobFFQvsUrDSpETRNkKxPj1+sWUtxhlbAQTl34YUy42Y2JXsp9AShMf2j66Qc+vXE7c=
+  file: screenshot.png
   on:
-    tags: true
+    repo: tjordanchat/jenkins_setup
