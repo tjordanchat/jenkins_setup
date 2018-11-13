@@ -52,7 +52,7 @@ sudo inotifywait -e close_write /var/lib/jenkins/secrets
 sudo add-apt-repository ppa:rmescandon/yq
 sudo apt update
 sudo apt install yq -y
-sleep 8
+sleep 20
 ps -ef | egrep jenkins
 sudo netstat -tunpl
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
