@@ -68,6 +68,7 @@ su -c "cp /root/jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/
 #rm -rf jenkins_setup
 import -window root -crop 1264x948+0+0 -resize 280x210 -quality 95 thumbnail.png
 ls -la
+od -c thumbnail.png
 ps -ef | egrep jenkins
 sudo netstat -tunpl
 cat /etc/passwd
