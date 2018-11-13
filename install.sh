@@ -53,6 +53,8 @@ sudo add-apt-repository ppa:rmescandon/yq
 sudo apt update
 sudo apt install yq -y
 sleep 8
+ps -ef | egrep jenkins
+sudo netstat -tunpl
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
 export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
