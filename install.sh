@@ -18,7 +18,7 @@ export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 sudo apt-get update
 sudo apt-get -y install xvfb
 sudo apt-get update
-sudo Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+sudo Xvfb $DISPLAY -screen 0 1024x768x24 > /dev/null 2>&1 &
 sudo wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
 sudo dpkg --force-all -i puppetlabs-release-trusty.deb
 sudo apt-get -y install ntp 
@@ -66,7 +66,8 @@ su -c "cp /root/jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/
 #curl --user admin:$PASS -d "$CRUMB" --data-urlencode "script=$(<./jenkins_setup/jenkins_dir/dsl/pipeline.groovy)" http://127.0.0.1:8080/scriptText
 #curl -s -XPOST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u admin:$PASS --data-binary @./jenkins_setup/jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:application/xml"
 #rm -rf jenkins_setup
-
+import -window root -crop 1264x948+0+0 -resize 280x210 -quality 95 thumbnail.png
+ls -la
 ps -ef | egrep jenkins
 sudo netstat -tunpl
 cat /etc/passwd
