@@ -12,3 +12,11 @@ addons:
 script:
   - curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/install.sh | sh
   - echo Done
+  
+deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  file: "thumbnail.png"
+  skip_cleanup: true
+  on:
+    tags: true
