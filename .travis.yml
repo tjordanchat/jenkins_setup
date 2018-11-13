@@ -1,6 +1,6 @@
 ---
 sudo: true
-language: python
+language: ruby
 
 addons:
   apt:
