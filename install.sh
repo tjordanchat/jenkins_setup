@@ -52,6 +52,8 @@ sudo inotifywait -e close_write /var/lib/jenkins/secrets
 sudo add-apt-repository ppa:rmescandon/yq
 sudo apt update
 sudo apt install yq -y
+sudo apt-get install xorg openbox
+sudo apt-get update
 sleep 20
 ps -ef | egrep jenkins
 sudo netstat -tunpl
