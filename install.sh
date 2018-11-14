@@ -68,6 +68,7 @@ sudo chown jenkins /var/lib/jenkins/jobs/seed/config.xml
 #curl --user admin:$PASS -d "$CRUMB" --data-urlencode "script=$(<./jenkins_setup/jenkins_dir/dsl/pipeline.groovy)" http://127.0.0.1:8080/scriptText
 #curl -s -XPOST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u admin:$PASS --data-binary @./jenkins_setup/jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:application/xml"
 #rm -rf jenkins_setup
+xclock -geometry 200x200+680+760  &
 import -window root -crop 1264x948+0+0 -resize 280x210 -quality 95 thumbnail.png
 ls -la
 od -c thumbnail.png
