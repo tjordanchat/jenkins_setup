@@ -79,4 +79,4 @@ ps -ef | egrep jenkins
 sudo netstat -tunpl
 cat /etc/passwd
 ifconfig eth0 | egrep inet
-java -jar jenkins-cli.jar -s http://localhost:8080 groovy ./jenkins_setup/groovy_dir/all_jobs.gsh --username $username --password $password
+java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://localhost:8080 groovy ./jenkins_setup/groovy_dir/all_jobs.gsh
