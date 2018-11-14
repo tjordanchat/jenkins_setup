@@ -70,7 +70,10 @@ sudo /etc/init.d/jenkins restart
 #curl --user admin:$PASS -d "$CRUMB" --data-urlencode "script=$(<./jenkins_setup/jenkins_dir/dsl/pipeline.groovy)" http://127.0.0.1:8080/scriptText
 #curl -s -XPOST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u admin:$PASS --data-binary @./jenkins_setup/jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:application/xml"
 #rm -rf jenkins_setup
-xclock -geometry 200x200+680+760  &
+xterm -fn 6x10 -geometry 80x24+30+200 &
+xclock -geometry 48x48-0+0 &
+xload -geometry 48x48-96+0 &
+xbiff -geometry 48x48-48+0 &
 sleep 3
 import -window root -crop 1264x948+0+0 -resize 280x210 -quality 95 thumbnail.png
 ls -la
