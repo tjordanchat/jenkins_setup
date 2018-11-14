@@ -66,11 +66,8 @@ sudo cp ./jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed/config.xml
 sudo /etc/init.d/jenkins restart
-#java -jar jenkins-cli.jar -auth "admin:$PASS" -s http://localhost:8080/ create-job seed < ./jenkins_setup/jenkins_dir/jobs/config.xml
-#curl --user admin:$PASS -d "$CRUMB" --data-urlencode "script=$(<./jenkins_setup/jenkins_dir/dsl/pipeline.groovy)" http://127.0.0.1:8080/scriptText
-#curl -s -XPOST 'http://127.0.0.1:8080/createItem?name=Pipeline' -u admin:$PASS --data-binary @./jenkins_setup/jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:application/xml"
-#rm -rf jenkins_setup
-xterm -fn 6x10 -geometry 80x24+30+200 &
+
+xterm -geometry 80x24+30+200 &
 xclock -geometry 48x48-0+0 &
 xload -geometry 48x48-96+0 &
 xbiff -geometry 48x48-48+0 &
@@ -81,5 +78,5 @@ od -c thumbnail.png
 ps -ef | egrep jenkins
 sudo netstat -tunpl
 cat /etc/passwd
-echo $PASS
-ifconfig eth0 | egrep inet 
+ifconfig eth0 | egrep inet
+java -jar jenkins-cli.jar -s http://localhost:8080 groovy ./jenkins_setup/groovy_dir/all_jobs.gsh --username $username --password $password
