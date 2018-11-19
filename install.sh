@@ -63,7 +63,7 @@ curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
 #xargs java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_setup/jenkins_dir/plugins.list
 #java -jar ./jenkins-cli.jar -auth "admin:$PASS" -remoting -s http://127.0.0.1:8080 groovy ./jenkins_setup/groovy_dir/all_jobs.gsh
 #curl --user admin:$PASS 
-curl -d "$CRUMB" --data-urlencode "script=$(<./jenkins_setup/groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
+curl -H "$CRUMB" --data-urlencode -d "script=$(<./jenkins_setup/groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
 xargs java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_setup/jenkins_dir/plugins.list
 sudo mkdir -p /var/lib/jenkins/jobs/seed
 sudo cp ./jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
