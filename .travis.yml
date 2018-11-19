@@ -8,7 +8,7 @@ addons:
     - toilet
 script:
 - curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/install.sh
-  | sh
+  | bash
 - echo Done
 before_deploy:
 - git config --local user.name "tjordanchat"
