@@ -12,6 +12,7 @@ export DISPLAY=':99'
 export TZ='America/New_York'
 git clone https://github.com/tjordanchat/jenkins_setup.git
 chmod -R +rx . 
+sudo apt install snapd
 sudo apt-get update
 sudo snap install kubectl --classic
 kubectl version
