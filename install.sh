@@ -8,6 +8,7 @@
 # curl -I -u tjordan:1234567 'http://localhost:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
 
 set -x
+export PATH=$PATH:/snap/bin
 export DISPLAY=':99'
 export TZ='America/New_York'
 git clone https://github.com/tjordanchat/jenkins_setup.git
@@ -16,7 +17,8 @@ sudo apt install snapd
 sudo apt-get update
 sudo snap install kubectl --classic
 #sudo find / -name kubectl 2>/dev/null
-/snap/bin/kubectl version
+kubectl version
+kubectl cluster-info
 sudo apt-get -y install openjdk-8-jre-headless
 export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 sudo apt-get update
