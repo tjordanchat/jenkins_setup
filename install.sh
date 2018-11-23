@@ -32,15 +32,6 @@ sudo apt-get update
 puppet resource package puppetmaster ensure=latest
 puppet resource service puppetmaster ensure=running enable=true
 puppet agent
-sudo adduser --disabled-password myuser
-sudo usermod -aG sudo myuser
-sudo mkdir -p ~myuser/.ssh
-sudo chown myuser ~myuser/.ssh
-sudo chmod 700 ~myuser/.ssh
-sudo cp ~/.ssh/authorized_keys ~myuser/.ssh
-sudo chown myuser ~myuser/.ssh/authorized_keys
-sudo chmod 600 ~myuser/.ssh/authorized_keys
-sudo cp -f ./jenkins_setup/.bashrc ./jenkins_setup/.vimrc .
 export JENKINS_HOME=/var/lib/jenkins
 #./jenkins_setup/bin/deploy_puppet
 wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
