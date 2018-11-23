@@ -15,8 +15,8 @@ chmod -R +rx .
 sudo apt install snapd
 sudo apt-get update
 sudo snap install kubectl --classic
-sudo find / -name kubectl 2>/dev/null
-kubectl version
+#sudo find / -name kubectl 2>/dev/null
+/snap/bin/kubectl version
 sudo apt-get -y install openjdk-8-jre-headless
 export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 sudo apt-get update
