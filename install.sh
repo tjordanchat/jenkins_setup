@@ -81,4 +81,4 @@ sudo netstat -tunpl
 cat /etc/passwd
 ifconfig eth0 | egrep inet
 #curl -v -I -u adminn:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
-java -jar ./jenkins-cli.jar -auth 'tjordan:Ww@112358@' -s http://localhost:8080 build seed -p URL=myURL
+java -jar ./jenkins-cli.jar -auth 'tjordan:1234567' -s http://localhost:8080 build seed -p URL=myURL
