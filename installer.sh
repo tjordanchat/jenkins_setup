@@ -5,7 +5,7 @@
 # source /dev/stdin <<< "$( curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/install.sh )"
 # Create seed job manually. Allow it to be executed remotely. Run the build with:
 # curl -I -u <user>:<password> '<Jenkins URL>/job/<job name>/buildWothParameters?token=<token>&<PARAMETER>=<VALUE>'
-# curl -I -u tjordan:1234567 'http://localhost:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
+# curl -I -u myuser:123456 'http://localhost:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
 
 set -x
 export PATH=$PATH:/snap/bin
@@ -81,4 +81,4 @@ sudo netstat -tunpl
 cat /etc/passwd
 ifconfig eth0 | egrep inet
 #curl -v -I -u adminn:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
-java -jar ./jenkins-cli.jar -auth 'tjordan:1234567' -s http://localhost:8080 build seed -p URL=myURL
+java -jar ./jenkins-cli.jar -auth 'myuser:123456' -s http://localhost:8080 build seed -p URL=myURL
