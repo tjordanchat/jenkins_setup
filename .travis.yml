@@ -7,7 +7,7 @@ addons:
     - figlet
     - toilet
 script:
-- curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/install.sh
+- curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/installer.sh
   | bash
 - echo Done
 before_deploy:
