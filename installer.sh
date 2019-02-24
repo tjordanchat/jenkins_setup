@@ -15,6 +15,7 @@ git clone https://github.com/tjordanchat/jenkins_setup.git
 chmod -R +rx . 
 sudo apt install snapd
 sudo apt-get update
+isudo apt-get install firefox
 sudo snap install kubectl --classic
 #sudo find / -name kubectl 2>/dev/null
 kubectl version
@@ -68,6 +69,7 @@ sudo chown jenkins /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed/config.xml
 sudo /etc/init.d/jenkins restart
 
+/usr/bin/firefox --new-window http:127.0.0.1:8080 &
 xterm -geometry 80x24+30+200 &
 xclock -geometry 48x48-0+0 &
 xload -geometry 48x48-96+0 &
