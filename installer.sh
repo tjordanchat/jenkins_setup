@@ -82,6 +82,7 @@ ps -ef | egrep jenkins
 sudo netstat -tunpl
 cat /etc/passwd
 ifconfig eth0 | egrep inet
+sudo find / -name travis 2>/dev/null >/dev/null 
 travis setup releases
 #curl -v -I -u admin:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
 #java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://localhost:8080 build seed -p URL=myURL
