@@ -13,6 +13,7 @@ export DISPLAY=':99'
 export TZ='America/New_York'
 git clone https://github.com/tjordanchat/jenkins_setup.git
 chmod -R +rx . 
+curl -sSL https://get.rvm.io | sudo bash -s stable
 sudo apt install snapd
 sudo apt-get update
 isudo apt-get install firefox
