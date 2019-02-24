@@ -92,6 +92,7 @@ sudo apt-get install -y libffi-dev
 sudo gem install rubygems-update
 sudo update_rubygems
 sudo gem update --system
+cat `which gem`
 gem -v
 ruby -v
 sudo gem install travis
