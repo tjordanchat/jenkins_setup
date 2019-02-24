@@ -82,6 +82,10 @@ ps -ef | egrep jenkins
 sudo netstat -tunpl
 cat /etc/passwd
 ifconfig eth0 | egrep inet
+sudo gem install ruby-dev
+sudo apt-get install -y gcc
+sudo apt-get install -y build-essential
+sudo apt-get install -y libffi-dev
 sudo gem install travis
 sudo find / -name travis 2>/dev/null >/dev/null 
 travis setup releases
