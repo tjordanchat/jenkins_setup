@@ -89,6 +89,9 @@ ifconfig eth0 | egrep inet
 sudo apt install ruby-dev
 sudo apt-get install -y build-essential
 sudo apt-get install -y libffi-dev
+sudo gem install rubygems-update
+sudo update_rubygems
+sudo gem update --system
 gem -v
 ruby -v
 sudo gem install travis
