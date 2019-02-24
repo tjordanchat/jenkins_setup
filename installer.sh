@@ -83,11 +83,10 @@ sudo netstat -tunpl
 cat /etc/passwd
 ifconfig eth0 | egrep inet
 sudo gem install ruby-dev
-sudo apt-get install -y gcc
 sudo apt-get install -y build-essential
 sudo apt-get install -y libffi-dev
-sudo gem install travis
+#sudo gem install travis
 sudo find / -name travis 2>/dev/null >/dev/null 
-travis setup releases
+#travis setup releases
 #curl -v -I -u admin:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
 #java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://localhost:8080 build seed -p URL=myURL
