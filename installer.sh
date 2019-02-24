@@ -14,6 +14,9 @@ export TZ='America/New_York'
 git clone https://github.com/tjordanchat/jenkins_setup.git
 chmod -R +rx . 
 curl -sSL https://get.rvm.io | sudo bash -s stable
+rvm list known
+rvm install ruby-2.4.2
+ruby -v
 sudo apt install snapd
 sudo apt-get update
 isudo apt-get install firefox
