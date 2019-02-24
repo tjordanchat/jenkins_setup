@@ -89,7 +89,9 @@ ifconfig eth0 | egrep inet
 sudo apt install ruby-dev
 sudo apt-get install -y build-essential
 sudo apt-get install -y libffi-dev
-sudo gem install travis
+gem -v
+ruby -v
+uudo gem install travis
 sudo find / -name travis 2>/dev/null >/dev/null 
 travis setup releases
 #curl -v -I -u admin:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
