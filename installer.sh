@@ -87,11 +87,5 @@ import -window root -crop 1264x948+0+0 -resize 280x210 -quality 95 thumbnail.png
 #sudo netstat -tunpl
 #cat /etc/passwd
 #ifconfig eth0 | egrep inet
-sudo apt install ruby-dev
-sudo apt-get install -y build-essential
-sudo apt-get install -y libffi-dev
-sudo gem install rubygems-update
-sudo update_rubygems
-sudo gem update --system
 #curl -v -I -u admin:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
 #java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://localhost:8080 build seed -p URL=myURL
