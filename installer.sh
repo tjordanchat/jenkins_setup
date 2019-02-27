@@ -74,7 +74,7 @@ sudo chown jenkins /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed/config.xml
 sudo /etc/init.d/jenkins restart
 
-google-chrome-stable http://localhost:8080 &
+google-chrome-stable --no-first-run http://localhost:8080 &
 #google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost:8080 &
 xterm -geometry 80x24+30+200 &
 xclock -geometry 48x48-0+0 &
