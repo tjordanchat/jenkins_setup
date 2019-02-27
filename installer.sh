@@ -57,7 +57,7 @@ sudo apt update
 sudo apt install yq -y
 sudo apt-get install xorg openbox
 sudo apt-get update
-sleep 20
+sleep 5
 ps -ef | egrep jenkins
 sudo netstat -tunpl
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
@@ -74,7 +74,7 @@ sudo chown jenkins /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed/config.xml
 sudo /etc/init.d/jenkins restart
 
-/usr/bin/firefox www.google.com
+google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost:8080 &
 xterm -geometry 80x24+30+200 &
 xclock -geometry 48x48-0+0 &
 xload -geometry 48x48-96+0 &
