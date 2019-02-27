@@ -80,7 +80,7 @@ xclock -geometry 48x48-0+0 &
 xload -geometry 48x48-96+0 &
 xbiff -geometry 48x48-48+0 &
 sleep 3
-import -window root -crop 1264x948+0+0 -resize 280x210 -quality 95 thumbnail.png
+import -window root -crop 1264x948+0+0 -resize 1200x800 -quality 95 thumbnail.png
 #ls -la
 #od -c thumbnail.png
 #ps -ef | egrep jenkins
