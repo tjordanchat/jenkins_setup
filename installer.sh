@@ -72,9 +72,8 @@ sudo cp ./jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed/config.xml
 sudo /etc/init.d/jenkins restart
-
-ls -l /var/lib/jenkins/config.xml
-cat /var/lib/jenkins/config.xml
+sudo sed -i '' 's#<useSecurity>true</useSecurity>#<useSecurity>false</useSecurity>#' /var/lib/jenkins/config.xml
+/etc/init.d/jenkins restart
 google-chrome-stable --no-first-run http://localhost:8080 &
 #google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost:8080 &
 xterm -geometry 80x24+30+200 &
