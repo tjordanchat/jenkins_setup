@@ -95,6 +95,7 @@ sudo gem update --system
 cat `which gem`
 gem -v
 ruby -v
+ls -la
 sudo gem install travis
 sudo find / -name travis 2>/dev/null >/dev/null 
 travis setup releases
