@@ -51,7 +51,6 @@ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sour
 sudo apt-get update
 sudo apt-get -y install jenkins
 sudo touch /var/lib/jenkins/secrets/initialAdminPassword
-sudo inotifywait -e close_write /var/lib/jenkins/secrets
 sudo add-apt-repository ppa:rmescandon/yq
 sudo apt update
 sudo apt install yq -y
@@ -74,6 +73,8 @@ sudo chown jenkins /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed/config.xml
 sudo /etc/init.d/jenkins restart
 
+ls -l /var/lib/jenkins/config.xml
+cat /var/lib/jenkins/config.xml
 google-chrome-stable --no-first-run http://localhost:8080 &
 #google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost:8080 &
 xterm -geometry 80x24+30+200 &
