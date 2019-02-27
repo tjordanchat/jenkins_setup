@@ -74,12 +74,12 @@ sudo chown jenkins /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed/config.xml
 sudo /etc/init.d/jenkins restart
 
-/usr/bin/firefox --new-window www.google.com
+/usr/bin/firefox www.google.com
 xterm -geometry 80x24+30+200 &
 xclock -geometry 48x48-0+0 &
 xload -geometry 48x48-96+0 &
 xbiff -geometry 48x48-48+0 &
-sleep 3
+sleep 8
 import -window root -crop 1264x948+0+0 -resize 1200x800 -quality 95 thumbnail.png
 #ls -la
 #od -c thumbnail.png
