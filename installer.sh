@@ -74,7 +74,7 @@ sudo chown jenkins /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed/config.xml
 sudo /etc/init.d/jenkins restart
 
-/usr/bin/firefox --new-window http:127.0.0.1:8080 &
+/usr/bin/firefox --new-window www.google.com
 xterm -geometry 80x24+30+200 &
 xclock -geometry 48x48-0+0 &
 xload -geometry 48x48-96+0 &
