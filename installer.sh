@@ -58,7 +58,7 @@ sudo apt update
 sudo apt install yq -y
 sudo apt-get install xorg openbox
 sudo apt-get update
-sleep 5
+sleep 6
 ps -ef | egrep jenkins
 sudo netstat -tunpl
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
