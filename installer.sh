@@ -112,7 +112,7 @@ xbiff -geometry 48x48-48+0 &
 sleep 60
 sudo ln -s /var/lib/dbus/machine-id /etc/machine-id
 google-chrome-stable --no-first-run http://127.0.0.1:8080 &
-curl -v -I -u admin:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
+curl -v -I -u admin:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters%3Ftoken=phoenix%26URL=myURL'
 sleep 2
 curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
 #java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 list-jobs
