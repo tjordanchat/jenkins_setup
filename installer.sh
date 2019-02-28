@@ -65,6 +65,10 @@ wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 sudo apt-get update
 sudo apt-get -y install jenkins
+sleep 60
+sudo /etc/init.d/jenkins start
+export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
+export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 sudo touch /var/lib/jenkins/secrets/initialAdminPassword
 #ps -ef | egrep jenkins
 #sudo netstat -tunpl
@@ -90,8 +94,6 @@ sudo /etc/init.d/jenkins restart
 sleep 180
 #sudo find / -name jenkins.war 2>/dev/null
 #sudo java -Djenkins.install.runSetupWizard=false -jar /usr/share/jenkins/jenkins.war
-export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
-export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 curl "admin:$PASS@127.0.0.1:8080/j_acegi_security_check -X POST -d {'from':'','j_username':'admin','j_password':'$PASS','Jenkins-Crumb':'$CRUMB'}"
 #####################################
 #   INSTALL MISC
