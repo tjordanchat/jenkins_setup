@@ -1,3 +1,1 @@
-import jenkins.model.*;
-import hudson.model.*;
-Jenkins.instance.getAllItems(AbstractProject.class).each { println(it.fullName) };
+import jenkins.model.*; import hudson.model.*; Jenkins.instance.getAllItems(AbstractProject.class).each { println(it.fullName) };
