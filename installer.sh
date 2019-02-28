@@ -116,6 +116,8 @@ sleep 60
 sudo ln -s /var/lib/dbus/machine-id /etc/machine-id
 google-chrome-stable --no-first-run http://127.0.0.1:8080 &
 curl -v -I -u admin:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
+sleep 2
+java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 list-jobs
 sleep 10
 #####################################
 #   TAKE SCREENSHOT
