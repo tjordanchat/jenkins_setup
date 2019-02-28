@@ -1,12 +1,8 @@
 sudo: true
 language: ruby
+rvm: 2.4.2
 addons:
   chrome: stable
-  apt:
-    packages:
-    - xvfb
-    - figlet
-    - toilet
 script:
 - curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/installer.sh
   | bash

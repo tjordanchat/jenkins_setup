@@ -84,7 +84,7 @@ xclock -geometry 48x48-0+0 &
 xload -geometry 48x48-96+0 &
 xbiff -geometry 48x48-48+0 &
 sleep 60
-curl 'admin:$PASS@127.0.0.1:8080/j_acegi_security_check -X POST -d {'from':'','j_username':'admin','j_password':'$PASS','Jenkins-Crumb':'$CRUMB'}"
+curl "admin:$PASS@127.0.0.1:8080/j_acegi_security_check -X POST -d {'from':'','j_username':'admin','j_password':'$PASS','Jenkins-Crumb':'$CRUMB'}"
 google-chrome-stable --no-first-run http://localhost:8080 &
 sleep 10
 sudo cat /etc/init.d/jenkins
