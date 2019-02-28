@@ -11,7 +11,6 @@ set -x
 export PATH=$PATH:/snap/bin
 export DISPLAY=':99'
 export TZ='America/New_York'
-#git clone https://github.com/tjordanchat/jenkins_setup.git
 chmod -R +rx . 
 ####################################
 #   INSTALL RUBY
@@ -71,7 +70,6 @@ sudo touch /var/lib/jenkins/secrets/initialAdminPassword
 #sudo netstat -tunpl
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
 export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
-curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
 curl -H "$CRUMB" --data-urlencode -d script="$(<./groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
 ####################################
 #   INSTALL JENKINS PLUGINS
@@ -117,6 +115,7 @@ sudo ln -s /var/lib/dbus/machine-id /etc/machine-id
 google-chrome-stable --no-first-run http://127.0.0.1:8080 &
 curl -v -I -u admin:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
 sleep 2
+curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
 java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 list-jobs
 sleep 10
 #####################################
