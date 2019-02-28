@@ -12,14 +12,18 @@ export PATH=$PATH:/snap/bin
 export DISPLAY=':99'
 export TZ='America/New_York'
 chmod -R +rx . 
+sudo apt-get update
+sudo apt-get install toilet figlet
 ####################################
 #   INSTALL RUBY
+figlet  INSTALL RUBY
 ####################################
 curl -sSL https://get.rvm.io | sudo bash -s stable
 rvm install ruby-2.4.2
 #ruby -v
 ####################################
 #   INSTALL KUBERNETES
+figlet   INSTALL KUBERNETES
 ####################################
 #sudo apt install snapd
 #sudo apt-get update
@@ -30,17 +34,20 @@ rvm install ruby-2.4.2
 #kubectl cluster-info
 ####################################
 #   INSTALL JAVA
+figlet   INSTALL JAVA
 ####################################
 sudo apt-get -y install openjdk-8-jre-headless
 export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 ####################################
 #   INSTALL XVFB
+figlet   INSTALL XVFB
 ####################################
 sudo apt-get -y install xvfb
 sudo Xvfb $DISPLAY -screen 0 1024x768x24 -extension RANDR  > /dev/null 2>&1 &
 sudo apt-get update
 ####################################
 #   INSTALL PUPPET
+figlet   INSTALL PUPPET
 ####################################
 sudo wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
 sudo dpkg --force-all -i puppetlabs-release-trusty.deb
@@ -52,12 +59,14 @@ sudo apt-get update
 #sudo puppet agent
 ####################################
 #   INSTALL DOCKER
+figlet   INSTALL DOCKER
 ####################################
 wget -o docker.deb https://download.docker.com/linux/ubuntu/dists/trusty/pool/stable/amd64/docker-ce_18.06.3~ce~3-0~ubuntu_amd64.deb
 sudo dpkg -i docker.deb
 sudo docker run hello-world
 ####################################
 #   INSTALL JENKINS
+figlet   INSTALL JENKINS
 ####################################
 export JENKINS_HOME=/var/lib/jenkins
 #./jenkins_setup/bin/deploy_puppet
@@ -74,10 +83,12 @@ sudo touch /var/lib/jenkins/secrets/initialAdminPassword
 #sudo netstat -tunpl
 ####################################
 #   INSTALL JENKINS PLUGINS
+figlet   INSTALL JENKINS PLUGINS
 ####################################
 xargs java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_setup/jenkins_dir/plugins.list
 ####################################
 #   INSTALL JENKINS JOB
+figlet   INSTALL JENKINS JOB
 ####################################
 sudo mkdir -p /var/lib/jenkins/jobs/seed
 sudo cp ./jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
@@ -87,6 +98,7 @@ sudo chown jenkins:jenkins /var/lib/jenkins/jobs/seed/config.xml
 sudo find /var/lib/jenkins/jobs -ls
 ####################################
 #   CHANGE JENKINS SECURITY
+figlet   CHANGE JENKINS SECURITY
 ####################################
 ls -l /var/lib/jenkins/config.xml
 sudo sed -i '' 's#<useSecurity>true</useSecurity>#<useSecurity>false</useSecurity>#' /var/lib/jenkins/config.xml
@@ -97,6 +109,7 @@ sleep 180
 curl "admin:$PASS@127.0.0.1:8080/j_acegi_security_check -X POST -d {'from':'','j_username':'admin','j_password':'$PASS','Jenkins-Crumb':'$CRUMB'}"
 #####################################
 #   INSTALL MISC
+figlet   INSTALL MISC
 #####################################
 sudo add-apt-repository ppa:rmescandon/yq
 sudo apt update
@@ -107,6 +120,7 @@ sudo apt-get -y install inotify-tools
 sudo apt-get update
 #####################################
 #   RUN APPLICATIONS
+figlet   RUN APPLICATIONS
 #####################################
 #xterm -geometry 80x24+30+200 &
 #xload -geometry 48x48-96+0 &
@@ -123,6 +137,7 @@ curl -H "$CRUMB" --data-urlencode -d script="$(<./groovy_dir/all_jobs.gsh)" http
 sleep 10
 #####################################
 #   TAKE SCREENSHOT
+figlet   TAKE SCREENSHOT
 #####################################
 import -window root -crop 1264x948+0+0 -resize 1200x800 -quality 95 thumbnail.png
 #ls -la
