@@ -37,3 +37,4 @@ ant
 ssh-slaves
 email-ext
 gradle
+groovy
