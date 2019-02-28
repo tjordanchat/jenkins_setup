@@ -75,6 +75,7 @@ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sour
 sudo apt-get update
 sudo apt-get -y install jenkins
 sleep 60
+sudo sed -i '' 's#<useSecurity>true</useSecurity>#<useSecurity>false</useSecurity>#' /var/lib/jenkins/config.xml
 sudo /etc/init.d/jenkins start
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
 export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
@@ -101,9 +102,7 @@ sudo find /var/lib/jenkins/jobs -ls
 figlet   CHANGE JENKINS SECURITY
 ####################################
 ls -l /var/lib/jenkins/config.xml
-sudo sed -i '' 's#<useSecurity>true</useSecurity>#<useSecurity>false</useSecurity>#' /var/lib/jenkins/config.xml
-sudo /etc/init.d/jenkins restart
-sleep 180
+sleep 18
 #sudo find / -name jenkins.war 2>/dev/null
 #sudo java -Djenkins.install.runSetupWizard=false -jar /usr/share/jenkins/jenkins.war
 curl "admin:$PASS@127.0.0.1:8080/j_acegi_security_check" -X POST -d '{"from":"","j_username":"admin","j_password":'$PASS',"Jenkins-Crumb":'$CRUMB'}'
