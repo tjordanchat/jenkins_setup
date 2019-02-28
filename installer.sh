@@ -85,7 +85,7 @@ sudo /etc/init.d/jenkins restart
 #sudo java -Djenkins.install.runSetupWizard=false -jar /usr/share/jenkins/jenkins.war
 curl "admin:$PASS@127.0.0.1:8080/j_acegi_security_check -X POST -d {'from':'','j_username':'admin','j_password':'$PASS','Jenkins-Crumb':'$CRUMB'}"
 #####################################
-#   INSTALL YQ
+#   INSTALL MISC
 #####################################
 sudo add-apt-repository ppa:rmescandon/yq
 sudo apt update
@@ -97,9 +97,9 @@ sudo apt-get update
 #####################################
 #   RUN APPLICATIONS
 #####################################
-xterm -geometry 80x24+30+200 &
+#xterm -geometry 80x24+30+200 &
+#xload -geometry 48x48-96+0 &
 xclock -geometry 48x48-0+0 &
-xload -geometry 48x48-96+0 &
 xbiff -geometry 48x48-48+0 &
 sleep 60
 google-chrome-stable --no-first-run http://localhost:8080 &
