@@ -38,7 +38,7 @@ export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 #   INSTALL XVFB
 ####################################
 sudo apt-get -y install xvfb
-sudo Xvfb $DISPLAY -screen 0 1024x768x24 > /dev/null 2>&1 &
+sudo Xvfb $DISPLAY -screen 0 1024x768x24 +extension RANDR  > /dev/null 2>&1 &
 sudo apt-get update
 ####################################
 #   INSTALL PUPPET
