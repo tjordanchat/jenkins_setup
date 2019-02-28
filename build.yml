@@ -35,7 +35,7 @@ environment: |
        cp -f /root/designer.tra /opt/tibco/DSEngine/work/jbccllbre101-0/tibco/designer/5.8/bin/designer.tra 
    
    RUN cd /opt/tibco/DSEngine_INT && \
-       ./configure.sh -s 10.156.74.33:8080 && \
+       ./configure.sh -s 192.168.0.1:8080 && \
        ./engine.sh start && \
        /usr/bin/Xvfb :1 -screen 0 1024x768x24 & firefox & 
    
