@@ -86,7 +86,7 @@ sudo touch /var/lib/jenkins/secrets/initialAdminPassword
 #   INSTALL JENKINS PLUGINS
 figlet   INSTALL JENKINS PLUGINS
 ####################################
-xargs java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_setup/jenkins_dir/plugins.list
+xargs java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_dir/plugins.list
 ####################################
 #   INSTALL JENKINS JOB
 figlet   INSTALL JENKINS JOB
@@ -131,7 +131,6 @@ google-chrome-stable --no-first-run http://127.0.0.1:8080 &
 curl -v -I -u admin:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters%3Ftoken=phoenix%26URL=myURL'
 sleep 2
 curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
-#java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 list-jobs
 curl -H "$CRUMB" --data-urlencode -d script="$(<./groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
 sleep 10
 #####################################
