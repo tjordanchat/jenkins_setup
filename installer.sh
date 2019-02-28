@@ -87,7 +87,7 @@ sudo find /var/lib/jenkins/jobs -ls
 ls -l /var/lib/jenkins/config.xml
 sudo sed -i '' 's#<useSecurity>true</useSecurity>#<useSecurity>false</useSecurity>#' /var/lib/jenkins/config.xml
 sudo /etc/init.d/jenkins restart
-sleep 60
+sleep 180
 #sudo find / -name jenkins.war 2>/dev/null
 #sudo java -Djenkins.install.runSetupWizard=false -jar /usr/share/jenkins/jenkins.war
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
