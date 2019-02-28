@@ -73,9 +73,9 @@ sudo chown jenkins /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed/config.xml
 sudo /etc/init.d/jenkins restart
 sudo sed -i '' 's#<useSecurity>true</useSecurity>#<useSecurity>false</useSecurity>#' /var/lib/jenkins/config.xml
-sudo /etc/init.d/jenkins stop
+sudo /etc/init.d/jenkins restart
 #sudo find / -name jenkins.war 2>/dev/null
-sudo java -Djenkins.install.runSetupWizard=false -jar /usr/share/jenkins/jenkins.war
+#sudo java -Djenkins.install.runSetupWizard=false -jar /usr/share/jenkins/jenkins.war
 #google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost:8080 &
 xterm -geometry 80x24+30+200 &
 xclock -geometry 48x48-0+0 &
