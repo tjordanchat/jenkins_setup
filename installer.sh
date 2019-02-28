@@ -73,11 +73,21 @@ export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
 export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
 curl -H "$CRUMB" --data-urlencode -d script="$(<./groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
+####################################
+#   INSTALL JENKINS PLUGINS
+####################################
 xargs java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_setup/jenkins_dir/plugins.list
+####################################
+#   INSTALL JENKINS JOB
+####################################
 sudo mkdir -p /var/lib/jenkins/jobs/seed
 sudo cp ./jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed/config.xml
+sudo find /var/lib/jenkins/jobs -ls
+####################################
+#   CHANGE JENKINS SECURITY
+####################################
 ls -l /var/lib/jenkins/config.xml
 sudo sed -i '' 's#<useSecurity>true</useSecurity>#<useSecurity>false</useSecurity>#' /var/lib/jenkins/config.xml
 sudo /etc/init.d/jenkins restart
