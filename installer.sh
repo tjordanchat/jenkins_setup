@@ -113,7 +113,7 @@ sudo apt-get update
 xclock -geometry 48x48-0+0 &
 xbiff -geometry 48x48-48+0 &
 sleep 60
-google-chrome-stable --no-first-run http://localhost:8080 &
+google-chrome-stable --no-first-run http://192.168.0.1:8080 &
 curl -v -I -u admin:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
 sleep 10
 #####################################
