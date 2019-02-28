@@ -84,6 +84,7 @@ xbiff -geometry 48x48-48+0 &
 sleep 60
 google-chrome-stable --no-first-run http://localhost:8080 &
 sleep 10
+sudo cat /etc/init.d/jenkins
 import -window root -crop 1264x948+0+0 -resize 1200x800 -quality 95 thumbnail.png
 #ls -la
 #od -c thumbnail.png
