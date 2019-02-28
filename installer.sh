@@ -11,7 +11,7 @@ set -x
 export PATH=$PATH:/snap/bin
 export DISPLAY=':99'
 export TZ='America/New_York'
-git clone https://github.com/tjordanchat/jenkins_setup.git
+#git clone https://github.com/tjordanchat/jenkins_setup.git
 chmod -R +rx . 
 curl -sSL https://get.rvm.io | sudo bash -s stable
 rvm list known
@@ -49,7 +49,9 @@ export JENKINS_HOME=/var/lib/jenkins
 wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 sudo apt-get update
+#####################################
 sudo apt-get -y install jenkins
+#####################################
 sudo touch /var/lib/jenkins/secrets/initialAdminPassword
 sudo add-apt-repository ppa:rmescandon/yq
 sudo apt update
@@ -71,7 +73,7 @@ sudo mkdir -p /var/lib/jenkins/jobs/seed
 sudo cp ./jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed
 sudo chown jenkins /var/lib/jenkins/jobs/seed/config.xml
-sudo /etc/init.d/jenkins restart
+ls -l /var/lib/jenkins/config.xml
 sudo sed -i '' 's#<useSecurity>true</useSecurity>#<useSecurity>false</useSecurity>#' /var/lib/jenkins/config.xml
 sudo /etc/init.d/jenkins restart
 #sudo find / -name jenkins.war 2>/dev/null
