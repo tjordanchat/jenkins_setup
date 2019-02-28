@@ -16,15 +16,15 @@ chmod -R +rx .
 curl -sSL https://get.rvm.io | sudo bash -s stable
 rvm list known
 rvm install ruby-2.4.2
-ruby -v
-sudo apt install snapd
-sudo apt-get update
-sudo apt-get install firefox
-sudo find / -name firefox -print
-sudo snap install kubectl --classic
+#ruby -v
+#sudo apt-get install firefox
+#sudo apt install snapd
+#sudo apt-get update
+#sudo find / -name firefox -print
+#sudo snap install kubectl --classic
 #sudo find / -name kubectl 2>/dev/null
-kubectl version
-kubectl cluster-info
+#kubectl version
+#kubectl cluster-info
 sudo apt-get -y install openjdk-8-jre-headless
 export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 sudo apt-get update
@@ -59,15 +59,15 @@ sudo apt install yq -y
 sudo apt-get install xorg openbox
 sudo apt-get update
 sleep 6
-ps -ef | egrep jenkins
-sudo netstat -tunpl
+#ps -ef | egrep jenkins
+#sudo netstat -tunpl
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
 export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
 #java -jar ./jenkins-cli.jar -auth "admin:$PASS" -remoting -s http://127.0.0.1:8080 groovy ./jenkins_setup/groovy_dir/all_jobs.gsh
 #curl --user admin:$PASS 
-echo curl -H "$CRUMB" --data-urlencode -d script="$(<./groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
-curl -H "$CRUMB" --data-urlencode -d script="$(<./jenkins_setup/groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
+#echo curl -H "$CRUMB" --data-urlencode -d script="$(<./groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
+curl -H "$CRUMB" --data-urlencode -d script="$(<./groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
 xargs java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_setup/jenkins_dir/plugins.list
 sudo mkdir -p /var/lib/jenkins/jobs/seed
 sudo cp ./jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
