@@ -106,7 +106,7 @@ sudo /etc/init.d/jenkins restart
 sleep 180
 #sudo find / -name jenkins.war 2>/dev/null
 #sudo java -Djenkins.install.runSetupWizard=false -jar /usr/share/jenkins/jenkins.war
-curl "admin:$PASS@127.0.0.1:8080/j_acegi_security_check -X POST -d {'from':'','j_username':'admin','j_password':'$PASS','Jenkins-Crumb':'$CRUMB'}"
+curl "admin:$PASS@127.0.0.1:8080/j_acegi_security_check" -X POST -d '{"from":"","j_username":"admin","j_password":'$PASS',"Jenkins-Crumb":'$CRUMB'}'
 #####################################
 #   INSTALL MISC
 figlet   INSTALL MISC
