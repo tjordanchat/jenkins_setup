@@ -46,6 +46,6 @@ build:
   script:
     Make deploy
   artifact:
-    ./deploy/build_sys.war
+    ./deploy/bwengine.tra.war
 
   
