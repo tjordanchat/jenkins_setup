@@ -47,9 +47,9 @@ sudo dpkg --force-all -i puppetlabs-release-trusty.deb
 sudo apt-get -y install puppetmaster
 sudo apt-get -y install puppet
 sudo apt-get update
-puppet resource package puppetmaster ensure=latest
-puppet resource service puppetmaster ensure=running enable=true
-puppet agent
+sudo puppet resource package puppetmaster ensure=latest
+sudo puppet resource service puppetmaster ensure=running enable=true
+sudo puppet agent
 ####################################
 #   INSTALL DOCKER
 ####################################
@@ -68,8 +68,6 @@ sudo apt-get -y install jenkins
 sudo touch /var/lib/jenkins/secrets/initialAdminPassword
 #ps -ef | egrep jenkins
 #sudo netstat -tunpl
-export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
-export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 ####################################
 #   INSTALL JENKINS PLUGINS
 ####################################
@@ -92,6 +90,8 @@ sudo /etc/init.d/jenkins restart
 #sudo find / -name jenkins.war 2>/dev/null
 #sudo java -Djenkins.install.runSetupWizard=false -jar /usr/share/jenkins/jenkins.war
 curl "admin:$PASS@127.0.0.1:8080/j_acegi_security_check -X POST -d {'from':'','j_username':'admin','j_password':'$PASS','Jenkins-Crumb':'$CRUMB'}"
+export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
+export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 #####################################
 #   INSTALL MISC
 #####################################
