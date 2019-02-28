@@ -47,9 +47,9 @@ sudo dpkg --force-all -i puppetlabs-release-trusty.deb
 sudo apt-get -y install puppetmaster
 sudo apt-get -y install puppet
 sudo apt-get update
-sudo puppet resource package puppetmaster ensure=latest
-sudo puppet resource service puppetmaster ensure=running enable=true
-sudo puppet agent
+#sudo puppet resource package puppetmaster ensure=latest
+#sudo puppet resource service puppetmaster ensure=running enable=true
+#sudo puppet agent
 ####################################
 #   INSTALL DOCKER
 ####################################
