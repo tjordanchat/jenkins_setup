@@ -114,8 +114,8 @@ xclock -geometry 48x48-0+0 &
 xbiff -geometry 48x48-48+0 &
 sleep 60
 google-chrome-stable --no-first-run http://localhost:8080 &
+curl -v -I -u admin:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
 sleep 10
-sudo cat /etc/init.d/jenkins
 #####################################
 #   TAKE SCREENSHOT
 #####################################
@@ -126,5 +126,4 @@ import -window root -crop 1264x948+0+0 -resize 1200x800 -quality 95 thumbnail.pn
 #sudo netstat -tunpl
 #cat /etc/passwd
 #ifconfig eth0 | egrep inet
-#curl -v -I -u admin:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
 #java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://localhost:8080 build seed -p URL=myURL
