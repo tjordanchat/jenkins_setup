@@ -136,6 +136,11 @@ curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
 curl -H "$CRUMB" --data-urlencode -d script="$(<./groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
 sleep 10
 #####################################
+#   RUN SEED JOB
+figlet   RUN SEED JOB
+#####################################
+curl -I -u admin:$PASS 'http://localhost:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
+#####################################
 #   TAKE SCREENSHOT
 figlet   TAKE SCREENSHOT
 #####################################
