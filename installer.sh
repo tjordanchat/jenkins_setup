@@ -130,7 +130,6 @@ xbiff -geometry 48x48-48+0 &
 sleep 60
 sudo ln -s /var/lib/dbus/machine-id /etc/machine-id
 google-chrome-stable --no-first-run http://127.0.0.1:8080 &
-curl -v -I -u admin:$PASS 'http://127.0.0.1:8080/job/seed/buildWithParameters%3Ftoken=phoenix%26URL=myURL'
 sleep 2
 curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
 curl -H "$CRUMB" --data-urlencode -d script="$(<./groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
@@ -139,7 +138,7 @@ sleep 10
 #   RUN SEED JOB
 figlet   RUN SEED JOB
 #####################################
-curl -I -u admin:$PASS 'http://localhost:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
+curl -s 'http://127.0.0.1:8080/job/seed/buildWithParameters%3Ftoken=phoenix%26URL=myURL' -u admin:$PASS
 #####################################
 #   TAKE SCREENSHOT
 figlet   TAKE SCREENSHOT
