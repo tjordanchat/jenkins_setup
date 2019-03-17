@@ -46,6 +46,12 @@ export JRE_HOME="$JAVA_HOME/jre"
 export GOROOT="/usr/local/go"
 
 # some aliases
+alias rj="cd !/jenkins_setup; nohup java  -jar /Applications/Jenkins/jenkins.war --enable-future-java &"
+alias rp="cd ~/jenkins_setup; nohup ./proxy &"
+alias n="~/weather-station/launch.sh"
+alias vv="vi svg_sun_up.svg sunrise_parse.py template.svg parse_weather.py"
+alias chrome="'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --screenshot=moon.png moon.html"
+alias ws="cd /Users/jamestjordan/weather-display/server; nohup python -m SimpleHTTPServer 8000 &" 
 alias dcn="sudo docker ps -notrunc"
 alias lxa="sudo lxc-attach -n"
 alias lh="history | less -n"
@@ -75,17 +81,15 @@ alias sai="sudo apt-get install"
 alias lip="curl http://169.254.169.254/latest/meta-data/local-ipv4;echo"
 alias a=type
 alias ch="sudo chef-server-ctl"
-alias wu="( line1;cat /etc/*-release;lsb_release -a;uname -a;cat /proc/version; cat /proc/cpuinfo; egrep MemTotal /proc/meminfo; line1)"
 alias ff="sudo find / -name"
-alias tk="sudo kill -9 \$( ps -ef | egrep tracd | egrep -v 'nohup|egrep' | awk '\$3 = 1 {print \$2}' )"
 alias wp="sudo netstat -tulpn>/tmp/wp.$$; sudo ps -ef>>/tmp/wp.$$;less -n /tmp/wp.$$;rm /tmp/wp.$$"
 alias lnm="ls ~/node_modules"
 alias plan="vi ~/.plan;"
 alias cj='cat *.json'
 alias lj='less *.json'
-alias gtok'curl -X POST -u tjordanchat -H "Content-Type: application/json" -d "{\"scopes\":[\"public_repo\"],\"note\":\"8506aaa0ee99b37ad26744ec915e4a32182c9028\"}" https://api.github.com/authorizations'
 alias g=git
 alias gp="git pull"
+alias gco="git checkout"
 alias gr="git reset --hard HEAD"
 alias ga="git add"
 alias gpt="git push origin --tags"
@@ -153,9 +157,36 @@ alias t1="tree -L 1 -a -p"
 alias t2="tree -L 2 -a -p"
 alias t3="tree -L 3 -a -p"
 alias t4="tree -L 4 -a -p"
-
+alias getw="curl https://api.weather.gov/gridpoints/OKX/33,35/forecast"
+alias getf="curl https://api.weather.gov/gridpoints/OKX/33,35/forecast | jq '.properties.periods[0].detailedForecast'"
+alias getp="curl https://api.weather.gov/gridpoints/OKX/33,35/forecast | jq .properties.periods[0].detailedForecast | sed  's/pre//'"
+alias gw="curl http://api.worldweatheronline.com/premium/v1/weather.ashx?key=df7aa36af67145308e873424182212&q=new+york"
+alias accw="curl http://apidev.accuweather.com/currentconditions/v1/335315.json?apikey= apikey=3nd45BH6lq4VXtHyLnYCQVk1f4lq15O1" 
+alias accl="curl https://www.accuweather.com/en/us/new-york-ny/10007/current-weather/349727?lang=en-us&apikey=3nd45BH6lq4VXtHyLnYCQVk1f4lq15O1" 
 title () {
 	echo -n "\033]0;$1\007"
+}
+
+
+build() {
+TRAVIS_TOKEN="$( /usr/local/bin/yq r ~/.pass.yml travis.token )"
+echo $TRAVIS_TOKEN
+body='{
+  "request": {
+  "branch":"master"
+}}'
+
+echo curl -s -X POST \
+   -H "Content-Type: application/json" \
+   -H "Accept: application/json" \
+   -H "Travis-API-Version: 3" \
+   -H "Authorization: token $TRAVIS_TOKEN" \
+   -d "$body" \
+   https://api.travis-ci.com/repo/tjordanchat%2Fjenkins_setup/requests
+}
+
+gg () {
+  wget "https://raw.githubusercontent.com/$1"
 }
 
 gt () {
@@ -371,3 +402,20 @@ function pp {
 ###trap 'store; exit' 0 15
 ############################################################
 rm "$HOME/.ABORT" 
+export IP=68.183.106.150
+alias sdor="ssh -l root $IP"
+alias sdo="ssh -l tjordan $IP"
+alias fdo="sftp tjordan@$IP"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/jamestjordan/.sdkman"
+[[ -s "/Users/jamestjordan/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jamestjordan/.sdkman/bin/sdkman-init.sh"
+
+# added by travis gem
+[ -f /Users/jamestjordan/.travis/travis.sh ] && source /Users/jamestjordan/.travis/travis.sh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# added by travis gem
+[ -f /Users/jjordan/.travis/travis.sh ] && source /Users/jjordan/.travis/travis.sh
