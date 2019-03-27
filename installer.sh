@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Run this script as root: 
-# curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/install.sh | sh
-# source /dev/stdin <<< "$( curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/install.sh )"
+# curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/installer.sh | sh
+# source /dev/stdin <<< "$( curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/installer.sh )"
 # Create seed job manually. Allow it to be executed remotely. Run the build with:
 # curl -I -u <user>:<password> '<Jenkins URL>/job/<job name>/buildWothParameters?token=<token>&<PARAMETER>=<VALUE>'
 # curl -I -u myuser:mypass 'http://localhost:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
