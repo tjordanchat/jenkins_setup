@@ -164,7 +164,7 @@ alias gw="curl http://api.worldweatheronline.com/premium/v1/weather.ashx?key=df7
 alias accw="curl http://apidev.accuweather.com/currentconditions/v1/335315.json?apikey= apikey=3nd45BH6lq4VXtHyLnYCQVk1f4lq15O1" 
 alias accl="curl https://www.accuweather.com/en/us/new-york-ny/10007/current-weather/349727?lang=en-us&apikey=3nd45BH6lq4VXtHyLnYCQVk1f4lq15O1" 
 title () {
-	echo -n "\033]0;$1\007"
+	echo -n -e "\033]0;$1\007"
 }
 
 
