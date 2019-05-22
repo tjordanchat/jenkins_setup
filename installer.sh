@@ -13,7 +13,7 @@ export DISPLAY=':99'
 export TZ='America/New_York'
 chmod -R +rx . 
 sudo apt-get update
-sudo apt-get install toilet figlet
+sudo apt-get -y install toilet figlet
 ####################################
 #   INSTALL RUBY
 figlet  INSTALL RUBY
@@ -116,7 +116,7 @@ figlet   INSTALL MISC
 sudo add-apt-repository ppa:rmescandon/yq
 sudo apt update
 sudo apt install yq -y
-sudo apt-get install xorg openbox
+sudo apt-get -y install xorg openbox
 sudo apt-get -y install ntp 
 sudo apt-get -y install inotify-tools
 sudo apt-get update
