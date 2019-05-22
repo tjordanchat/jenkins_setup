@@ -11,7 +11,7 @@ set -x
 export PATH=$PATH:/snap/bin
 export DISPLAY=':99'
 export TZ='America/New_York'
-chmod -R +rx . 
+sudo chmod -R +rx . 
 sudo apt-get update
 sudo apt-get -y install toilet figlet
 ####################################
@@ -61,8 +61,14 @@ sudo apt-get update
 #   INSTALL DOCKER
 figlet   INSTALL DOCKER
 ####################################
-wget -o docker.deb https://download.docker.com/linux/ubuntu/dists/trusty/pool/stable/amd64/docker-ce_18.06.3~ce~3-0~ubuntu_amd64.deb
-sudo dpkg -i docker.deb
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+sudo apt update
+apt-cache policy docker-ce
+sudo apt install docker-ce
+sudo systemctl status docker
 sudo docker run hello-world
 ####################################
 #   INSTALL JENKINS
