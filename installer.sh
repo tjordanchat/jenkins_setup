@@ -158,3 +158,4 @@ import -window root -crop 1264x948+0+0 -resize 1200x800 -quality 95 thumbnail.pn
 #cat /etc/passwd
 #ifconfig eth0 | egrep inet
 #java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://localhost:8080 build seed -p URL=myURL
+set +x
