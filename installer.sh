@@ -134,7 +134,7 @@ sudo ln -s /var/lib/dbus/machine-id /etc/machine-id
 google-chrome-stable --no-first-run http://127.0.0.1:8080/me/my-views/view/all/ &
 sleep 2
 curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
-curl -H "$CRUMB" --data-urlencode -d script="$(<./groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
+curl -H "$CRUMB" --data-urlencode -d script="$(<$HOME/jenkins_setup/groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
 #####################################
 #   RUN SEED JOB
 figlet   RUN SEED JOB
