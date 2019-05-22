@@ -75,7 +75,7 @@ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sour
 sudo apt-get update
 sudo apt-get -y install jenkins
 #sudo sed -i \'\' \'s#<useSecurity>true</useSecurity>#<useSecurity>false</useSecurity>#\' /var/lib/jenkins/config.xml
-sudo -H -u jenkins bash -c 'cp ~/jenkins_setup/jenkins_dir/config.xml /var/lib/jenkins/config.xml'
+sudo -H -u jenkins bash -c 'cp '$HOME'/jenkins_setup/jenkins_dir/config.xml /var/lib/jenkins/config.xml'
 sudo /etc/init.d/jenkins start
 sleep 300
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
