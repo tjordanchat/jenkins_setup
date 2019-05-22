@@ -119,6 +119,7 @@ sudo apt install yq -y
 sudo apt-get -y install xorg openbox
 sudo apt-get -y install ntp 
 sudo apt-get -y install inotify-tools
+sudo apt-get -y install imagemagick
 sudo apt-get update
 #####################################
 #   RUN APPLICATIONS
