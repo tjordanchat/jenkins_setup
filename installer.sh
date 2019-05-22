@@ -83,7 +83,7 @@ sudo apt-get -y install jenkins
 #sudo sed -i \'\' \'s#<useSecurity>true</useSecurity>#<useSecurity>false</useSecurity>#\' /var/lib/jenkins/config.xml
 sudo -H -u jenkins bash -c 'cp '$HOME'/jenkins_setup/jenkins_dir/config.xml /var/lib/jenkins/config.xml'
 sudo /etc/init.d/jenkins start
-sleep 300
+sleep 60
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
 export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 sudo touch /var/lib/jenkins/secrets/initialAdminPassword
@@ -105,7 +105,7 @@ sudo chown jenkins:jenkins /var/lib/jenkins/jobs/seed
 sudo chown jenkins:jenkins /var/lib/jenkins/jobs/seed/config.xml
 sudo find /var/lib/jenkins/jobs -ls
 sudo /etc/init.d/jenkins restart
-sleep 300
+sleep 60
 ####################################
 #   CHANGE JENKINS SECURITY
 figlet   CHANGE JENKINS SECURITY
