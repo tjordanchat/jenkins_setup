@@ -7,13 +7,23 @@
 # curl -I -u <user>:<password> '<Jenkins URL>/job/<job name>/buildWothParameters?token=<token>&<PARAMETER>=<VALUE>'
 # curl -I -u myuser:mypass 'http://localhost:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
 
+checkme() {
+  if [ $? != 0 ] 
+  then
+     toilet -f mono12 ERROR
+     #printf '\e[0m'
+  fi  
+}
+
 set -x
+sudo apt-get update
+sudo apt-get -y install toilet figlet
+trap checkme DEBUG
+
 export PATH=$PATH:/snap/bin
 export DISPLAY=':99'
 export TZ='America/New_York'
 sudo chmod -R +rx . 
-sudo apt-get update
-sudo apt-get -y install toilet figlet
 ####################################
 #   INSTALL RUBY
 figlet  INSTALL RUBY
