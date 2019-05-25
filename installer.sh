@@ -109,7 +109,7 @@ xargs java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 i
 figlet   INSTALL JENKINS JOB
 ####################################
 sudo mkdir -p /var/lib/jenkins/jobs/seed
-sudo cp ./jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
+sudo cp $HOME/jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
 sudo chown jenkins:jenkins /var/lib/jenkins/jobs
 sudo chown jenkins:jenkins /var/lib/jenkins/jobs/seed
 sudo chown jenkins:jenkins /var/lib/jenkins/jobs/seed/config.xml
