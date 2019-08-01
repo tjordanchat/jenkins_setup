@@ -104,6 +104,26 @@ Install_Initial_Jenkins_Jobs () {
    sleep 60
 }
 
+Install_Misc_Tools () {
+   ----- INSTALL MISC TOOLS
+   sudo add-apt-repository ppa:rmescandon/yq
+   sudo apt install yq -y
+   sudo apt-get -y install xorg openbox
+   sudo apt-get -y install ntp 
+   sudo apt-get -y install inotify-tools
+   sudo apt-get -y install imagemagick
+}
+
+Run_Applications () {
+   ----- RUN APPLICATIONS
+   xclock -geometry 48x48-0+0 &
+   xbiff -geometry 48x48-48+0 &
+   sudo ln -s /var/lib/dbus/machine-id /etc/machine-id
+   google-chrome-stable --no-first-run http://127.0.0.1:8080/me/my-views/view/all/ &
+   sleep 2
+   curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
+}
+
 Trap_Errors () {
   if [ $? != 0 ] 
   then
@@ -121,9 +141,10 @@ trap Trap_Errors DEBUG
 Update_Package_Manager
 #Install_Ruby
 Install_Java
+Install_Misc_Tools
 Run_Jenkins
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
 export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
-
+Run_Applications
 
 
