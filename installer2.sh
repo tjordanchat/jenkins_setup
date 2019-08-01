@@ -85,8 +85,6 @@ Run_Jenkins () {
    ----- RUN JENKINS
    sudo /etc/init.d/jenkins start
    sleep 60
-   export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
-   export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 }
 
 Install_Jenkins_Plugins () {
@@ -123,6 +121,9 @@ trap Trap_Errors DEBUG
 Update_Package_Manager
 #Install_Ruby
 Install_Java
+Run_Jenkins
+export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
+export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 
 
 
