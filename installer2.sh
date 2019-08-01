@@ -80,10 +80,10 @@ Install_Docker () {
 
 Install_Jenkins () {
    ----- INSTALL JENKINS
-   wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+   wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
    sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-   sudo apt-get update
-   Install jenkins
+   sudo apt update
+   sudo apt install jenkins
    sudo -H -u jenkins bash -c 'cp '$HOME'/jenkins_setup/jenkins_dir/config.xml /var/lib/jenkins/config.xml'   
 }
 
