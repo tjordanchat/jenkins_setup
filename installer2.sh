@@ -146,6 +146,8 @@ Update_Package_Manager
 #Install_Ruby
 Install_Java
 Install_Misc_Tools
+Install_Virtual_Frame_Buffer
+Run_Virtual_Frame_Buffer
 Run_Jenkins
 
 ####################################
