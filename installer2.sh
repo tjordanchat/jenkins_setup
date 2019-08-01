@@ -121,7 +121,7 @@ set -v
 trap Trap_Errors DEBUG
 
 Update_Package_Manager
-Install_Ruby
+#Install_Ruby
 Install_Java
 
 
