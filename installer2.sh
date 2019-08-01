@@ -33,11 +33,6 @@ Update_Package_Manager () {
    sudo apt-get update
 }
 
-Install () {
-   ----- INSTALL $@
-   sudo apt-get -y install $@
-}
-
 Install_Ruby () {
    ----- INSTALL RUBY
    curl -sSL https://get.rvm.io | sudo bash -s stable
@@ -46,7 +41,7 @@ Install_Ruby () {
 
 Install_Java () {
    ----- INSTALL JAVA
-   Install openjdk-8-jre-headless
+   sudo apt-get -y install  openjdk-8-jre-headless
 }
 
 Install_Virtual_Frame_Buffer () {
@@ -63,8 +58,8 @@ Install_Puppet () {
    ----- INSTALL PUPPET
    sudo wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
    sudo dpkg --force-all -i puppetlabs-release-trusty.deb
-   Install puppetmaster
-   Install puppet
+   sudo apt-get -y install  puppetmaster
+   sudo apt-get -y install  puppet
 }
 
 Install_Docker () {
