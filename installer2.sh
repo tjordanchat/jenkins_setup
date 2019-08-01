@@ -18,11 +18,11 @@ sudo apt-get -y install toilet figlet
 ----- DEFINE VARIABLES
 ###################################
 
-export PATH=$PATH:/snap/bin
 export DISPLAY=':99'
 export TZ='America/New_York'
-export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 export JENKINS_HOME=/var/lib/jenkins
+export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
+export PATH=$PATH:/snap/bin
 
 ###################################
 ----- DEFINE FUNCTIONS
