@@ -49,6 +49,11 @@ Install_Java () {
    Install openjdk-8-jre-headless
 }
 
+Install_Virtual_Frame_Buffer () {
+   ----- INSTALL VIRTUAL FRAME BUFFER
+   sudo apt-get -y install xvfb
+}
+
 Run_Virtual_Frame_Buffer () {
    ----- RUN VIRTUAL FRAME BUFFER
    sudo Xvfb $DISPLAY -screen 0 1024x768x24 -extension RANDR  > /dev/null 2>&1 &
