@@ -139,7 +139,7 @@ Trap_Errors () {
 ----- RUN BUILD ENVIRONMENT
 ####################################
 
-set -v
+set -v -x -e
 trap Trap_Errors DEBUG
 
 Update_Package_Manager
