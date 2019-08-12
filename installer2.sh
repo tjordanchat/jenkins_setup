@@ -30,6 +30,7 @@ export TZ='America/New_York'
 export JENKINS_HOME=/var/lib/jenkins
 export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 export PATH=$PATH:/snap/bin
+export TRAVIS_BUILD_DIR=${TRAVIS_BUILD_DIR:-`pwd`}
 
 ###################################
 ----- DEFINE FUNCTIONS
