@@ -112,7 +112,8 @@ Install_Initial_Jenkins_Jobs () {
 
 Install_Misc_Tools () {
    ----- INSTALL MISC TOOLS
-   sudo add-apt-repository ppa:rmescandon/yq
+   sudo add-apt-repository ppa:rmescandon/yq ||
+     sudo pip install yq
    sudo apt install yq -y
    sudo apt-get -y install xorg openbox
    sudo apt-get -y install ntp 
