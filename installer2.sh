@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 # Run this script as root: 
 # curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/installer.sh | sh
