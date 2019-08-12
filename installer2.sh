@@ -13,10 +13,10 @@ env
    figlet $@
 }
 
------ $TRAVIS_COMMIT
-
 sudo apt-get update
 sudo apt-get -y install toilet figlet
+
+----- $TRAVIS_COMMIT
 
 ###################################
 ----- DEFINE VARIABLES
