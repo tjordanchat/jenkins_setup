@@ -79,8 +79,6 @@ Install_Docker () {
 
 Install_Jenkins () {
    ----- INSTALL JENKINS
-   pwd
-   ls -l
    wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
    sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
    sudo apt update
@@ -114,9 +112,8 @@ Install_Initial_Jenkins_Jobs () {
 
 Install_Misc_Tools () {
    ----- INSTALL MISC TOOLS
-   sudo add-apt-repository ppa:rmescandon/yq ||
-     sudo pip install yq
-   sudo apt install yq -y
+   sudo add-apt-repository ppa:rmescandon/yq
+   sudo apt install yq -y || sudo pip install yq
    sudo apt-get -y install xorg openbox
    sudo apt-get -y install ntp 
    sudo apt-get -y install inotify-tools
