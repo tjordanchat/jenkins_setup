@@ -18,6 +18,8 @@ sudo apt-get -y install toilet figlet
 
 ----- $TRAVIS_COMMIT
 
+find . -print
+
 ###################################
 ----- DEFINE VARIABLES
 ###################################
