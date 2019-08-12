@@ -84,7 +84,7 @@ Install_Jenkins () {
    sudo apt update
    sudo apt install jenkins
    sudo find /var/lib/jenkins -ls
-   sudo -H -u jenkins bash -c 'cp '$TRAVIS_BUILD_DIR'/jenkins_dir/config.xml /var/lib/jenkins/config.xml'   
+   sudo bash -c 'cp '$TRAVIS_BUILD_DIR'/jenkins_dir/config.xml /var/lib/jenkins/config.xml'   
 }
 
 Run_Jenkins () {
