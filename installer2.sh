@@ -18,7 +18,7 @@ sudo apt-get -y install toilet figlet
 
 ----- $TRAVIS_COMMIT
 
-find . -print
+find . -name initialAdminPassword 
 
 ###################################
 ----- DEFINE VARIABLES
