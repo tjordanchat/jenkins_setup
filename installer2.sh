@@ -153,7 +153,7 @@ Run_Virtual_Frame_Buffer
 Run_Jenkins
 
 ####################################
------ FETCH JENKINS PASSWD & CRUMP
+----- FETCH JENKINS PASSWD and CRUMB
 ####################################
 
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
