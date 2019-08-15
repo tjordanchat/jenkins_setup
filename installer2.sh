@@ -14,7 +14,7 @@ env
    figlet $@
 }
 
-sudo apt-get update
+sudo apt-get update -y && sudo apt-get upgrade
 sudo apt-get -y install toilet figlet
 
 ----- $TRAVIS_COMMIT
