@@ -151,16 +151,18 @@ Update_Package_Manager
 #Install_Ruby
 Install_Java
 Install_Jenkins
-Install_Misc_Tools
-Install_Virtual_Frame_Buffer
-Run_Virtual_Frame_Buffer
-Run_Jenkins
 
 ####################################
 ----- FETCH JENKINS PASSWD and CRUMB
 ####################################
 
 export PASS="$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )"
+
+Install_Misc_Tools
+Install_Virtual_Frame_Buffer
+Run_Virtual_Frame_Buffer
+Run_Jenkins
+
 export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 
 ####################################
