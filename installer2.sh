@@ -76,7 +76,7 @@ Install_Docker () {
    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
    apt-cache policy docker-ce
-   sudo apt install docker-ce
+   sudo apt install docker-ce -y
    sudo systemctl status docker | cat
    sudo docker run hello-world
 }
@@ -85,8 +85,8 @@ Install_Jenkins () {
    ----- INSTALL JENKINS
    wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
    sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-   sudo apt update
-   sudo apt install jenkins
+   sudo apt update -y
+   sudo apt install jenkins -y
    sudo find /var/lib/jenkins -ls
    sudo bash -c 'cp '$TRAVIS_BUILD_DIR'/jenkins_dir/config.xml /var/lib/jenkins/config.xml'   
 }
