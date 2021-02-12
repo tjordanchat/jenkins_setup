@@ -1,1 +1,1 @@
-sudo java -jar /Users/jamesjordan/lib/jenkins-cli.jar -s http://localhost:8080  -auth tjordan:w8112358 create-job "$1"
+sudo java -jar /Users/jamesjordan/lib/jenkins-cli.jar -s http://localhost:8080  -auth "$USER":"$PASSWORD" create-job "$1"
