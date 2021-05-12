@@ -14,7 +14,7 @@ env
    figlet $@
 }
 
-sudo apt-get -f update -y && sudo apt-get upgrade -y
+sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get -f -y install toilet
 sudo apt-get -f -y install figlet
 
