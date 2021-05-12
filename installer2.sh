@@ -14,8 +14,8 @@ env
    figlet $@
 }
 
-sudo apt-get update -y && sudo apt-get upgrade -y
-sudo apt-get -y install toilet figlet
+sudo apt-get -f update -y && sudo apt-get upgrade -y
+sudo apt-get -f -y install toilet figlet
 
 ----- $TRAVIS_COMMIT
 
@@ -38,23 +38,23 @@ export TRAVIS_BUILD_DIR=${TRAVIS_BUILD_DIR:-`pwd`}
 
 Update_Package_Manager () {
    ----- UPDATE PACKAGE MANAGER
-   sudo apt-get update
+   sudo apt-get -f update
 }
 
 Install_Ruby () {
    ----- INSTALL RUBY
-   sudo apt-get install ruby-full
+   sudo apt-get -f install ruby-full
 
 }
 
 Install_Java () {
    ----- INSTALL JAVA
-   sudo apt-get -y install  openjdk-8-jre-headless
+   sudo apt-get -f -y install  openjdk-8-jre-headless
 }
 
 Install_Virtual_Frame_Buffer () {
    ----- INSTALL VIRTUAL FRAME BUFFER
-   sudo apt-get -y install xvfb
+   sudo apt-get -f -y install xvfb
 }
 
 Run_Virtual_Frame_Buffer () {
@@ -66,8 +66,8 @@ Install_Puppet () {
    ----- INSTALL PUPPET
    sudo wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
    sudo dpkg --force-all -i puppetlabs-release-trusty.deb
-   sudo apt-get -y install  puppetmaster
-   sudo apt-get -y install  puppet
+   sudo apt-get -f -y install  puppetmaster
+   sudo apt-get -f -y install  puppet
 }
 
 Install_Docker () {
@@ -118,10 +118,10 @@ Install_Misc_Tools () {
    ----- INSTALL MISC TOOLS
    sudo add-apt-repository ppa:rmescandon/yq
    sudo apt install yq -y || sudo pip install yq
-   sudo apt-get -y install xorg openbox
-   sudo apt-get -y install ntp 
-   sudo apt-get -y install inotify-tools
-   sudo apt-get -y install imagemagick
+   sudo apt-get -f -y install xorg openbox
+   sudo apt-get -f -y install ntp 
+   sudo apt-get -f -y install inotify-tools
+   sudo apt-get -f -y install imagemagick
 }
 
 Run_Build () {
