@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+set -v -x -e
 
 # Run this script as root: 
 # curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/installer.sh | sh
@@ -15,7 +15,8 @@ env
 }
 
 sudo apt-get -f update -y && sudo apt-get upgrade -y
-sudo apt-get -f -y install toilet figlet
+sudo apt-get -f -y install toilet
+sudo apt-get -f -y install figlet
 
 ----- $TRAVIS_COMMIT
 
@@ -144,7 +145,6 @@ Trap_Errors () {
 ----- RUN BUILD ENVIRONMENT
 ####################################
 
-set -v -x -e
 trap Trap_Errors DEBUG
 
 Update_Package_Manager
