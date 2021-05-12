@@ -1,6 +1,5 @@
 sudo: true
-language: ruby
-rvm: 2.4.2
+language: shell
 addons:
   chrome: stable
 script:

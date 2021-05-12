@@ -43,8 +43,8 @@ Update_Package_Manager () {
 
 Install_Ruby () {
    ----- INSTALL RUBY
-   curl -sSL https://get.rvm.io | sudo bash -s stable
-   rvm install ruby-2.4.2
+   sudo apt-get install ruby-full
+
 }
 
 Install_Java () {
@@ -148,7 +148,7 @@ set -v -x -e
 trap Trap_Errors DEBUG
 
 Update_Package_Manager
-#Install_Ruby
+Install_Ruby
 Install_Java
 Install_Jenkins
 
