@@ -14,7 +14,7 @@ env
    figlet $@
 }
 
-sudo apt-get update -y && sudo apt-get upgrade -y
+sudo apt-get update -y 
 sudo apt-get -f install figlet -y
 
 ----- $TRAVIS_COMMIT
