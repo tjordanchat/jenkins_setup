@@ -129,7 +129,8 @@ Run_Build () {
    ----- RUN BUILD
    xclock -geometry 48x48-0+0 &
    xbiff -geometry 48x48-48+0 &
-   sudo ln -s /var/lib/dbus/machine-id /etc/machine-id
+   #sudo ln -s /var/lib/dbus/machine-id /etc/machine-id
+   sudo apt install ./google-chrome-stable_current_amd64.deb
    google-chrome-stable --no-first-run http://127.0.0.1:8080/me/my-views/view/all/ &
    curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
 }
