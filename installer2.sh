@@ -14,6 +14,7 @@ env
    figlet $@
 }
 
+sudo apt-get -f install
 sudo apt-get update -y 
 sudo apt-get -f install figlet -y
 
