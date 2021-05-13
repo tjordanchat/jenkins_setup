@@ -39,7 +39,7 @@ export TRAVIS_BUILD_DIR=${TRAVIS_BUILD_DIR:-`pwd`}
 
 Update_Package_Manager () {
    ----- UPDATE PACKAGE MANAGER
-   sudo apt-get -f update
+   sudo apt-get update
 }
 
 Install_Ruby () {
