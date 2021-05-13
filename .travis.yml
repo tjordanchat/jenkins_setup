@@ -1,7 +1,5 @@
 sudo: true
 language: shell
-addons:
-  chrome: stable
 script:
 - curl https://raw.githubusercontent.com/tjordanchat/jenkins_setup/master/installer2.sh
   | bash
