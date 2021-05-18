@@ -136,6 +136,21 @@ Run_Build () {
    curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
 }
 
+Run_Applications () {
+   xclock -geometry 48x48-0+0 &
+   xbiff -geometry 48x48-48+0 &
+   sleep 60
+   sudo ln -s /var/lib/dbus/machine-id /etc/machine-id
+   google-chrome-stable --no-first-run http://127.0.0.1:8080/me/my-views/view/all/ &
+   sleep 2
+   curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
+   curl -H "$CRUMB" --data-urlencode -d script="$(<$HOME/jenkins_setup/groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
+}
+
+Take_Screenshot () {
+   import -window root -crop 1264x948+0+0 -resize 1200x800 -quality 95 thumbnail.png
+}
+
 Trap_Errors () {
   if [ $? != 0 ] 
   then
@@ -164,6 +179,8 @@ Install_Misc_Tools
 Install_Virtual_Frame_Buffer
 Run_Virtual_Frame_Buffer
 Run_Jenkins
+Run_Applications
+Take_Screenshot
 
 export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 
