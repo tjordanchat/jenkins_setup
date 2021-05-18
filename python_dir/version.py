@@ -1,7 +1,7 @@
 import jenkins
 import sys
 
-server = jenkins.Jenkins('http://localhost:8080', username='admin', password='mypassword')
-user = server.get_whoami()
+mypass = sys.argv[1]
+server = jenkins.Jenkins('http://localhost:8080', username='admin', password=mypass)
 version = server.get_version()
-print('Hello %s from Jenkins %s' % (user['fullName'], version))
+print('Hello from Jenkins %s' % ( version))
