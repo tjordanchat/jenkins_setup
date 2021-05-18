@@ -120,6 +120,7 @@ Install_Misc_Tools () {
    sudo add-apt-repository ppa:rmescandon/yq
    sudo apt install yq -y || sudo pip install yq
    sudo apt-get -f -y install xorg openbox
+   sudo apt-get install -y x11-apps
    sudo apt-get -f -y install ntp 
    sudo apt-get -f -y install inotify-tools
    sudo apt-get -f -y install imagemagick
