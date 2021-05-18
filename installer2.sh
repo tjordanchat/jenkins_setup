@@ -177,6 +177,11 @@ export PASS=$( sudo cat /var/lib/jenkins/secrets/master.key )
 Install_Misc_Tools
 Install_Virtual_Frame_Buffer
 Run_Virtual_Frame_Buffer
+
+####################################
+----- RUN JENKINS - TAKE SCREENSHOT
+####################################
+
 Run_Jenkins
 Run_Applications
 Take_Screenshot
