@@ -127,6 +127,7 @@ Install_Misc_Tools () {
    sudo apt-get -f -y install ntp 
    sudo apt-get -f -y install inotify-tools
    sudo apt-get -f -y install imagemagick
+   sudo pip install python-jenkins
 }
 
 Run_Applications () {
@@ -165,7 +166,7 @@ Install_Jenkins
 ----- FETCH JENKINS PASSWD and CRUMB
 ####################################
 
-export PASS=$( sudo cat /var/lib/jenkins/secrets/master.key )
+export PASS=$( sudo cat /var/lib/jenkins/secrets/initialAdminPassword )
 
 Install_Misc_Tools
 Install_Virtual_Frame_Buffer
@@ -178,9 +179,6 @@ Run_Virtual_Frame_Buffer
 Run_Jenkins
 Run_Applications
 Take_Screenshot
-
-export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
-
 Install_Jenkins_Plugins
 
 ####################################
