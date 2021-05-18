@@ -133,7 +133,7 @@ Install_Misc_Tools () {
 Run_Applications () {
    xclock -geometry 48x48-0+0 &
    xbiff -geometry 48x48-48+0 &
-   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 2>/dev/null
    sudo apt-get install ./google-chrome-stable_current_amd64.deb
    google-chrome-stable --no-first-run http://127.0.0.1:8080 &
    #google-chrome-stable --no-first-run http://127.0.0.1:8080/me/my-views/view/all/ &
