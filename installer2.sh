@@ -20,6 +20,7 @@ sudo apt-get -f install figlet -y
 
 ----- `pwd`
 pwd
+ls -la
 ----- $TRAVIS_COMMIT
 
 ###################################
