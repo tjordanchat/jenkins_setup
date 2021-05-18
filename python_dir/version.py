@@ -1,12 +1,7 @@
-from jenkinsapi.jenkins import Jenkins
+import jenkins
 import sys
 
-print 'First argument is:', sys.argv[1]
-
-def get_server_instance():
-   jenkins_url = 'http://127.0.0.1:8080'
-   server = Jenkins(jenkins_url, username='admin', password='foopassword')
-   return server
-  
-if __name__ == '__main__':
-   print get_server_instance().version
+server = jenkins.Jenkins('http://localhost:8080', username='admin', password='mypassword')
+user = server.get_whoami()
+version = server.get_version()
+print('Hello %s from Jenkins %s' % (user['fullName'], version))
