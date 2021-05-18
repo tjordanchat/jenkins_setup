@@ -8,19 +8,17 @@ set -v -x -e
 # curl -I -u <user>:<password> '<Jenkins URL>/job/<job name>/buildWothParameters?token=<token>&<PARAMETER>=<VALUE>'
 # curl -I -u myuser:mypass 'http://localhost:8080/job/seed/buildWithParameters?token=phoenix&URL=myURL'
 
-env
+#env
 
 ----- () {
    figlet $@
 }
 
 sudo apt-get -f install
-sudo apt-get update -y 
+sudo apt-get update -y 2>/dev/null
 sudo apt-get -f install figlet -y
 
 ----- $TRAVIS_COMMIT
-
-sudo find / -name initialAdminPassword 
 
 ###################################
 ----- DEFINE VARIABLES
