@@ -28,6 +28,7 @@ ls -la
 ###################################
 
 export CRUMB=''
+export MYHOME="$(pwd)"
 export DISPLAY=':99'
 export TZ='America/New_York'
 export JENKINS_HOME=/var/lib/jenkins
@@ -102,9 +103,10 @@ Run_Jenkins () {
 
 Install_Jenkins_Plugins () {
    ----- INSTALL JENKINS PLUGINS
-   curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
-   curl -H "$CRUMB" --data-urlencode -d script="$(<$HOME/jenkins_setup/groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
-   xargs java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_dir/plugins.list
+   python $MYHOME/python_dir/version.py
+   #curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
+   #curl -H "$CRUMB" --data-urlencode -d script="$(<$HOME/jenkins_setup/groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
+   #xargs java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_dir/plugins.list
 }
 
 Install_Initial_Jenkins_Jobs () {
@@ -123,11 +125,11 @@ Install_Misc_Tools () {
    ----- INSTALL MISC TOOLS
    sudo add-apt-repository ppa:rmescandon/yq
    sudo apt install yq -y || sudo pip install yq
-   sudo apt-get -f -y install xorg openbox
+   sudo apt-get -f -y install xorg openbox 2>/dev/null
    sudo apt-get install -y x11-apps
    sudo apt-get -f -y install ntp 
    sudo apt-get -f -y install inotify-tools
-   sudo apt-get -f -y install imagemagick
+   sudo apt-get -f -y install imagemagick 2>/dev/null
    sudo pip install python-jenkins
 }
 
