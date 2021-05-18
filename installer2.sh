@@ -87,17 +87,16 @@ Install_Docker () {
 
 Install_Jenkins () {
    ----- INSTALL JENKINS
-   wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
-   sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-   sudo apt update -y
-   sudo apt install jenkins -y
-   sudo find /var/lib/jenkins -ls
-   sudo bash -c 'cp '$TRAVIS_BUILD_DIR'/jenkins_dir/config.xml /var/lib/jenkins/config.xml'   
+   cd $MYHOME
+   wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+   #sudo bash -c 'cp '$TRAVIS_BUILD_DIR'/jenkins_dir/config.xml /var/lib/jenkins/config.xml'   
 }
 
 Run_Jenkins () {
    ----- RUN JENKINS
-   sudo /etc/init.d/jenkins start
+   cd $MYHOME
+   java -Djenkins.install.runSetupWizard=false -jar jenkins.war
+   #sudo /etc/init.d/jenkins start
    sleep 60
 }
 
