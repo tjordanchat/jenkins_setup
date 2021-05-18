@@ -128,21 +128,12 @@ Install_Misc_Tools () {
 
 Run_Build () {
    ----- RUN BUILD
-   xclock -geometry 48x48-0+0 
-   MPID=$?
-   sleep 10 
-   kill -9 $MPID
-   xbiff -geometry 48x48-48+0 
-   MPID=$?
-   sleep 10 
-   kill -9 $MPID
+   #xclock -geometry 48x48-0+0  &
+   #xbiff -geometry 48x48-48+0  &
    #sudo ln -s /var/lib/dbus/machine-id /etc/machine-id
    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
    sudo apt-get install ./google-chrome-stable_current_amd64.deb
-   google-chrome-stable --no-first-run http://127.0.0.1:8080/me/my-views/view/all/ 
-   MPID=$?
-   sleep 10 
-   kill -9 $MPID
+   #google-chrome-stable --no-first-run http://127.0.0.1:8080/me/my-views/view/all/  &
    curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
 }
 
