@@ -103,10 +103,10 @@ Run_Jenkins () {
 
 Install_Jenkins_Plugins () {
    ----- INSTALL JENKINS PLUGINS
-   python $MYHOME/python_dir/version.py "$PASS"
-   #curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
-   #curl -H "$CRUMB" --data-urlencode -d script="$(<$HOME/jenkins_setup/groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
-   #xargs java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_dir/plugins.list
+   #python $MYHOME/python_dir/version.py "$PASS"
+   curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
+   curl -H "$CRUMB" --data-urlencode -d script="$(<$MYHOME/groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
+   xargs java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < $MYHOME/plugins.list
 }
 
 Install_Initial_Jenkins_Jobs () {
