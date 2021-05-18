@@ -26,6 +26,7 @@ sudo find / -name initialAdminPassword
 ----- DEFINE VARIABLES
 ###################################
 
+export CRUMB=''
 export DISPLAY=':99'
 export TZ='America/New_York'
 export JENKINS_HOME=/var/lib/jenkins
@@ -100,6 +101,8 @@ Run_Jenkins () {
 
 Install_Jenkins_Plugins () {
    ----- INSTALL JENKINS PLUGINS
+   curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
+   curl -H "$CRUMB" --data-urlencode -d script="$(<$HOME/jenkins_setup/groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
    xargs java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < ./jenkins_dir/plugins.list
 }
 
@@ -134,8 +137,6 @@ Run_Applications () {
    google-chrome-stable --no-first-run http://127.0.0.1:8080 &
    #google-chrome-stable --no-first-run http://127.0.0.1:8080/me/my-views/view/all/ &
    sleep 10
-   curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
-   curl -H "$CRUMB" --data-urlencode -d script="$(<$HOME/jenkins_setup/groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
 }
 
 Take_Screenshot () {
@@ -177,6 +178,7 @@ Run_Virtual_Frame_Buffer
 Run_Jenkins
 Run_Applications
 Take_Screenshot
+Install_Jenkins_Plugins
 
 export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 
