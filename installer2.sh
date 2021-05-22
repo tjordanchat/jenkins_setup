@@ -95,7 +95,7 @@ Install_Jenkins () {
 Run_Jenkins () {
    ----- RUN JENKINS
    cd $MYHOME
-   sudo java -Djenkins.install.runSetupWizard=false -jar jenkins.war
+   sudo java -Djenkins.install.runSetupWizard=false -jar jenkins.war &
    #sudo /etc/init.d/jenkins start
    sleep 60
 }
