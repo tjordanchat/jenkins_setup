@@ -169,7 +169,7 @@ Install_Jenkins
 ####################################
 
 export PASS=$( sudo cat /var/lib/jenkins/secret.key )
-sudo ls -la
+sudo ls -la /var/lib/jenkins
 
 Install_Misc_Tools
 Install_Virtual_Frame_Buffer
