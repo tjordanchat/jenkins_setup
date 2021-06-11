@@ -110,14 +110,12 @@ Install_Jenkins_Plugins () {
 
 Install_Initial_Jenkins_Jobs () {
    ----- INSTALL INITIAL JENKINS JOBS
-   sudo mkdir -p /var/lib/jenkins/jobs/seed
+   sudo mkdir -p $JENKINS_HOME/jobs/seed
    sudo cp $HOME/jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
    sudo chown jenkins:jenkins /var/lib/jenkins/jobs
    sudo chown jenkins:jenkins /var/lib/jenkins/jobs/seed
    sudo chown jenkins:jenkins /var/lib/jenkins/jobs/seed/config.xml
    sudo find /var/lib/jenkins/jobs -ls
-   sudo /etc/init.d/jenkins restart
-   sleep 60
 }
 
 Install_Misc_Tools () {
@@ -163,6 +161,7 @@ Update_Package_Manager
 Install_Ruby
 Install_Java
 Install_Jenkins
+Install_Initial_Jenkins_Jobs
 
 ####################################
 ----- FETCH JENKINS PASSWD and CRUMB
