@@ -192,6 +192,6 @@ Install_Jenkins_Plugins
 ----- RUN THE BUILD
 ####################################
 
-#Run_Build git_url
+Run_Build https://github.com/tjordanchat/eag.git
 
 
