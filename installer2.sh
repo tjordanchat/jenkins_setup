@@ -112,9 +112,6 @@ Install_Initial_Jenkins_Jobs () {
    ----- INSTALL INITIAL JENKINS JOBS
    sudo mkdir -p $JENKINS_HOME/jobs/seed
    sudo cp $MYHOME/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
-   sudo chown jenkins:jenkins /var/lib/jenkins/jobs
-   sudo chown jenkins:jenkins /var/lib/jenkins/jobs/seed
-   sudo chown jenkins:jenkins /var/lib/jenkins/jobs/seed/config.xml
    sudo find /var/lib/jenkins/jobs -ls
 }
 
