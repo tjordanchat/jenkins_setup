@@ -88,7 +88,7 @@ Install_Docker () {
 Install_Jenkins () {
    ----- INSTALL JENKINS
    cd $MYHOME
-   wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+   wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war 2> /dev/null > /dev/null
    #sudo bash -c 'cp '$TRAVIS_BUILD_DIR'/jenkins_dir/config.xml /var/lib/jenkins/config.xml'   
 }
 
@@ -111,7 +111,7 @@ Install_Jenkins_Plugins () {
 Install_Initial_Jenkins_Jobs () {
    ----- INSTALL INITIAL JENKINS JOBS
    sudo mkdir -p $JENKINS_HOME/jobs/seed
-   sudo cp $HOME/jenkins_setup/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
+   sudo cp $MYHOME/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
    sudo chown jenkins:jenkins /var/lib/jenkins/jobs
    sudo chown jenkins:jenkins /var/lib/jenkins/jobs/seed
    sudo chown jenkins:jenkins /var/lib/jenkins/jobs/seed/config.xml
