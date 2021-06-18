@@ -11,9 +11,9 @@ set -v -x -e
 #env
 
 ----- () {
-    printf "\033[1;31m"
+    printf "\e[32m"
     toilet -f term -F border  $@
-    printf "\033[0m"
+    printf "\e[0m"
 }
 
 sudo apt-get -f install
