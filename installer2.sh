@@ -11,7 +11,7 @@ set -v -x -e
 #env
 
 ----- () {
-   toilet -d /usr/share/figlet -f smblock  $@
+    toilet -f term -F border --gay  $@
 }
 
 sudo apt-get -f install
