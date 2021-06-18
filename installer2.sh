@@ -18,6 +18,7 @@ sudo apt-get -f install
 sudo apt-get update -y 2>/dev/null
 sudo apt-get install -y toilet toilet-fonts
 sudo apt-get -f install figlet -y
+ls -la /usr/share/figlet
 
 ----- `pwd`
 pwd
