@@ -11,7 +11,7 @@ set -v -x -e
 #env
 
 ----- () {
-   toilet -d /usr/share/figlet -f term  $@
+   toilet -d /usr/share/figlet -f smblock  $@
 }
 
 sudo apt-get -f install
