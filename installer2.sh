@@ -11,7 +11,7 @@ set -v -x -e
 #env
 
 ----- () {
-   toilet $@
+   toilet -d /usr/share/figlet -f contessa  $@
 }
 
 sudo apt-get -f install
