@@ -11,7 +11,7 @@ set -v -x -e
 #env
 
 ----- () {
-   toilet -d /usr/share/figlet -f mini  $@
+   toilet -d /usr/share/figlet -f term  $@
 }
 
 sudo apt-get -f install
