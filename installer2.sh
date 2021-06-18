@@ -11,7 +11,9 @@ set -v -x -e
 #env
 
 ----- () {
-    toilet -f term -F border --gay  $@
+    printf("\033[1;31m")
+    toilet -f term -F border  $@
+    printf("\033[0m")
 }
 
 sudo apt-get -f install
