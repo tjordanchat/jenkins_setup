@@ -1,20 +1,47 @@
-
-export JAVA_OPTS=&quot;-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=4000,suspend=y&quot;
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.41">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.8.5"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.8.5">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description>Seed Job</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty/>
+    <org.jenkinsci.plugins.workflow.job.properties.DisableResumeJobProperty/>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>URL</name>
+          <description>The git url of the project to build</description>
+          <defaultValue>https://github.com/tjordanchat/eag.git</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.92">
+    <script>export JAVA_OPTS=&quot;-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=4000,suspend=y&quot;
 url=&quot;&quot;
 binding.variables.each {
-   if ( &quot;${it.key}&quot; == &quot;URL&quot; ) { 
+   if ( &quot;${it.key}&quot; == &quot;URL&quot; ) {
       url=&quot;${it.value}&quot;
-   }   
+   }
 }
 
 pipelineJob(&apos;Pipeline&apos;) {
     description &apos;Build and test the app.&apos;
     scm {
         github &quot;&apos;&quot;+url+&quot;&apos;&quot;
-    }   
+    }
     triggers {
         scm(&apos;H/15 * * * *&apos;)
-    }   
+    }
     definition {
        cps {
           sandbox()
@@ -45,14 +72,13 @@ node {
     }
 }
           &quot;&quot;&quot;) 
-       }   
-    }   
-
+       }
+    }
+}
 </script>
     <sandbox>false</sandbox>
   </definition>
   <triggers/>
   <authToken>Phoenix</authToken>
   <disabled>false</disabled>
-</flow-definition>Apple:jobs> 
-
+</flow-definition>
