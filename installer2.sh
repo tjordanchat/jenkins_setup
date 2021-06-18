@@ -11,7 +11,7 @@ set -v -x -e
 #env
 
 ----- () {
-   figlet $@
+   toilet $@
 }
 
 sudo apt-get -f install
