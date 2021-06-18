@@ -11,7 +11,7 @@ set -v -x -e
 #env
 
 ----- () {
-   figlet -f contessa $@
+   figlet $@
 }
 
 sudo apt-get -f install
