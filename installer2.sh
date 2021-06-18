@@ -107,7 +107,7 @@ Run_Jenkins () {
 Install_Jenkins_Plugins () {
    ----- INSTALL JENKINS PLUGINS
    #python $MYHOME/python_dir/version.py "$PASS"
-   #curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
+   curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
    #curl -H "$CRUMB" --data-urlencode -d script="$(<$MYHOME/groovy_dir/all_jobs.gsh)" http://127.0.0.1:8080/scriptText
    sudo xargs java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 install-plugin < $MYHOME/jenkins_dir/plugins.list
 }
@@ -166,7 +166,6 @@ Update_Package_Manager
 Install_Ruby
 Install_Java
 Install_Jenkins
-Install_Initial_Jenkins_Jobs
 
 ####################################
 ----- FETCH JENKINS PASSWD and CRUMB
@@ -191,6 +190,7 @@ CRUMB=$( echo $CRUMB | sed 's/Jenkins-Crumb://')
 #export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 
 Install_Jenkins_Plugins
+Install_Initial_Jenkins_Jobs
 
 ####################################
 ----- RUN THE BUILD
