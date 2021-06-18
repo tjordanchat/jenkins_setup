@@ -12,7 +12,7 @@ set -v -x -e
 
 ----- () {
     printf "\e[32m"
-    toilet -f term -F border  $@
+    toilet -f term -F border  $@ --html
     printf "\e[0m"
 }
 
