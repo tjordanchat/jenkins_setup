@@ -1,3 +1,4 @@
+export JAVA_OPTS="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=4000,suspend=y"
 url=""
 binding.variables.each {
    if ( "${it.key}" == "URL" ) {
