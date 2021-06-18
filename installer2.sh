@@ -118,8 +118,7 @@ Run_Build () {
 
 Install_Initial_Jenkins_Jobs () {
    ----- INSTALL INITIAL JENKINS JOBS
-   sudo mkdir -p $JENKINS_HOME/jobs/seed
-   sudo cp $MYHOME/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
+   sudo java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080  create-job seed  < $MYHOME/jenkins_dir/jobs/config.xml
    sudo find /var/lib/jenkins/jobs -ls
 }
 
