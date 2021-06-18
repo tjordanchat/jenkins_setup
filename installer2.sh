@@ -11,7 +11,7 @@ set -v -x -e
 #env
 
 ----- () {
-   toilet -d /usr/share/figlet -f contessa  $@
+   toilet -d /usr/share/figlet -f banner  $@
 }
 
 sudo apt-get -f install
