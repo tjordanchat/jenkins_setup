@@ -16,6 +16,7 @@ set -v -x -e
 
 sudo apt-get -f install
 sudo apt-get update -y 2>/dev/null
+sudo apt-get install -y toilet
 sudo apt-get -f install figlet -y
 
 ----- `pwd`
