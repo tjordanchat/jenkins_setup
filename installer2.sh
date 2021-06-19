@@ -120,7 +120,6 @@ Install_Initial_Jenkins_Jobs () {
    ----- INSTALL INITIAL JENKINS JOBS
    curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
    sudo java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080  create-job seed  < $MYHOME/jenkins_dir/jobs/config.xml
-   sudo find /var/lib/jenkins/jobs -ls
 }
 
 Install_Misc_Tools () {
@@ -190,7 +189,6 @@ CRUMB=$( echo $CRUMB | sed 's/Jenkins-Crumb://')
 #export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 
 Install_Jenkins_Plugins
-find /var/lib/jenkins -ls
 Install_Initial_Jenkins_Jobs
 
 ####################################
