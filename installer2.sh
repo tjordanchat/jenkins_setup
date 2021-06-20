@@ -118,13 +118,13 @@ Run_Build () {
 
 Install_Initial_Jenkins_Jobs () {
    ----- INSTALL INITIAL JENKINS JOBS
-   curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
+   #curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
    sudo mkdir -p /var/lib/jenkins/jobs/seed
    sudo chmod 777 /var/lib/jenkins/jobs/seed
    sudo cp $MYHOME/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
    sudo chmod 777 /var/lib/jenkins/jobs/seed/config.xml
    ls -l /var/lib/jenkins/jobs/seed/config.xml
-   sudo java -Dorg.xml.sax.driver=com.sun.org.apache.xerces.internal.parsers.SAXParser -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080  create-job seed  < $MYHOME/jenkins_dir/jobs/config.xml
+   #sudo java -Dorg.xml.sax.driver=com.sun.org.apache.xerces.internal.parsers.SAXParser -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080  create-job seed  < $MYHOME/jenkins_dir/jobs/config.xml
 }
 
 Install_Misc_Tools () {
@@ -185,6 +185,7 @@ Run_Virtual_Frame_Buffer
 ----- RUN JENKINS - TAKE SCREENSHOT
 ####################################
 
+Install_Initial_Jenkins_Jobs
 Run_Jenkins
 Run_Applications
 Take_Screenshot
@@ -194,7 +195,6 @@ CRUMB=$( echo $CRUMB | sed 's/Jenkins-Crumb://')
 #export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 
 Install_Jenkins_Plugins
-Install_Initial_Jenkins_Jobs
 
 ####################################
 ----- RUN THE BUILD
