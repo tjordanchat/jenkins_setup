@@ -187,7 +187,6 @@ Run_Virtual_Frame_Buffer
 ----- RUN JENKINS - TAKE SCREENSHOT
 ####################################
 
-Install_Initial_Jenkins_Jobs
 Run_Jenkins
 Run_Applications
 Take_Screenshot
@@ -197,6 +196,7 @@ CRUMB=$( echo $CRUMB | sed 's/Jenkins-Crumb://')
 #export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 
 Install_Jenkins_Plugins
+Install_Initial_Jenkins_Jobs
 
 ####################################
 ----- RUN THE BUILD
