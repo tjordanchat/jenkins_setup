@@ -123,6 +123,7 @@ Install_Initial_Jenkins_Jobs () {
    sudo chmod 777 /var/lib/jenkins/jobs/seed
    sudo cp $MYHOME/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
    sudo chmod 777 /var/lib/jenkins/jobs/seed/config.xml
+   ls -l /var/lib/jenkins/jobs/seed/config.xml
    sudo java -Dorg.xml.sax.driver=com.sun.org.apache.xerces.internal.parsers.SAXParser -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080  create-job seed  < $MYHOME/jenkins_dir/jobs/config.xml
 }
 
