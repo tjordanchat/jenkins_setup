@@ -113,6 +113,7 @@ Install_Jenkins_Plugins () {
 }
 
 Run_Build () {
+   sudo java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 list-jobs
    sudo java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080  build seed -p URL="$1" -s -v
 }
 
