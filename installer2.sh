@@ -100,6 +100,7 @@ Run_Jenkins () {
    ----- RUN JENKINS
    cd $MYHOME
    sudo java -Djenkins.install.runSetupWizard=false -jar jenkins.war &
+   echo $! > .jpid
    #sudo /etc/init.d/jenkins start
    sleep 60
 }
@@ -121,11 +122,14 @@ Run_Build () {
 Install_Initial_Jenkins_Jobs () {
    ----- INSTALL INITIAL JENKINS JOBS
    #curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
+   JPID = $( cat .jpid )
+   kill -9 $JPID
    sudo mkdir -p /var/lib/jenkins/jobs/seed
    sudo chmod 777 /var/lib/jenkins/jobs/seed
    sudo cp $MYHOME/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
    sudo chmod 777 /var/lib/jenkins/jobs/seed/config.xml
    ls -l /var/lib/jenkins/jobs/seed/config.xml
+   sudo /etc/init.d/jenkins start
    #sudo java -Dorg.xml.sax.driver=com.sun.org.apache.xerces.internal.parsers.SAXParser -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080  create-job seed  < $MYHOME/jenkins_dir/jobs/config.xml
 }
 
@@ -196,6 +200,7 @@ CRUMB=$( echo $CRUMB | sed 's/Jenkins-Crumb://')
 #export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 
 Install_Jenkins_Plugins
+
 Install_Initial_Jenkins_Jobs
 
 ####################################
