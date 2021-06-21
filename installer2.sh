@@ -94,14 +94,20 @@ Install_Jenkins () {
    cd $MYHOME
    wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war 2> /dev/null > /dev/null
    #sudo bash -c 'cp '$TRAVIS_BUILD_DIR'/jenkins_dir/config.xml /var/lib/jenkins/config.xml'   
+   wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+   sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+   sudo apt-get update
+   sudo apt-get -y install jenkins
+   sudo sed -i \'\' \'s#<useSecurity>true</useSecurity>#<useSecurity>false</useSecurity>#\' /var/lib/jenkins/config.xml
+   sudo -H -u jenkins bash -c 'cp '$MYHOME'/jenkins_setup/jenkins_dir/config.xml /var/lib/jenkins/config.xml'
 }
 
 Run_Jenkins () {
    ----- RUN JENKINS
    cd $MYHOME
-   sudo java -Djenkins.install.runSetupWizard=false -jar jenkins.war &
-   echo $! > .jpid
-   #sudo /etc/init.d/jenkins start
+   #sudo java -Djenkins.install.runSetupWizard=false -jar jenkins.war &
+   #echo $! > .jpid
+   sudo /etc/init.d/jenkins start
    sleep 60
 }
 
