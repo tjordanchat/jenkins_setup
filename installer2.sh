@@ -100,7 +100,7 @@ Install_Jenkins () {
    sudo apt-get -y --allow-unauthenticated install jenkins
 #   sudo sed -i '' 's#<useSecurity>true</useSecurity>#<useSecurity>false</useSecurity>#' /var/lib/jenkins/config.xml
 #   sudo -H -u jenkins bash -c 'cp '$MYHOME'/jenkins_setup/jenkins_dir/config.xml /var/lib/jenkins/config.xml'
-   sudo find / -name 'jenkins-cli.jar' -ls
+   sudo find / -name '*jenkins*.jar' -ls
 }
 
 Run_Jenkins () {
