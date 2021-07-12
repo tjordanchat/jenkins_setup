@@ -98,8 +98,8 @@ Install_Jenkins () {
    sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
    sudo apt-get update
    sudo apt-get -y --allow-unauthenticated install jenkins
-   sudo sed -i '' 's#<useSecurity>true</useSecurity>#<useSecurity>false</useSecurity>#' /var/lib/jenkins/config.xml
-   sudo -H -u jenkins bash -c 'cp '$MYHOME'/jenkins_setup/jenkins_dir/config.xml /var/lib/jenkins/config.xml'
+#   sudo sed -i '' 's#<useSecurity>true</useSecurity>#<useSecurity>false</useSecurity>#' /var/lib/jenkins/config.xml
+#   sudo -H -u jenkins bash -c 'cp '$MYHOME'/jenkins_setup/jenkins_dir/config.xml /var/lib/jenkins/config.xml'
    sudo find / -name 'jenkins-cli.jar' -ls
 }
 
