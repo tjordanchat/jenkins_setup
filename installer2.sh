@@ -93,7 +93,8 @@ Install_Jenkins () {
    ----- INSTALL JENKINS
    cd $MYHOME
    wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war 2> /dev/null > /dev/null
-   sudo cp $TRAVIS_BUILD_DIR/jenkins_dir/jobs/config.xml /var/lib/jenkins/config.xml   
+   sudo find /var/lib/jenkins -ls
+#   sudo cp $TRAVIS_BUILD_DIR/jenkins_dir/jobs/config.xml /var/lib/jenkins/config.xml   
    wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
    sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
    sudo apt-get update
