@@ -98,7 +98,7 @@ Install_Jenkins () {
    sudo apt-get update
    sudo apt-get -y --allow-unauthenticated install jenkins
    sudo apt-get install -y xsltproc
-   xsltproc -o $JENKINGS_HOME/config.xml remove_elements.xsl $JENKINGS_HOME/config.xml
+   xsltproc -o $JENKINS_HOME/config.xml remove_elements.xsl $JENKINS_HOME/config.xml
    sudo cat /var/lib/jenkins/config.xml
 }
 
