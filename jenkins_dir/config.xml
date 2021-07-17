@@ -1,8 +1,7 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <hudson>
   <disabledAdministrativeMonitors/>
-  <version>2.150.3</version>
-  <installStateName>RUNNING</installStateName>
+  <version>2.277.4</version>
   <numExecutors>2</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -39,3 +38,4 @@
   </crumbIssuer>
   <nodeProperties/>
   <globalNodeProperties/>
+</hudson>
