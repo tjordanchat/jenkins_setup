@@ -97,7 +97,7 @@ Install_Jenkins () {
    sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
    sudo apt-get update
    sudo apt-get -y --allow-unauthenticated install jenkins
-   sudo ls -la /etc/default/jenkins
+   sudo ls -laR /etc/default/jenkins
 #   xsltproc -o config.xml remove_elements.xsl config.xml
 }
 
