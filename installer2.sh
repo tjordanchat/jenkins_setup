@@ -128,8 +128,9 @@ Run_Build () {
 Install_Initial_Jenkins_Jobs () {
    ----- INSTALL INITIAL JENKINS JOBS
    #curl -o jenkins-cli.jar http://127.0.0.1:8080/jnlpJars/jenkins-cli.jar
-   export JPID="$( cat .jpid )"
-   sudo kill -9 $JPID
+   #export JPID="$( cat .jpid )"
+   #sudo kill -9 $JPID
+   sudo /etc/init.d/jenkins stop
    sudo mkdir -p /var/lib/jenkins/jobs/seed
    sudo chmod 777 /var/lib/jenkins/jobs/seed
    sudo cp $MYHOME/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
