@@ -121,6 +121,7 @@ Install_Jenkins_Plugins () {
 }
 
 Run_Build () {
+   ----- Run Build
    sudo java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080 list-jobs
    sudo java -Dorg.xml.sax.driver=com.sun.org.apache.xerces.internal.parsers.SAXParser -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080  create-job seed  < $MYHOME/jenkins_dir/jobs/config.xml
    sudo java -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080  build seed -p URL="$1" -s -v
@@ -154,6 +155,7 @@ Install_Misc_Tools () {
 }
 
 Run_Applications () {
+   ----- Run Applications
    xclock -geometry 48x48-0+0 &
    xbiff -geometry 48x48-48+0 &
    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 2>/dev/null
@@ -164,6 +166,7 @@ Run_Applications () {
 }
 
 Take_Screenshot () {
+   ----- Take Screenshot
    import -window root -crop 1264x948+0+0 -resize 1200x800 -quality 95 thumbnail.png
 }
 
@@ -203,9 +206,9 @@ Run_Jenkins
 Run_Applications
 Take_Screenshot
 
-export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
+#export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)') 
+export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 export CRUMB=$( echo $CRUMB | sed 's/Jenkins-Crumb://')
-#export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 
 Install_Jenkins_Plugins
 
