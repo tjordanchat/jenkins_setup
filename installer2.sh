@@ -192,7 +192,8 @@ Install_Jenkins
 ----- FETCH JENKINS PASSWD and CRUMB
 ####################################
 
-export PASS=""
+export PASS="$(cat /var/lib/jenkins/secrets/initialAdminPassword)"
+----- $PASS
 
 Install_Misc_Tools
 Install_Virtual_Frame_Buffer
