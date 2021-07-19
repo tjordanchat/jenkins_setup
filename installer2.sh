@@ -193,7 +193,7 @@ Install_Java
 Install_Jenkins
 
 ####################################
------ FETCH JENKINS PASSWD and CRUMB
+----- FETCH JENKINS PASSWD 
 ####################################
 
 export PASS="$(sudo cat /var/lib/jenkins/secrets/initialAdminPassword)"
@@ -211,9 +211,13 @@ Run_Jenkins
 Run_Applications
 Take_Screenshot
 
+####################################
+----- FETCH JENKINS CRUMB 
+####################################
 #export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)') 
 export CRUMB=$(curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u admin:$PASS)
 export CRUMB=$( echo $CRUMB | sed 's/Jenkins-Crumb://')
+----- $CRUMB
 
 Install_Jenkins_Plugins
 
