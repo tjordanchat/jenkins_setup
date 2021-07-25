@@ -134,13 +134,13 @@ Install_Initial_Jenkins_Jobs () {
    #export JPID="$( cat .jpid )"
    #sudo kill -9 $JPID
 
-   #sudo /etc/init.d/jenkins stop
-   #sudo mkdir -p /var/lib/jenkins/jobs/seed
-   #sudo chmod 777 /var/lib/jenkins/jobs/seed
-   #sudo cp $MYHOME/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
-   #sudo chmod 777 /var/lib/jenkins/jobs/seed/config.xml
+   sudo /etc/init.d/jenkins stop
+   sudo mkdir -p /var/lib/jenkins/jobs/seed
+   sudo chmod 777 /var/lib/jenkins/jobs/seed
+   sudo cp $MYHOME/jenkins_dir/jobs/config.xml /var/lib/jenkins/jobs/seed
+   sudo chmod 777 /var/lib/jenkins/jobs/seed/config.xml
    #sudo ls -l /var/lib/jenkins/jobs/seed/config.xml
-   curl -s -XPOST 'http://127.0.0.1:8080/createItem?name=seed' -u admin:$PASS --data-binary @./jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:text/xml"
+   #curl -s -XPOST 'http://127.0.0.1:8080/createItem?name=seed' -u admin:$PASS --data-binary @./jenkins_dir/jobs/config.xml -H "$CRUMB" -H "Content-Type:text/xml"
    #sudo /etc/init.d/jenkins start
    #java -jar ./jenkins-cli.jar -s "http://127.0.0.1:8080" -auth admin:$PASS create-job seed < ./jenkins_dir/jobs/config.xml
    #sudo java -Dorg.xml.sax.driver=com.sun.org.apache.xerces.internal.parsers.SAXParser -jar ./jenkins-cli.jar -auth "admin:$PASS" -s http://127.0.0.1:8080  create-job seed  < $MYHOME/jenkins_dir/jobs/config.xml
