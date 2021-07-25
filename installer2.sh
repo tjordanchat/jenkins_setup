@@ -93,10 +93,10 @@ Install_Jenkins () {
    ----- INSTALL JENKINS
    cd $MYHOME
    wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war 2> /dev/null > /dev/null
-   #wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
-   #sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-   #sudo apt-get update
-   #sudo apt-get -y --allow-unauthenticated install jenkins
+   wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+   sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+   sudo apt-get update
+   sudo apt-get -y --allow-unauthenticated install jenkins
    sudo apt-get install -y xsltproc
    sudo xsltproc -o $JENKINS_HOME/config.xml remove_elements.xsl $JENKINS_HOME/config.xml
    sudo cat /var/lib/jenkins/config.xml
