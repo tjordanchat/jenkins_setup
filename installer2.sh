@@ -191,7 +191,7 @@ Update_Package_Manager
 Install_Ruby
 Install_Java
 Install_Jenkins
-sudo find / -name '*jenkins*.war' 2>/dev/null
+sudo find / -name '*jenkins*.jar' 2>/dev/null
 
 ####################################
 ----- FETCH JENKINS PASSWD 
