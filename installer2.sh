@@ -191,6 +191,8 @@ Update_Package_Manager
 Install_Ruby
 Install_Java
 Install_Jenkins
+Install_Initial_Jenkins_Jobs
+
 
 ####################################
 ----- FETCH JENKINS PASSWD 
@@ -220,8 +222,6 @@ export CRUMB=$( echo $CRUMB | sed 's/Jenkins-Crumb://')
 ----- $CRUMB
 
 Install_Jenkins_Plugins
-
-Install_Initial_Jenkins_Jobs
 
 ####################################
 ----- RUN THE BUILD
