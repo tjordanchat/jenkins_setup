@@ -191,6 +191,8 @@ Update_Package_Manager
 Install_Ruby
 Install_Java
 Install_Jenkins
+sudo find / -name 'jenkins*.jar' 2>/dev/null
+
 Install_Initial_Jenkins_Jobs
 
 
